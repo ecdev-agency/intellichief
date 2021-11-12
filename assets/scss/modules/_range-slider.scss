@@ -1,0 +1,53 @@
+.irs {
+    $height: 10px;
+
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+
+    &--flat {
+        height: auto;
+        margin: 20px auto 0 auto;
+    }
+
+    &-grid {
+        height: $height;
+    }
+
+    .irs {
+        &-bar,
+        &-line {
+            top: 0;
+            height: 6px;
+        }
+
+        &-bar {
+            background-color: $color-orange;
+        }
+
+        &-line {
+            background-color: $color-gray-dark;
+        }
+
+        &-handle {
+            $size: 20px;
+
+            width: $size;
+            height: $size;
+            border-radius: 50%;
+            background-color: $color-orange;
+            top: -7px;
+            cursor: pointer;
+            transition: transform 0.02s linear;
+
+            i {
+                display: none !important;
+            }
+
+            &:active {
+                transform: scale(0.9);
+            }
+
+        }
+    }
+}

@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<!--[if lt IE 8]><html lang="en-us" class="no-js lt-ie8"> <![endif]-->
+<!--[if gte IE 8]><!--><html lang="en-us" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Savings Calculator</title>
+    <link rel="stylesheet" href="assets/css/bundle.css">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<!-- CONTENT -->
+<main class="calc">
+
+    <!-- Header -->
+    <section class="calc__header">
+
+        <!-- container -->
+        <div class="container-fluid">
+
+            <!-- row -->
+            <div class="row">
+
+                <!-- col -->
+                <div class="col-xs-24 col-sm-24 col-md-24 col-lg-24">
+
+                    <!-- Title -->
+                    <h1 class="calc__header-title">
+                        Savings <span>Calculator</span>
+                    </h1>
+                    <!-- End Title -->
+
+                </div>
+                <!-- end col -->
+
+            </div>
+            <!-- end row -->
+
+        </div>
+        <!-- end container -->
+
+    </section>
+    <!-- End Header -->
+
+    <!-- Content -->
+    <section class="calc__content">
+
+        <!-- container -->
+        <div class="container-fluid">
+
+            <!-- row -->
+            <div class="row">
+
+                <!-- col -->
+                <div class="col-xs-24 col-sm-24 col-md-24 col-lg-24">
+
+                    <!-- row -->
+                    <div class="calc__content-row">
+
+                        <!-- row > left -->
+                        <div class="calc__content-row-left">
+
+                            <!-- Tabs -->
+                            <div class="calc__tabs">
+
+                                <!-- Tabs > List -->
+                                <ul class="calc__tabs-list">
+
+                                    <li class="done active">
+
+                                        <a href="#tab-1" data-tab="calc">
+                                            <span>People Costs</span>
+                                        </a>
+
+                                    </li>
+
+                                    <li>
+
+                                        <a href="#tab-2" data-tab="calc">
+                                            <span>Invoice Volume</span>
+                                        </a>
+
+                                    </li>
+
+                                    <li>
+
+                                        <a href="#tab-3" data-tab="calc">
+                                            <span>Productivity Savings</span>
+                                        </a>
+
+                                    </li>
+
+                                    <li>
+
+                                        <a href="#tab-4" data-tab="calc">
+                                            <span>Your Report</span>
+                                        </a>
+
+                                    </li>
+
+                                </ul>
+                                <!-- End Tabs > List -->
+
+                                <!-- Tabs > Content -->
+                                <div class="calc__tabs-content">
+
+                                    <!-- Item -->
+                                    <div class="item active" id="tab-1">
+
+                                        <!-- First Section -->
+                                        <div class="calc__tab_first">
+
+                                            <!-- Title -->
+                                            <h3 class="calc__tabs-content-title">
+                                                First, we’ll need some information about your AP department:
+                                            </h3>
+                                            <!-- End Title -->
+
+                                            <!-- form -->
+                                            <div class="calc__tab_first-form">
+
+                                                <!-- row -->
+                                                <div class="calc__tab_first-form-row">
+
+                                                    <!-- col -->
+                                                    <div class="calc__tab_first-form-row-col">
+
+                                                        <label for="calc_full_time"># of Full-Time<br> AP Processors:</label>
+                                                        <select
+                                                                name="calc_full_time"
+                                                                id="calc_full_time"
+                                                                class="js-select animateNumber selectMessage"
+                                                                style="width: 100%"
+                                                                data-message="<strong>Enterprise Management</strong> - New Text Message Select Field #3."
+                                                        >
+                                                            <option></option>
+                                                            <option value="1">Item #1</option>
+                                                            <option value="2">Item #2</option>
+                                                            <option value="3">Item #3</option>
+                                                            <option value="4">Item #4</option>
+                                                            <option value="5">Item #5</option>
+                                                        </select>
+
+                                                    </div>
+                                                    <!-- end col -->
+
+                                                    <!-- col -->
+                                                    <div class="calc__tab_first-form-row-col group">
+
+                                                        <!-- left -->
+                                                        <div class="left">
+
+                                                            <label for="calc_reduction">AP Automation<br> Headcount Reduction:</label>
+                                                            <select
+                                                                    name="calc_reduction"
+                                                                    id="calc_reduction"
+                                                                    class="js-select animateNumber selectMessage"
+                                                                    style="width: 100%"
+                                                                    data-message="<strong>Enterprise Management</strong> - New Text Message Select Field #2."
+                                                            >
+                                                                <option></option>
+                                                                <option value="1">Item #1</option>
+                                                                <option value="2">Item #2</option>
+                                                                <option value="3">Item #3</option>
+                                                                <option value="4">Item #4</option>
+                                                                <option value="5">Item #5</option>
+                                                            </select>
+
+                                                        </div>
+                                                        <!-- end left -->
+
+                                                        <!-- right -->
+                                                        <div class="right">
+
+                                                            <label for="calc_percentage">
+                                                                <img
+                                                                        src="assets/images/info.png"
+                                                                        alt="AP Automation Headcount Reduction"
+                                                                        title="AP Automation Headcount Reduction"
+                                                                >
+                                                            </label>
+                                                            <select
+                                                                    name="calc_percentage"
+                                                                    id="calc_percentage"
+                                                                    class="js-select animateNumber selectMessage"
+                                                                    style="width: 100%"
+                                                                    data-message="<strong>Enterprise Management</strong> - New Text Message Select Field #1."
+                                                            >
+                                                                <option></option>
+                                                                <option value="1">40%</option>
+                                                                <option value="2">60%</option>
+                                                                <option value="3">70%</option>
+                                                                <option value="4">80%</option>
+                                                                <option value="5">100%</option>
+                                                            </select>
+
+                                                        </div>
+                                                        <!-- end right -->
+
+                                                    </div>
+                                                    <!-- end col -->
+
+                                                    <!-- col -->
+                                                    <div class="calc__tab_first-form-row-col">
+
+                                                        <label for="calc_salary">Average AP Processor<br> Annual Salary:</label>
+                                                        <input
+                                                                type="text"
+                                                                name="calc_salary"
+                                                                id="calc_salary"
+                                                                class="form-control animateNumber inputMessage inputMoney"
+                                                                placeholder=""
+                                                                value="$0"
+                                                                maxlength="10"
+                                                                data-message="<strong>Enterprise Management</strong> - New Text Message."
+                                                        >
+
+                                                    </div>
+                                                    <!-- end col -->
+
+                                                    <!-- col -->
+                                                    <div class="calc__tab_first-form-row-col range">
+
+                                                        <label for="calc_burden_rate">Average Burden Rate (%):</label>
+
+                                                        <input
+                                                                type="text"
+                                                                name="calc_burden_rate"
+                                                                id="calc_burden_rate"
+                                                                class="rangeSlider"
+                                                                value=""
+                                                                data-min="0"
+                                                                data-max="100"
+                                                                data-hide-min-max="true"
+                                                                data-hide-from-to="true"
+                                                                data-input-type="percent"
+                                                        >
+
+                                                        <input
+                                                                type="text"
+                                                                id="calc_burden_rate_visible"
+                                                                class="form-control inputMessage"
+                                                                value=""
+                                                                maxlength="4"
+                                                                data-message="<strong>Enterprise Management</strong> - New Text Message Input Percent Field #1."
+                                                        >
+
+                                                    </div>
+                                                    <!-- end col -->
+
+                                                </div>
+                                                <!-- end row -->
+
+                                            </div>
+                                            <!-- end form -->
+
+                                            <!-- Footer -->
+                                            <div class="calc__tabs-content-bottom">
+
+                                                <!-- Title -->
+                                                <h5 class="calc__tabs-content-bottom-title">
+                                                    Your People Costs
+                                                </h5>
+                                                <!-- End Title -->
+
+                                                <!-- List -->
+                                                <div class="calc__tabs-content-bottom-list">
+
+                                                    <!-- ul -->
+                                                    <ul class="three">
+
+                                                        <li>
+                                                            <p>AP Processor Fully Burdened Annual Salary</p>
+                                                            <span>$ 400,000</span>
+                                                        </li>
+
+                                                        <li>
+                                                            <p>AP Processor Fully Burdened Hourly Rate</p>
+                                                            <span>$ 400,000</span>
+                                                        </li>
+
+                                                        <li>
+                                                            <p>Your Total AP Processor Cost Savings</p>
+                                                            <span>$ 400,000</span>
+                                                        </li>
+
+                                                    </ul>
+                                                    <!-- End ul -->
+
+                                                </div>
+                                                <!-- end List -->
+
+                                            </div>
+                                            <!-- End Footer -->
+
+                                        </div>
+                                        <!-- End First Section -->
+
+                                    </div>
+                                    <!-- End Item -->
+
+                                    <!-- Item -->
+                                    <div class="item" id="tab-2">
+
+                                        <!-- Next Section -->
+                                        <div class="calc__tab_next">
+
+                                            <!-- Title -->
+                                            <h3 class="calc__tabs-content-title">
+                                                Next, let’s take a look at your invoices:
+                                            </h3>
+                                            <!-- End Title -->
+
+                                            <!-- form -->
+                                            <div class="calc__tab_next-form">
+
+                                                <!-- row -->
+                                                <div class="calc__tab_next-form-row">
+
+                                                    <!-- col -->
+                                                    <div class="calc__tab_next-form-row-col">
+
+                                                        <label for="calc_year"># of Invoices processed per Year:</label>
+                                                        <select
+                                                                name="calc_year"
+                                                                id="calc_year"
+                                                                class="js-select animateNumber"
+                                                                style="width: 100%"
+                                                        >
+                                                            <option></option>
+                                                            <option value="1">Item #1</option>
+                                                            <option value="2">Item #2</option>
+                                                            <option value="3">Item #3</option>
+                                                            <option value="4">Item #4</option>
+                                                            <option value="5">Item #5</option>
+                                                        </select>
+
+                                                    </div>
+                                                    <!-- end col -->
+
+                                                    <!-- col -->
+                                                    <div class="calc__tab_next-form-row-col">
+
+                                                        <label for="calc_growth_rate">Annual invoice growth rate:</label>
+                                                        <select
+                                                                name="calc_growth_rate"
+                                                                id="calc_growth_rate"
+                                                                class="js-select animateNumber"
+                                                                style="width: 100%"
+                                                        >
+                                                            <option></option>
+                                                            <option value="1">Item #1</option>
+                                                            <option value="2">Item #2</option>
+                                                            <option value="3">Item #3</option>
+                                                            <option value="4">Item #4</option>
+                                                            <option value="5">Item #5</option>
+                                                        </select>
+
+                                                    </div>
+                                                    <!-- end col -->
+
+                                                </div>
+                                                <!-- end row -->
+
+                                                <!-- row -->
+                                                <div class="calc__tab_next-form-row">
+
+                                                    <!-- col -->
+                                                    <div class="calc__tab_next-form-row-col range">
+
+                                                        <label for="calc_invoice">Average Amount<br> of Invoice ($):</label>
+
+                                                        <input
+                                                                type="text"
+                                                                name="calc_invoice"
+                                                                id="calc_invoice"
+                                                                class="rangeSlider"
+                                                                value=""
+                                                                maxlength="10"
+                                                                data-min="0"
+                                                                data-max="10000000"
+                                                                data-hide-min-max="true"
+                                                                data-hide-from-to="true"
+                                                                data-input-type="money"
+                                                        >
+
+                                                        <input
+                                                                type="text"
+                                                                id="calc_invoice_visible"
+                                                                class="form-control"
+                                                                value=""
+                                                                maxlength="11"
+                                                        >
+
+                                                    </div>
+                                                    <!-- end col -->
+
+                                                    <!-- col -->
+                                                    <div class="calc__tab_next-form-row-col range">
+
+                                                        <label for="calc_late">Annual % of<br> nvoices Paid Late:</label>
+
+                                                        <input
+                                                                type="text"
+                                                                name="calc_late"
+                                                                id="calc_late"
+                                                                class="rangeSlider"
+                                                                value=""
+                                                                maxlength="10"
+                                                                data-min="0"
+                                                                data-max="100"
+                                                                data-hide-min-max="true"
+                                                                data-hide-from-to="true"
+                                                                data-input-type="percent"
+                                                        >
+
+                                                        <input
+                                                                type="text"
+                                                                id="calc_late_visible"
+                                                                class="form-control inputPercent"
+                                                                value=""
+                                                                maxlength="4"
+                                                        >
+
+                                                    </div>
+                                                    <!-- end col -->
+
+                                                    <!-- col -->
+                                                    <div class="calc__tab_next-form-row-col range">
+
+                                                        <label for="calc_payment">Average % Charged<br> for Late Payment</label>
+
+                                                        <input
+                                                                type="text"
+                                                                name="calc_payment"
+                                                                id="calc_payment"
+                                                                class="rangeSlider"
+                                                                value=""
+                                                                maxlength="10"
+                                                                data-min="0"
+                                                                data-max="100"
+                                                                data-hide-min-max="true"
+                                                                data-hide-from-to="true"
+                                                                data-input-type="percent"
+                                                        >
+
+                                                        <input
+                                                                type="text"
+                                                                id="calc_payment_visible"
+                                                                class="form-control inputPercent"
+                                                                value=""
+                                                                maxlength="4"
+                                                        >
+
+                                                    </div>
+                                                    <!-- end col -->
+
+                                                    <!-- col -->
+                                                    <div class="calc__tab_next-form-row-col range">
+
+                                                        <label for="calc_early_discount">Annual % of Invoices<br> Missed Early Discount:</label>
+
+                                                        <input
+                                                                type="text"
+                                                                name="calc_early_discount"
+                                                                id="calc_early_discount"
+                                                                class="rangeSlider"
+                                                                value=""
+                                                                maxlength="10"
+                                                                data-min="0"
+                                                                data-max="100"
+                                                                data-hide-min-max="true"
+                                                                data-hide-from-to="true"
+                                                                data-input-type="percent"
+                                                        >
+
+                                                        <input
+                                                                type="text"
+                                                                id="calc_early_discount_visible"
+                                                                class="form-control inputPercent"
+                                                                value=""
+                                                                maxlength="4"
+                                                        >
+
+                                                    </div>
+                                                    <!-- end col -->
+
+                                                    <!-- col -->
+                                                    <div class="calc__tab_next-form-row-col range">
+
+                                                        <label for="calc_pay_discount">Average % of Early<br> Pay Discount:</label>
+
+                                                        <input
+                                                                type="text"
+                                                                name="calc_pay_discount"
+                                                                id="calc_pay_discount"
+                                                                class="rangeSlider"
+                                                                value=""
+                                                                maxlength="10"
+                                                                data-min="0"
+                                                                data-max="100"
+                                                                data-hide-min-max="true"
+                                                                data-hide-from-to="true"
+                                                                data-input-type="percent"
+                                                        >
+
+                                                        <input
+                                                                type="text"
+                                                                id="calc_pay_discount_visible"
+                                                                class="form-control inputPercent"
+                                                                value=""
+                                                                maxlength="4"
+                                                        >
+
+                                                    </div>
+                                                    <!-- end col -->
+
+                                                    <!-- col -->
+                                                    <div class="calc__tab_next-form-row-col range">
+
+                                                        <label for="calc_duplicate_payment">% of Duplicate<br> Payments:</label>
+
+                                                        <input
+                                                                type="text"
+                                                                name="calc_duplicate_payment"
+                                                                id="calc_duplicate_payment"
+                                                                class="rangeSlider"
+                                                                value=""
+                                                                maxlength="10"
+                                                                data-min="0"
+                                                                data-max="100"
+                                                                data-hide-min-max="true"
+                                                                data-hide-from-to="true"
+                                                                data-input-type="percent"
+                                                        >
+
+                                                        <input
+                                                                type="text"
+                                                                id="calc_duplicate_payment_visible"
+                                                                class="form-control inputPercent"
+                                                                value=""
+                                                                maxlength="4"
+                                                        >
+
+                                                    </div>
+                                                    <!-- end col -->
+
+                                                </div>
+                                                <!-- end row -->
+
+                                            </div>
+                                            <!-- end form -->
+
+                                            <!-- Footer -->
+                                            <div class="calc__tabs-content-bottom">
+
+                                                <!-- Title -->
+                                                <h5 class="calc__tabs-content-bottom-title">
+                                                    your invoice detail and Potential cash savings
+                                                </h5>
+                                                <!-- End Title -->
+
+                                                <!-- List -->
+                                                <div class="calc__tabs-content-bottom-list">
+
+                                                    <!-- ul -->
+                                                    <ul class="four">
+
+                                                        <li>
+                                                            <p>Your average people cost per Invoice:</p>
+                                                            <span>$ 400,000</span>
+                                                        </li>
+
+                                                        <li>
+                                                            <p>Annual savings for eliminating late payments:</p>
+                                                            <span>$ 400,000</span>
+                                                        </li>
+
+                                                        <li>
+                                                            <p>Annual savings for eliminating missed discounts:</p>
+                                                            <span>$ 400,000</span>
+                                                        </li>
+
+                                                        <li>
+                                                            <p>Annual savings for eliminating duplicate payments:</p>
+                                                            <span>$ 400,000</span>
+                                                        </li>
+
+                                                    </ul>
+                                                    <!-- End ul -->
+
+                                                </div>
+                                                <!-- end List -->
+
+                                            </div>
+                                            <!-- End Footer -->
+
+                                        </div>
+                                        <!-- End Next Section -->
+
+                                    </div>
+                                    <!-- End Item -->
+
+                                    <!-- Item -->
+                                    <div class="item" id="tab-3">
+
+                                        <!-- Now Section -->
+                                        <div class="calc__tab_now">
+
+                                            <!-- Title -->
+                                            <h3 class="calc__tabs-content-title">
+                                                Now, let’s take a look at productivity savings with AP Automation.
+                                            </h3>
+                                            <!-- End Title -->
+
+                                            <!-- Excerpt -->
+                                            <div class="calc__tabs-content-excerpt">
+                                                (Total hours/year) *represents typical productivity savings with IC AP Automation
+                                            </div>
+                                            <!-- End Excerpt -->
+
+                                            <!-- form -->
+                                            <div class="calc__tab_now-form">
+
+                                                <!-- row -->
+                                                <div class="calc__tab_now-form-row">
+
+                                                    <!-- col -->
+                                                    <div class="calc__tab_now-form-row-col group">
+
+                                                        <!-- left -->
+                                                        <div class="left">
+
+                                                            <label for="calc_filing_invoices">Printing, sorting and filing invoices</label>
+                                                            <select
+                                                                    name="calc_filing_invoices"
+                                                                    id="calc_filing_invoices"
+                                                                    class="js-select animateNumber"
+                                                                    style="width: 100%"
+                                                            >
+                                                                <option></option>
+                                                                <option value="1">1,000</option>
+                                                                <option value="2">3,000</option>
+                                                                <option value="3">5,000</option>
+                                                                <option value="4">7,000</option>
+                                                                <option value="5">10,000</option>
+                                                            </select>
+
+                                                        </div>
+                                                        <!-- end left -->
+
+                                                        <!-- right -->
+                                                        <div class="right">
+
+                                                            <label for="calc_filing_invoices_percent">
+                                                                <img
+                                                                        src="assets/images/info.png"
+                                                                        alt="AP Automation Headcount Reduction"
+                                                                        title="AP Automation Headcount Reduction"
+                                                                >
+                                                            </label>
+                                                            <select
+                                                                    name="calc_filing_invoices_percent"
+                                                                    id="calc_filing_invoices_percent"
+                                                                    class="js-select animateNumber"
+                                                                    style="width: 100%"
+                                                            >
+                                                                <option></option>
+                                                                <option value="1">40%</option>
+                                                                <option value="2">60%</option>
+                                                                <option value="3">70%</option>
+                                                                <option value="4">80%</option>
+                                                                <option value="5">100%</option>
+                                                            </select>
+
+                                                        </div>
+                                                        <!-- end right -->
+
+                                                    </div>
+                                                    <!-- end col -->
+
+                                                    <!-- col -->
+                                                    <div class="calc__tab_now-form-row-col group">
+
+                                                        <!-- left -->
+                                                        <div class="left">
+
+                                                            <label for="calc_routed_for_approval">Tracking invoices routed for Approval</label>
+                                                            <select
+                                                                    name="calc_routed_for_approval"
+                                                                    id="calc_routed_for_approval"
+                                                                    class="js-select animateNumber"
+                                                                    style="width: 100%"
+                                                            >
+                                                                <option></option>
+                                                                <option value="1">1,000</option>
+                                                                <option value="2">3,000</option>
+                                                                <option value="3">5,000</option>
+                                                                <option value="4">7,000</option>
+                                                                <option value="5">10,000</option>
+                                                            </select>
+
+                                                        </div>
+                                                        <!-- end left -->
+
+                                                        <!-- right -->
+                                                        <div class="right">
+
+                                                            <label for="calc_routed_for_approval_percent">
+                                                                <img
+                                                                        src="assets/images/info.png"
+                                                                        alt="AP Automation Headcount Reduction"
+                                                                        title="AP Automation Headcount Reduction"
+                                                                >
+                                                            </label>
+                                                            <select
+                                                                    name="calc_routed_for_approval_percent"
+                                                                    id="calc_routed_for_approval_percent"
+                                                                    class="js-select animateNumber"
+                                                                    style="width: 100%"
+                                                            >
+                                                                <option></option>
+                                                                <option value="1">40%</option>
+                                                                <option value="2">60%</option>
+                                                                <option value="3">70%</option>
+                                                                <option value="4">80%</option>
+                                                                <option value="5">100%</option>
+                                                            </select>
+
+                                                        </div>
+                                                        <!-- end right -->
+
+                                                    </div>
+                                                    <!-- end col -->
+
+                                                    <!-- col -->
+                                                    <div class="calc__tab_now-form-row-col group">
+
+                                                        <!-- left -->
+                                                        <div class="left">
+
+                                                            <label for="calc_exception_handling">Routing invoices for exception handling <small>(change to % of invoices<br> requiring exception handling)</small></label>
+                                                            <select
+                                                                    name="calc_exception_handling"
+                                                                    id="calc_exception_handling"
+                                                                    class="js-select animateNumber"
+                                                                    style="width: 100%"
+                                                            >
+                                                                <option></option>
+                                                                <option value="1">1,000</option>
+                                                                <option value="2">3,000</option>
+                                                                <option value="3">5,000</option>
+                                                                <option value="4">7,000</option>
+                                                                <option value="5">10,000</option>
+                                                            </select>
+
+                                                        </div>
+                                                        <!-- end left -->
+
+                                                        <!-- right -->
+                                                        <div class="right">
+
+                                                            <label for="calc_exception_handling_percent">
+                                                                <img
+                                                                        src="assets/images/info.png"
+                                                                        alt="AP Automation Headcount Reduction"
+                                                                        title="AP Automation Headcount Reduction"
+                                                                >
+                                                            </label>
+                                                            <select
+                                                                    name="calc_exception_handling_percent"
+                                                                    id="calc_exception_handling_percent"
+                                                                    class="js-select animateNumber"
+                                                                    style="width: 100%"
+                                                            >
+                                                                <option></option>
+                                                                <option value="1">40%</option>
+                                                                <option value="2">60%</option>
+                                                                <option value="3">70%</option>
+                                                                <option value="4">80%</option>
+                                                                <option value="5">100%</option>
+                                                            </select>
+
+                                                        </div>
+                                                        <!-- end right -->
+
+                                                    </div>
+                                                    <!-- end col -->
+
+                                                    <!-- col -->
+                                                    <div class="calc__tab_now-form-row-col group">
+
+                                                        <!-- left -->
+                                                        <div class="left">
+
+                                                            <label for="calc_filing_invoices">Researching or resolving duplicate payments</label>
+                                                            <select
+                                                                    name="calc_resolving_duplicate_payments"
+                                                                    id="calc_resolving_duplicate_payments"
+                                                                    class="js-select animateNumber"
+                                                                    style="width: 100%"
+                                                            >
+                                                                <option></option>
+                                                                <option value="1">1,000</option>
+                                                                <option value="2">3,000</option>
+                                                                <option value="3">5,000</option>
+                                                                <option value="4">7,000</option>
+                                                                <option value="5">10,000</option>
+                                                            </select>
+
+                                                        </div>
+                                                        <!-- end left -->
+
+                                                        <!-- right -->
+                                                        <div class="right">
+
+                                                            <label for="calc_resolving_duplicate_payments_percent">
+                                                                <img
+                                                                        src="assets/images/info.png"
+                                                                        alt="AP Automation Headcount Reduction"
+                                                                        title="AP Automation Headcount Reduction"
+                                                                >
+                                                            </label>
+                                                            <select
+                                                                    name="calc_resolving_duplicate_payments_percent"
+                                                                    id="calc_resolving_duplicate_payments_percent"
+                                                                    class="js-select animateNumber"
+                                                                    style="width: 100%"
+                                                            >
+                                                                <option></option>
+                                                                <option value="1">40%</option>
+                                                                <option value="2">60%</option>
+                                                                <option value="3">70%</option>
+                                                                <option value="4">80%</option>
+                                                                <option value="5">100%</option>
+                                                            </select>
+
+                                                        </div>
+                                                        <!-- end right -->
+
+                                                    </div>
+                                                    <!-- end col -->
+
+                                                    <!-- col -->
+                                                    <div class="calc__tab_now-form-row-col group">
+
+                                                        <!-- left -->
+                                                        <div class="left">
+
+                                                            <label for="calc_conversions_discrepancies">Calculating unit of measure conversions & discrepancies</label>
+                                                            <select
+                                                                    name="calc_conversions_discrepancies"
+                                                                    id="calc_conversions_discrepancies"
+                                                                    class="js-select animateNumber"
+                                                                    style="width: 100%"
+                                                            >
+                                                                <option></option>
+                                                                <option value="1">1,000</option>
+                                                                <option value="2">3,000</option>
+                                                                <option value="3">5,000</option>
+                                                                <option value="4">7,000</option>
+                                                                <option value="5">10,000</option>
+                                                            </select>
+
+                                                        </div>
+                                                        <!-- end left -->
+
+                                                        <!-- right -->
+                                                        <div class="right">
+
+                                                            <label for="calc_conversions_discrepancies_percent">
+                                                                <img
+                                                                        src="assets/images/info.png"
+                                                                        alt="AP Automation Headcount Reduction"
+                                                                        title="AP Automation Headcount Reduction"
+                                                                >
+                                                            </label>
+                                                            <select
+                                                                    name="calc_conversions_discrepancies_percent"
+                                                                    id="calc_conversions_discrepancies_percent"
+                                                                    class="js-select animateNumber"
+                                                                    style="width: 100%"
+                                                            >
+                                                                <option></option>
+                                                                <option value="1">40%</option>
+                                                                <option value="2">60%</option>
+                                                                <option value="3">70%</option>
+                                                                <option value="4">80%</option>
+                                                                <option value="5">100%</option>
+                                                            </select>
+
+                                                        </div>
+                                                        <!-- end right -->
+
+                                                    </div>
+                                                    <!-- end col -->
+
+                                                    <!-- col -->
+                                                    <div class="calc__tab_now-form-row-col group">
+
+                                                        <!-- left -->
+                                                        <div class="left">
+
+                                                            <label for="calc_erp_system">Entering invoices into ERP system</label>
+                                                            <select
+                                                                    name="calc_erp_system"
+                                                                    id="calc_erp_system"
+                                                                    class="js-select animateNumber"
+                                                                    style="width: 100%"
+                                                            >
+                                                                <option></option>
+                                                                <option value="1">1,000</option>
+                                                                <option value="2">3,000</option>
+                                                                <option value="3">5,000</option>
+                                                                <option value="4">7,000</option>
+                                                                <option value="5">10,000</option>
+                                                            </select>
+
+                                                        </div>
+                                                        <!-- end left -->
+
+                                                        <!-- right -->
+                                                        <div class="right">
+
+                                                            <label for="calc_erp_system_percent">
+                                                                <img
+                                                                        src="assets/images/info.png"
+                                                                        alt="AP Automation Headcount Reduction"
+                                                                        title="AP Automation Headcount Reduction"
+                                                                >
+                                                            </label>
+                                                            <select
+                                                                    name="calc_erp_system_percent"
+                                                                    id="calc_erp_system_percent"
+                                                                    class="js-select animateNumber"
+                                                                    style="width: 100%"
+                                                            >
+                                                                <option></option>
+                                                                <option value="1">40%</option>
+                                                                <option value="2">60%</option>
+                                                                <option value="3">70%</option>
+                                                                <option value="4">80%</option>
+                                                                <option value="5">100%</option>
+                                                            </select>
+
+                                                        </div>
+                                                        <!-- end right -->
+
+                                                    </div>
+                                                    <!-- end col -->
+
+                                                    <!-- col -->
+                                                    <div class="calc__tab_now-form-row-col group">
+
+                                                        <!-- left -->
+                                                        <div class="left">
+
+                                                            <label for="calc_ap_processing">Tracking, reporting, and managing AP processing</label>
+                                                            <select
+                                                                    name="calc_ap_processing"
+                                                                    id="calc_ap_processing"
+                                                                    class="js-select animateNumber"
+                                                                    style="width: 100%"
+                                                            >
+                                                                <option></option>
+                                                                <option value="1">1,000</option>
+                                                                <option value="2">3,000</option>
+                                                                <option value="3">5,000</option>
+                                                                <option value="4">7,000</option>
+                                                                <option value="5">10,000</option>
+                                                            </select>
+
+                                                        </div>
+                                                        <!-- end left -->
+
+                                                        <!-- right -->
+                                                        <div class="right">
+
+                                                            <label for="calc_ap_processing_percent">
+                                                                <img
+                                                                        src="assets/images/info.png"
+                                                                        alt="AP Automation Headcount Reduction"
+                                                                        title="AP Automation Headcount Reduction"
+                                                                >
+                                                            </label>
+                                                            <select
+                                                                    name="calc_ap_processing_percent"
+                                                                    id="calc_ap_processing_percent"
+                                                                    class="js-select animateNumber"
+                                                                    style="width: 100%"
+                                                            >
+                                                                <option></option>
+                                                                <option value="1">40%</option>
+                                                                <option value="2">60%</option>
+                                                                <option value="3">70%</option>
+                                                                <option value="4">80%</option>
+                                                                <option value="5">100%</option>
+                                                            </select>
+
+                                                        </div>
+                                                        <!-- end right -->
+
+                                                    </div>
+                                                    <!-- end col -->
+
+                                                    <!-- col -->
+                                                    <div class="calc__tab_now-form-row-col group">
+
+                                                        <!-- left -->
+                                                        <div class="left">
+
+                                                            <label for="calc_off_site_storage">Annual cost of off-site storage</label>
+                                                            <select
+                                                                    name="calc_off_site_storage"
+                                                                    id="calc_off_site_storage"
+                                                                    class="js-select animateNumber"
+                                                                    style="width: 100%"
+                                                            >
+                                                                <option></option>
+                                                                <option value="1">1,000</option>
+                                                                <option value="2">3,000</option>
+                                                                <option value="3">5,000</option>
+                                                                <option value="4">7,000</option>
+                                                                <option value="5">10,000</option>
+                                                            </select>
+
+                                                        </div>
+                                                        <!-- end left -->
+
+                                                        <!-- right -->
+                                                        <div class="right">
+
+                                                            <label for="calc_off_site_storage_percent">
+                                                                <img
+                                                                        src="assets/images/info.png"
+                                                                        alt="AP Automation Headcount Reduction"
+                                                                        title="AP Automation Headcount Reduction"
+                                                                >
+                                                            </label>
+                                                            <select
+                                                                    name="calc_off_site_storage_percent"
+                                                                    id="calc_off_site_storage_percent"
+                                                                    class="js-select animateNumber"
+                                                                    style="width: 100%"
+                                                            >
+                                                                <option></option>
+                                                                <option value="1">40%</option>
+                                                                <option value="2">60%</option>
+                                                                <option value="3">70%</option>
+                                                                <option value="4">80%</option>
+                                                                <option value="5">100%</option>
+                                                            </select>
+
+                                                        </div>
+                                                        <!-- end right -->
+
+                                                    </div>
+                                                    <!-- end col -->
+
+                                                    <!-- col -->
+                                                    <div class="calc__tab_now-form-row-col group">
+
+                                                        <!-- left -->
+                                                        <div class="left">
+
+                                                            <label for="calc_audit_inquiries">Researching Vendor, Internal, or Audit Inquiries</label>
+                                                            <select
+                                                                    name="calc_audit_inquiries"
+                                                                    id="calc_audit_inquiries"
+                                                                    class="js-select animateNumber"
+                                                                    style="width: 100%"
+                                                            >
+                                                                <option></option>
+                                                                <option value="1">1,000</option>
+                                                                <option value="2">3,000</option>
+                                                                <option value="3">5,000</option>
+                                                                <option value="4">7,000</option>
+                                                                <option value="5">10,000</option>
+                                                            </select>
+
+                                                        </div>
+                                                        <!-- end left -->
+
+                                                        <!-- right -->
+                                                        <div class="right">
+
+                                                            <label for="calc_audit_inquiries_percent">
+                                                                <img
+                                                                        src="assets/images/info.png"
+                                                                        alt="AP Automation Headcount Reduction"
+                                                                        title="AP Automation Headcount Reduction"
+                                                                >
+                                                            </label>
+                                                            <select
+                                                                    name="calc_audit_inquiries_percent"
+                                                                    id="calc_audit_inquiries_percent"
+                                                                    class="js-select animateNumber"
+                                                                    style="width: 100%"
+                                                            >
+                                                                <option></option>
+                                                                <option value="1">40%</option>
+                                                                <option value="2">60%</option>
+                                                                <option value="3">70%</option>
+                                                                <option value="4">80%</option>
+                                                                <option value="5">100%</option>
+                                                            </select>
+
+                                                        </div>
+                                                        <!-- end right -->
+
+                                                    </div>
+                                                    <!-- end col -->
+
+                                                </div>
+                                                <!-- end row -->
+
+                                            </div>
+                                            <!-- end form -->
+
+                                            <!-- Footer -->
+                                            <div class="calc__tabs-content-bottom">
+
+                                                <!-- Title -->
+                                                <h5 class="calc__tabs-content-bottom-title">
+                                                    Productivity SAVINGS
+                                                </h5>
+                                                <!-- End Title -->
+
+                                                <!-- List -->
+                                                <div class="calc__tabs-content-bottom-list">
+
+                                                    <!-- ul -->
+                                                    <ul class="two">
+
+                                                        <li>
+                                                            <p>Hours Reclaimed</p>
+                                                            <span>100 hours</span>
+                                                        </li>
+
+                                                        <li>
+                                                            <p>Total Productivity Savings:</p>
+                                                            <span>$100,000</span>
+                                                        </li>
+
+                                                    </ul>
+                                                    <!-- End ul -->
+
+                                                </div>
+                                                <!-- end List -->
+
+                                            </div>
+                                            <!-- End Footer -->
+
+                                        </div>
+                                        <!-- End Now Section -->
+
+                                    </div>
+                                    <!-- End Item -->
+
+                                    <!-- Item -->
+                                    <div class="item" id="tab-4">
+
+                                        <!-- End Section -->
+                                        <div class="calc__tab_end">
+
+                                            <!-- Title -->
+                                            <h3 class="calc__tabs-content-title">
+                                                Ready to save with Intellichief?
+                                            </h3>
+                                            <!-- End Title -->
+
+                                            <!-- Excerpt -->
+                                            <div class="calc__tabs-content-excerpt">
+                                                Please provide some information so we can send<br> your in-depth savings report.
+                                            </div>
+                                            <!-- End Excerpt -->
+
+                                            <!-- form -->
+                                            <div class="calc__tab_end-form">
+
+                                                <!-- Max Width -->
+                                                <div class="calc__tab_end-form-max_width">
+
+                                                    <!-- row -->
+                                                    <div class="calc__tab_end-form-row">
+
+                                                        <!-- col -->
+                                                        <div class="calc__tab_end-form-row-col">
+
+                                                            <label for="calc_form_first_name">First Name:</label>
+                                                            <input
+                                                                    type="text"
+                                                                    name="calc_form_first_name"
+                                                                    id="calc_form_first_name"
+                                                                    value=""
+                                                                    class="form-control"
+                                                            >
+
+                                                        </div>
+                                                        <!-- end col -->
+
+                                                        <!-- col -->
+                                                        <div class="calc__tab_end-form-row-col">
+
+                                                            <label for="calc_form_last_name">Last Name:</label>
+                                                            <input
+                                                                    type="text"
+                                                                    name="calc_form_last_name"
+                                                                    id="calc_form_last_name"
+                                                                    value=""
+                                                                    class="form-control"
+                                                            >
+
+                                                        </div>
+                                                        <!-- end col -->
+
+                                                        <!-- col -->
+                                                        <div class="calc__tab_end-form-row-col">
+
+                                                            <label for="calc_form_company">Company:</label>
+                                                            <input
+                                                                    type="text"
+                                                                    name="calc_form_company"
+                                                                    id="calc_form_company"
+                                                                    value=""
+                                                                    class="form-control"
+                                                            >
+
+                                                        </div>
+                                                        <!-- end col -->
+
+                                                        <!-- col -->
+                                                        <div class="calc__tab_end-form-row-col">
+
+                                                            <label for="calc_form_email">Company Email:</label>
+                                                            <input
+                                                                    type="text"
+                                                                    name="calc_form_email"
+                                                                    id="calc_form_email"
+                                                                    value=""
+                                                                    class="form-control"
+                                                            >
+
+                                                        </div>
+                                                        <!-- end col -->
+
+                                                        <!-- col -->
+                                                        <div class="calc__tab_end-form-row-col">
+
+                                                            <label for="calc_form_erp">ERP:</label>
+                                                            <input
+                                                                    type="text"
+                                                                    name="calc_form_erp"
+                                                                    id="calc_form_erp"
+                                                                    value=""
+                                                                    class="form-control"
+                                                            >
+
+                                                        </div>
+                                                        <!-- end col -->
+
+                                                        <!-- col -->
+                                                        <div class="calc__tab_end-form-row-col">
+
+                                                            <label for="calc_form_country">Country:</label>
+                                                            <input
+                                                                    type="text"
+                                                                    name="calc_form_country"
+                                                                    id="calc_form_country"
+                                                                    value=""
+                                                                    class="form-control"
+                                                            >
+
+                                                        </div>
+                                                        <!-- end col -->
+
+                                                    </div>
+                                                    <!-- end row -->
+
+                                                </div>
+                                                <!-- End Max Width -->
+
+                                                <!-- row -->
+                                                <div class="calc__tab_end-form-row">
+
+                                                    <!-- col -->
+                                                    <div class="calc__tab_end-form-row-col">
+
+                                                        <!-- Select -->
+                                                        <div class="calc__tab_end-form-row-col-select">
+
+                                                            <label for="calc_form_project">Do you have a project?</label>
+                                                            <select
+                                                                    name="calc_form_project"
+                                                                    id="calc_form_project"
+                                                                    class="js-select"
+                                                                    style="width: 100%"
+                                                            >
+                                                                <option></option>
+                                                                <option value="1">Item #1</option>
+                                                                <option value="2">Item #2</option>
+                                                                <option value="3">Item #3</option>
+                                                                <option value="4">Item #4</option>
+                                                                <option value="5">Item #5</option>
+                                                            </select>
+
+                                                        </div>
+                                                        <!-- End Select -->
+
+                                                    </div>
+                                                    <!-- end col -->
+
+                                                </div>
+                                                <!-- end row -->
+
+                                                <!-- description -->
+                                                <div class="calc__tab_end-form-description">
+                                                    We will retain and evaluate information on your recent visits to our website, information you entered into our website forms and how you move around different sections of our website for analytics purposes to understand how people use our website so that we can make it more intuitive and provide you with a more robust experience.  We will email you information regarding the forms you fill out and about our products and services.
+
+                                                </div>
+                                                <!-- end description -->
+
+                                                <!-- check -->
+                                                <div class="calc__tab_end-form-check">
+
+                                                    <!-- checkbox -->
+                                                    <div class="form-control-checkbox">
+
+                                                        <input type="checkbox" id="calc_form_policy">
+                                                        <label for="calc_form_policy">
+                                                            I accept the IntelliChief GDPR policy.
+                                                        </label>
+
+                                                    </div>
+                                                    <!-- end checkbox -->
+
+                                                </div>
+                                                <!-- end check -->
+
+                                                <!-- submit -->
+                                                <div class="calc__tab_end-form-submit">
+
+                                                    <button type="submit" class="btn btn-orange">
+                                                        send report
+                                                    </button>
+
+                                                </div>
+                                                <!-- end submit -->
+
+                                            </div>
+                                            <!-- end form -->
+
+                                        </div>
+                                        <!-- End End Section -->
+
+                                    </div>
+                                    <!-- End Item -->
+
+                                </div>
+                                <!-- End Tabs > Content -->
+
+                            </div>
+                            <!-- End Tabs -->
+
+                        </div>
+                        <!-- end row > left -->
+
+                        <!-- row > right -->
+                        <div class="calc__content-row-right">
+
+                            <!-- Result -->
+                            <div class="calc__result">
+
+                                <!-- Center -->
+                                <div>
+
+                                    <!-- Title -->
+                                    <h5 class="calc__result-title">
+                                        Estimated Savings:
+                                    </h5>
+                                    <!-- End Title -->
+
+                                    <!-- Excerpt -->
+                                    <div class="calc__result-excerpt">
+                                        This is your estimated annual savings with IntelliChief AP Automation.
+                                    </div>
+                                    <!-- End Excerpt -->
+
+                                    <!-- Total -->
+                                    <div class="calc__result-total">
+
+                                        <span class="totalNumber">$ 400,000</span>
+
+                                    </div>
+                                    <!-- End Total -->
+
+                                    <!-- Btn Group -->
+                                    <div class="calc__result-btngroup">
+
+                                        <a href="#" class="btn btn-orange">
+                                            Email report
+                                        </a>
+
+                                        <a href="#" class="btn btn-blue">
+                                            Talk to an expert
+                                        </a>
+
+                                    </div>
+                                    <!-- End Btn Group -->
+
+                                </div>
+                                <!-- End Center -->
+
+                            </div>
+                            <!-- End Result -->
+
+                        </div>
+                        <!-- end row > right -->
+
+                    </div>
+                    <!-- end row -->
+
+                </div>
+                <!-- end col -->
+
+            </div>
+            <!-- end row -->
+
+        </div>
+        <!-- end container -->
+
+    </section>
+    <!-- End Content -->
+
+    <!-- Footer -->
+    <section class="calc__footer">
+
+        <!-- container -->
+        <div class="container-fluid">
+
+            <!-- row -->
+            <div class="row">
+
+                <!-- col -->
+                <div class="col-xs-24 col-sm-24 col-md-24 col-lg-24">
+
+                    <!-- container -->
+                    <div class="calc__footer-container">
+
+                        <div class="containerMessage">
+                            <strong>Enterprise Content Management</strong> comprises an array of software-based tools and technologies to help companies with complex operational infrastructures gain superior control of their content.
+                        </div>
+
+                    </div>
+                    <!-- end container -->
+
+                </div>
+                <!-- end col -->
+
+            </div>
+            <!-- end row -->
+
+        </div>
+        <!-- end container -->
+
+    </section>
+    <!-- End Footer -->
+
+</main>
+<!-- END CONTENT-->
+
+<script src="assets/js/src/jquery/jquery.js"></script>
+<script src="assets/js/bundle.js"></script>
+</body>
+</html>

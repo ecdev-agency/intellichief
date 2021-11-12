@@ -1,0 +1,33 @@
+@import url('../css/plugins/font-awesome.css');
+@import url('../css/plugins/select2.min.css');
+@import url('../css/plugins/ion.rangeSlider.min.css');
+/**
+ * Variables
+ */
+@import "base/variables";
+
+/**
+ * Mixins
+ */
+@import "base/mixins";
+@import "base/mixins-media";
+
+/**
+ * Global
+ */
+@import "base/fonts";
+@import "base/normalize";
+@import "layout/bootstrap/bootstrap";
+@import "base/base";
+
+/**
+ * Modules
+ */
+@import "modules/range-slider";
+@import "modules/btn";
+@import "modules/form-control";
+
+/**
+ * Layout
+ */
+@import "layout/page/calc/index";

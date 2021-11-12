@@ -1,0 +1,42 @@
+.calc {
+
+  &__content {
+    $right-width: 400px;
+    $right-width-xl: 300px;
+
+    &-row {
+      display: flex;
+      flex-wrap: wrap;
+      border-bottom: 4px solid $color-orange;
+
+      &-left,
+      &-right {
+        display: flex;
+        flex-direction: column;
+      }
+
+      &-left {
+        width: calc(100% - #{$right-width});
+        @include media(xl) {
+          width: calc(100% - #{$right-width-xl});
+        }
+        @include media(md) {
+          width: 100%;
+        }
+      }
+
+      &-right {
+        width: $right-width;
+        @include media(xl) {
+          width: $right-width-xl;
+        }
+        @include media(md) {
+          width: 100%;
+        }
+      }
+    }
+
+  }
+
+
+}

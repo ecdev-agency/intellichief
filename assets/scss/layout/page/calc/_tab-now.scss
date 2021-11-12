@@ -1,0 +1,114 @@
+.calc {
+  $max-width: 999px;
+  $max-width-md: 500px;
+
+  &__tab_now {
+    max-width: $max-width;
+    margin: 0 auto;
+    @include media(md) {
+      max-width: $max-width-md;
+    }
+
+    &-form {
+      padding: 30px 0 0 0;
+      @include media(xl) {
+        padding: 0;
+      }
+
+      &-row {
+        $gutter: 20px;
+
+        position: relative;
+        margin: 0 -#{$gutter};
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        &-col {
+          padding: 0 $gutter;
+          display: flex;
+          flex-direction: column;
+          width: 33.32%;
+          margin: 0 0 $gutter 0;
+          align-items: flex-end;
+          margin-bottom: 30px;
+          @include media(xl) {
+            width: 50%;
+          }
+          @include media(lg) {
+            width: 100%;
+          }
+
+          &.group {
+            $right-width: 100px;
+
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            @include media(xxs) {
+              flex-direction: column;
+            }
+
+            .left {
+              width: calc(100% - #{$right-width});
+              padding: 0 15px 0 0;
+              @include media(xxs) {
+                width: 100%;
+                padding: 0;
+                margin: 0 0 25px 0;
+              }
+            }
+
+            .right {
+              width: $right-width;
+              @include media(xxs) {
+                width: 100%;
+              }
+
+              .select2-container--default {
+
+                .select2-selection__arrow {
+                  right: 4px;
+                  b {
+                    transform: translateY(-50%) scale(0.8);
+                  }
+
+                }
+
+                .select2-selection--single {
+
+                  .select2-selection {
+
+                    &__clear {
+                      right: 30px;
+                    }
+
+                    &__rendered {
+                      padding: 0 27px 0 12px;
+                      text-align: left;
+                      @include media(xxs) {
+                        text-align: center;
+                        padding: 0 50px 0 25px;
+                      }
+                    }
+
+                  }
+
+                }
+
+              }
+
+            }
+
+
+
+          }
+
+
+        }
+
+      }
+
+    }
+  }
+}
