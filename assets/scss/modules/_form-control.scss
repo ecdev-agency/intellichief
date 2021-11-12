@@ -127,6 +127,14 @@
                         }
                     }
 
+                    &[data-focus-visible-added] {
+                        + label {
+                            &::before {
+                                border-color: $focus-color !important;
+                            }
+                        }
+                    }
+
                 }
 
             }
@@ -134,8 +142,14 @@
         }
     }
 
+    [data-focus-visible-added] {
+        border-color: $focus-color !important;
+    }
+
     .select2 {
         $arrow-color: #aab0ba;
+
+
 
         &-container {
 
@@ -225,6 +239,15 @@
                         }
                     }
                 }
+
+            }
+
+            &--focus {
+
+                .select2-selection--single {
+
+                }
+
 
             }
 
