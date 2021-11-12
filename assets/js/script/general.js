@@ -424,13 +424,6 @@ const Calculator = function () {
  */
 jQuery(document).ready(function() {
 	Calculator.init();
-
-
-
-
-
-
-
 });
 
 
