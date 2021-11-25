@@ -144,16 +144,18 @@
                                                                 data-step="1"
                                                                 data-hide-min-max="true"
                                                                 data-hide-from-to="true"
-                                                                data-input-type="percent"
+                                                                data-input-type="number"
                                                         >
 
                                                         <input
-                                                                type="text"
+                                                                type="number"
                                                                 id="calc_full_time_processors_visible"
-                                                                class="form-control inputMessage changeDone"
+                                                                class="form-control inputMessage"
                                                                 data-tab="1"
                                                                 value="5"
-                                                                maxlength="4"
+                                                                min="1"
+                                                                max="50"
+                                                                maxlength="2"
                                                                 data-message="Your AP Processors are responsible for keeping your AP Department moving forward. From processing invoices to routing invoices for approval and performing other clerical tasks, your business can't function without them. But how do you know that you have the right # of employees to efficiently handle AP?"
                                                         >
 
@@ -161,23 +163,59 @@
                                                     <!-- end col -->
 
                                                     <!-- col -->
-                                                    <div class="calc__tab_first-form-row-col">
+                                                    <div class="calc__tab_first-form-row-col group">
 
-                                                        <label for="calc_reduction">AP Automation<br> Headcount Reduction:</label>
-                                                        <input
-                                                                type="text"
-                                                                name="calc_reduction"
-                                                                id="calc_reduction"
-                                                                class="form-control animateNumber inputMessage inputPercent changeDone tab_1_content_headcount_reduction"
-                                                                data-tab="1"
-                                                                placeholder=""
-                                                                value="5%"
-                                                                data-min="0"
-                                                                data-max="70"
-                                                                data-step="10"
-                                                                maxlength="10"
-                                                                data-message="IntelliChief eliminates problems of scale by allowing you to process more invoices with fewer employees. Even as your invoice volume increases, IntelliChief continues to handle the bulk of your AP workload, reducing the need for additional or extraneous headcount."
-                                                        >
+                                                        <!-- left -->
+                                                        <div class="left">
+
+                                                            <label for="calc_filing_invoices">AP Automation<br> Headcount Reduction:</label>
+                                                            <input
+                                                                    type="number"
+                                                                    name="calc_reduction"
+                                                                    id="calc_reduction"
+                                                                    class="form-control animateNumber inputNumber inputMessage changeDone tab_1_content_headcount_reduction"
+                                                                    data-tab="1"
+                                                                    placeholder=""
+                                                                    value="2"
+                                                                    max="1000000"
+                                                                    min="0"
+                                                                    maxlength="5"
+                                                                    data-message="IntelliChief eliminates problems of scale by allowing you to process more invoices with fewer employees. Even as your invoice volume increases, IntelliChief continues to handle the bulk of your AP workload, reducing the need for additional or extraneous headcount."
+                                                            >
+
+                                                        </div>
+                                                        <!-- end left -->
+
+                                                        <!-- right -->
+                                                        <div class="right">
+
+                                                            <label for="calc_reduction_in_headcount">
+                                                                <img
+                                                                        src="assets/images/info.png"
+                                                                        alt="AP Automation Headcount Reduction"
+                                                                        title="AP Automation Headcount Reduction"
+                                                                >
+                                                            </label>
+                                                            <select
+                                                                    name="calc_reduction_in_headcount"
+                                                                    id="calc_reduction_in_headcount"
+                                                                    class="js-select animateNumber changeDone"
+                                                                    data-tab="3"
+                                                                    style="width: 100%"
+                                                            >
+                                                                <option></option>
+                                                                <option value="0">0%</option>
+                                                                <option value="0.1">10%</option>
+                                                                <option value="0.2">20%</option>
+                                                                <option value="0.3">30%</option>
+                                                                <option value="0.4" selected>40%</option>
+                                                                <option value="0.5">50%</option>
+                                                                <option value="0.6">60%</option>
+                                                                <option value="0.7">70%</option>
+                                                            </select>
+
+                                                        </div>
+                                                        <!-- end right -->
 
                                                     </div>
                                                     <!-- end col -->
@@ -226,7 +264,7 @@
                                                         <input
                                                                 type="text"
                                                                 id="calc_burden_rate_visible"
-                                                                class="form-control inputMessage changeDone"
+                                                                class="form-control inputMessage"
                                                                 data-tab="1"
                                                                 value=""
                                                                 maxlength="4"
@@ -312,16 +350,27 @@
                                                         <select
                                                                 name="calc_year"
                                                                 id="calc_year"
-                                                                class="js-select animateNumber changeDone"
+                                                                class="js-select animateNumber selectMessage changeDone tab_2_content_invoices_processed_per_year"
                                                                 data-tab="2"
                                                                 style="width: 100%"
+                                                                data-message="The more invoices your organization processes, the  more you can save with an AP Automation solution like IntelliChief. On average, our  customers process 45,000+ invoices per year. "
                                                         >
                                                             <option></option>
-                                                            <option value="1">Item #1</option>
-                                                            <option value="2">Item #2</option>
-                                                            <option value="3">Item #3</option>
-                                                            <option value="4">Item #4</option>
-                                                            <option value="5">Item #5</option>
+                                                            <option value="20000">0-20,000</option>
+                                                            <option value="44999">20,001-44,999</option>
+                                                            <option value="60000" selected>45,000-60,000</option>
+                                                            <option value="100000">60,001-100,000</option>
+                                                            <option value="149999">100,001-149,999</option>
+                                                            <option value="200000">150,000-200,000</option>
+                                                            <option value="300000">250,000-300,000</option>
+                                                            <option value="400000">350-400,000</option>
+                                                            <option value="450000">400-450,000</option>
+                                                            <option value="500000">450,000-500,00</option>
+                                                            <option value="600000">500-600,000</option>
+                                                            <option value="700000">600,000-700,000</option>
+                                                            <option value="800000">700-800,000</option>
+                                                            <option value="900000">800-900,000</option>
+                                                            <option value="900000">900,000+</option>
                                                         </select>
 
                                                     </div>
@@ -330,20 +379,26 @@
                                                     <!-- col -->
                                                     <div class="calc__tab_next-form-row-col">
 
-                                                        <label for="calc_growth_rate">Annual invoice growth rate:</label>
+                                                        <label for="calc_growth_rate">Annual Invoice Growth Rate:</label>
                                                         <select
                                                                 name="calc_growth_rate"
                                                                 id="calc_growth_rate"
-                                                                class="js-select animateNumber changeDone"
+                                                                class="js-select animateNumber changeDone tab_2_content_annual_invoice"
                                                                 data-tab="2"
                                                                 style="width: 100%"
                                                         >
                                                             <option></option>
-                                                            <option value="1">Item #1</option>
-                                                            <option value="2">Item #2</option>
-                                                            <option value="3">Item #3</option>
-                                                            <option value="4">Item #4</option>
-                                                            <option value="5">Item #5</option>
+                                                            <option value="0">0%</option>
+                                                            <option value="0.05" selected>5%</option>
+                                                            <option value="0.1">10%</option>
+                                                            <option value="0.15">15%</option>
+                                                            <option value="0.20">20%</option>
+                                                            <option value="0.25">25%</option>
+                                                            <option value="0.30">30%</option>
+                                                            <option value="0.35">35%</option>
+                                                            <option value="0.40">40%</option>
+                                                            <option value="0.45">45%</option>
+                                                            <option value="0.50">50%</option>
                                                         </select>
 
                                                     </div>
@@ -364,12 +419,13 @@
                                                                 type="text"
                                                                 name="calc_invoice"
                                                                 id="calc_invoice"
-                                                                class="rangeSlider changeDone"
+                                                                class="rangeSlider changeDone tab_2_content_avg_amount_of_invoice"
                                                                 data-tab="2"
-                                                                value=""
-                                                                maxlength="10"
+                                                                value="5"
+                                                                maxlength="6"
                                                                 data-min="0"
-                                                                data-max="10000000"
+                                                                data-max="100000"
+                                                                data-step="1"
                                                                 data-hide-min-max="true"
                                                                 data-hide-from-to="true"
                                                                 data-input-type="money"
@@ -378,10 +434,11 @@
                                                         <input
                                                                 type="text"
                                                                 id="calc_invoice_visible"
-                                                                class="form-control changeDone"
+                                                                class="form-control inputMessage"
                                                                 data-tab="2"
-                                                                value=""
-                                                                maxlength="11"
+                                                                value="5"
+                                                                maxlength="8"
+                                                                data-message="The higher the value of your invoices, the more critical  it becomes to ensure that they are being processed accurately. The last thing your  organization needs is to pay the same $100,000 invoice twice!"
                                                         >
 
                                                     </div>
@@ -396,12 +453,13 @@
                                                                 type="text"
                                                                 name="calc_late"
                                                                 id="calc_late"
-                                                                class="rangeSlider changeDone"
+                                                                class="rangeSlider changeDone tab_2_content_invoices_paid_late"
                                                                 data-tab="2"
-                                                                value=""
-                                                                maxlength="10"
+                                                                value="10"
+                                                                maxlength="3"
                                                                 data-min="0"
                                                                 data-max="100"
+                                                                data-step="1"
                                                                 data-hide-min-max="true"
                                                                 data-hide-from-to="true"
                                                                 data-input-type="percent"
@@ -410,10 +468,11 @@
                                                         <input
                                                                 type="text"
                                                                 id="calc_late_visible"
-                                                                class="form-control inputPercent changeDone"
+                                                                class="form-control inputPercent selectMessage"
                                                                 data-tab="2"
-                                                                value=""
+                                                                value="5"
                                                                 maxlength="4"
+                                                                data-message="TBD"
                                                         >
 
                                                     </div>
@@ -428,24 +487,26 @@
                                                                 type="text"
                                                                 name="calc_payment"
                                                                 id="calc_payment"
-                                                                class="rangeSlider changeDone"
+                                                                class="rangeSlider changeDone tab_2_content_charged_per_late_payment"
                                                                 data-tab="2"
-                                                                value=""
-                                                                maxlength="10"
+                                                                value="1"
+                                                                maxlength="3"
                                                                 data-min="0"
-                                                                data-max="100"
+                                                                data-max="10"
+                                                                data-step="0.5"
                                                                 data-hide-min-max="true"
                                                                 data-hide-from-to="true"
-                                                                data-input-type="percent"
+                                                                data-input-type="percent_float"
                                                         >
 
                                                         <input
                                                                 type="text"
                                                                 id="calc_payment_visible"
-                                                                class="form-control inputPercent changeDone"
+                                                                class="form-control selectMessage"
                                                                 data-tab="2"
-                                                                value=""
+                                                                value="1"
                                                                 maxlength="4"
+                                                                data-message="TBD"
                                                         >
 
                                                     </div>
@@ -460,12 +521,13 @@
                                                                 type="text"
                                                                 name="calc_early_discount"
                                                                 id="calc_early_discount"
-                                                                class="rangeSlider changeDone"
+                                                                class="rangeSlider changeDone tab_2_content_invoices_missed_early_discount"
                                                                 data-tab="2"
-                                                                value=""
-                                                                maxlength="10"
+                                                                value="15"
+                                                                maxlength="3"
                                                                 data-min="0"
                                                                 data-max="100"
+                                                                data-step="1"
                                                                 data-hide-min-max="true"
                                                                 data-hide-from-to="true"
                                                                 data-input-type="percent"
@@ -474,10 +536,11 @@
                                                         <input
                                                                 type="text"
                                                                 id="calc_early_discount_visible"
-                                                                class="form-control inputPercent changeDone"
+                                                                class="form-control inputPercent selectMessage"
                                                                 data-tab="2"
-                                                                value=""
+                                                                value="15"
                                                                 maxlength="4"
+                                                                data-message="TBD"
                                                         >
 
                                                     </div>
@@ -494,10 +557,11 @@
                                                                 id="calc_pay_discount"
                                                                 class="rangeSlider changeDone"
                                                                 data-tab="2"
-                                                                value=""
-                                                                maxlength="10"
+                                                                value="2"
+                                                                maxlength="3"
                                                                 data-min="0"
-                                                                data-max="100"
+                                                                data-max="10"
+                                                                data-step="0.5"
                                                                 data-hide-min-max="true"
                                                                 data-hide-from-to="true"
                                                                 data-input-type="percent"
@@ -506,10 +570,11 @@
                                                         <input
                                                                 type="text"
                                                                 id="calc_pay_discount_visible"
-                                                                class="form-control inputPercent changeDone"
+                                                                class="form-control inputPercent selectMessage"
                                                                 data-tab="2"
-                                                                value=""
+                                                                value="2"
                                                                 maxlength="4"
+                                                                data-message="TBD"
                                                         >
 
                                                     </div>
@@ -524,24 +589,26 @@
                                                                 type="text"
                                                                 name="calc_duplicate_payment"
                                                                 id="calc_duplicate_payment"
-                                                                class="rangeSlider changeDone"
+                                                                class="rangeSlider changeDone tab_2_content_duplicate_payments"
                                                                 data-tab="2"
-                                                                value=""
-                                                                maxlength="10"
+                                                                value="0.05"
+                                                                maxlength="3"
                                                                 data-min="0"
-                                                                data-max="100"
+                                                                data-max="10"
+                                                                data-step="0.01"
                                                                 data-hide-min-max="true"
                                                                 data-hide-from-to="true"
-                                                                data-input-type="percent"
+                                                                data-input-type="percent_float"
                                                         >
 
                                                         <input
                                                                 type="text"
                                                                 id="calc_duplicate_payment_visible"
-                                                                class="form-control inputPercent changeDone"
+                                                                class="form-control selectMessage"
                                                                 data-tab="2"
-                                                                value=""
-                                                                maxlength="4"
+                                                                value="0.05"
+                                                                maxlength="5"
+                                                                data-message="TBD"
                                                         >
 
                                                     </div>
@@ -570,22 +637,22 @@
 
                                                         <li>
                                                             <p>Your average people cost per Invoice:</p>
-                                                            <span>$ 400,000</span>
+                                                            <span class="tab_2_footer_invoice">$ 400,000</span>
                                                         </li>
 
                                                         <li>
                                                             <p>Annual savings for eliminating late payments:</p>
-                                                            <span>$ 400,000</span>
+                                                            <span class="tab_2_footer_late_payments">$ 400,000</span>
                                                         </li>
 
                                                         <li>
                                                             <p>Annual savings for eliminating missed discounts:</p>
-                                                            <span>$ 400,000</span>
+                                                            <span class="tab_2_footer_discounts">$ 400,000</span>
                                                         </li>
 
                                                         <li>
                                                             <p>Annual savings for eliminating duplicate payments:</p>
-                                                            <span>$ 400,000</span>
+                                                            <span class="tab_2_footer_duplicate_payments">$ 400,000</span>
                                                         </li>
 
                                                     </ul>

@@ -51,7 +51,9 @@ const Calculator = function () {
 
 						let value = data.from;
 
+						if( type === 'number' ) value = data.from;
 						if( type === 'percent' ) value = data.from + '%';
+						if( type === 'percent_float' ) value = data.from + '%';
 						if( type === 'money' ) value = '$' + (new Intl.NumberFormat('ja-JP').format(Math.floor(data.from)));
 
 						$inp_visible.prop('value', value);
@@ -61,7 +63,9 @@ const Calculator = function () {
 
 						let value = data.from;
 
+						if( type === 'number' ) value = data.from;
 						if( type === 'percent' ) value = data.from + '%';
+						if( type === 'percent_float' ) value = data.from + '%';
 						if( type === 'money' ) value = '$' + (new Intl.NumberFormat('ja-JP').format(Math.floor(data.from)));
 
 						$inp_visible.prop('value', value);
@@ -77,9 +81,115 @@ const Calculator = function () {
 				let slider_data = slider.data('ionRangeSlider');
 
 				/**
-				 * Percentage
+				 * Number
 				 */
 
+				if( type === 'number' ) {
+
+					/**
+					 * @keypress
+					 */
+					$inp_visible.keypress(function(event, parent) {
+
+						let regex 	= new RegExp('^[0-9]'),
+							key 	= String.fromCharCode(event.charCode ? event.which : event.charCode);
+
+						if (!regex.test(key)) {
+
+							event.preventDefault();
+							return false;
+
+						}
+
+					});
+
+					/**
+					 * @keyup
+					 */
+					$inp_visible.keyup(function(event, parent) {
+
+						let $this 	= $(this),
+							val 	= Replace($this.val()),
+							len		= val.length,
+							key 	= event.keyCode;
+
+						if( ! $this.val() ) {
+							this.select();
+						}
+
+						if( len === 0 ) {
+							val = min;
+							$this.val( val );
+							this.select();
+						}
+
+						if( val > max ) {
+							val = max;
+							$this.val( val );
+							this.select();
+						}
+
+						if( val < min ) {
+							val = min;
+							$this.val( val );
+							this.select();
+						}
+
+						if( key === 37 || key === 39 || key === 9 ) return false;
+
+						/**
+						 * Update Slider
+						 */
+						slider_data.update({
+							from	: val,
+							to		: val
+						});
+
+						AnimateNumber();
+
+					});
+
+					/**
+					 * Focus Number
+					 */
+					$inp_visible.focusin(function(event, parent) {
+
+						this.select();
+
+					});
+
+					/**
+					 * Click Number
+					 */
+					$inp_visible.click(function(event, parent) {
+
+						this.select();
+
+					});
+
+					/**
+					 * Select Number
+					 */
+					$inp_visible.select(function(event, parent) {
+
+						this.select();
+
+					});
+
+					/**
+					 * Paste
+					 */
+					$inp_visible.on('paste', function(event, parent) {
+
+						return false;
+
+					});
+
+				}
+
+				/**
+				 * Percentage
+				 */
 				if( type === 'percent' ) {
 
 					/**
@@ -105,7 +215,7 @@ const Calculator = function () {
 					$inp_visible.keyup(function(event, parent) {
 
 						let $this 	= $(this),
-							val 	= $this.val().replace('%', ''),
+							val 	= Replace($this.val()),
 							len		= val.length,
 							key 	= event.keyCode;
 
@@ -149,7 +259,7 @@ const Calculator = function () {
 					$inp_visible.focusin(function(event, parent) {
 
 						let $this_inp 	= $(this),
-							val_inp 	= $this_inp.val().replace('%', '');
+							val_inp 	= Replace($this_inp.val());
 						/**
 						 * Set Cursor
 						 */
@@ -163,7 +273,7 @@ const Calculator = function () {
 					$inp_visible.click(function(event, parent) {
 
 						let $this_inp 	= $(this),
-							val_inp 	= $this_inp.val().replace('%', '');
+							val_inp 	= Replace($this_inp.val());
 						/**
 						 * Set Cursor
 						 */
@@ -174,10 +284,144 @@ const Calculator = function () {
 					/**
 					 * Select Number
 					 */
-					$inp_visible.select(function(event, parent) {
+					// $inp_visible.select(function(event, parent) {
+					//
+					// 	let $this_inp 	= $(this),
+					// 		val_inp 	= $this_inp.val().replace('%', '');
+					// 	/**
+					// 	 * Set Cursor
+					// 	 */
+					// 	$this_inp[0].setSelectionRange(0, val_inp.length);
+					//
+					// });
+
+					/**
+					 * Paste
+					 */
+					$inp_visible.on('paste', function(event, parent) {
+						return false;
+					});
+
+				}
+
+				/**
+				 * Percentage Float
+				 */
+				if( type === 'percent_float' ) {
+
+					/**
+					 * @keypress
+					 */
+					$inp_visible.keypress(function(event, parent) {
+
+						let regex 	= new RegExp('^[0-9-%-.]'),
+							key 	= String.fromCharCode(event.charCode ? event.which : event.charCode);
+
+						if (!regex.test(key)) {
+
+							event.preventDefault();
+							return false;
+
+						}
+
+					});
+
+					/**
+					 * @keydown
+					 */
+					$inp_visible.keydown(function(event, parent) {
+
+						let $this = $(this);
+						setTimeout(function () {
+
+							let val = Number(Replace($this.val()));
+
+							if( val === 0 ) {
+								$this[0].setSelectionRange(0, 1);
+							}
+
+						}, 100)
+
+					});
+
+					/**
+					 * @keyup
+					 */
+					$inp_visible.keyup(function(event, parent) {
+
+						let $this 	= $(this),
+							val 	= ReplaceFloat($this.val()),
+							len		= val.length,
+							key 	= event.keyCode;
+
+						$this.val( val + '%');
+
+						if( len === 0 ) {
+							val = min;
+							$this.val( val + '%');
+							$this[0].setSelectionRange(0, 1);
+						}
+
+						if( val === 0 ) {
+							$this.val( val + '%');
+							$this[0].setSelectionRange(0, 1);
+						}
+
+						if( val > max ) {
+							val = max;
+							$this.val( val + '%');
+						}
+
+						if( val < min ) {
+							val = min;
+							$this.val( val + '%');
+						}
+
+						if( key === 37 || key === 39 || key === 9 ) return false;
+
+						/**
+						 * Set Cursor
+						 */
+						if( Number(val) === max ) {
+							$this[0].setSelectionRange(0, String(max).length);
+						}else{
+							$this[0].setSelectionRange(len, len);
+						}
+
+						/**
+						 * Update Slider
+						 */
+						slider_data.update({
+							from	: val,
+							to		: val
+						});
+
+						AnimateNumber();
+
+					});
+
+					/**
+					 * Focus Number
+					 */
+					$inp_visible.focusin(function(event, parent) {
 
 						let $this_inp 	= $(this),
-							val_inp 	= $this_inp.val().replace('%', '');
+							val_inp 	= ReplaceFloat($this_inp.val());
+
+						/**
+						 * Set Cursor
+						 */
+						$this_inp[0].setSelectionRange(0, val_inp.length);
+
+					});
+
+					/**
+					 * Click Number
+					 */
+					$inp_visible.click(function(event, parent) {
+
+						let $this_inp 	= $(this),
+							val_inp 	= ReplaceFloat($this_inp.val());
 						/**
 						 * Set Cursor
 						 */
@@ -197,7 +441,6 @@ const Calculator = function () {
 				/**
 				 * Money
 				 */
-
 				if( type === 'money' ) {
 
 					/**
@@ -223,11 +466,21 @@ const Calculator = function () {
 					$inp_visible.keyup(function(event, parent) {
 
 						let $this 	= $(this),
-							val 	= $this.val().replace(/[\$\,\.]/g, ''),
+							val 	= Replace($this.val()),
 							len		= val.length,
 							key 	= event.keyCode;
 
-						if( len === 0 ) val = 0;
+						if( len === 0 )
+							val = min;
+
+						if( val > max ) {
+							val = max;
+							$this[0].setSelectionRange(1, $this.val().length);
+						}
+
+
+						if( val < min )
+							val = min;
 
 						$(this).val( '$' + (new Intl.NumberFormat('ja-JP').format(Math.floor(val))));
 
@@ -258,7 +511,7 @@ const Calculator = function () {
 					$inp_visible.focusin(function(event, parent) {
 
 						let $this_inp 	= $(this),
-							val_inp 	= $this_inp.val().replace('$', '');
+							val_inp 	= Replace($this_inp.val());
 						/**
 						 * Set Cursor
 						 */
@@ -272,7 +525,7 @@ const Calculator = function () {
 					$inp_visible.click(function(event, parent) {
 
 						let $this_inp 	= $(this),
-							val_inp 	= $this_inp.val().replace('$', '');
+							val_inp 	= Replace($this_inp.val());
 						/**
 						 * Set Cursor
 						 */
@@ -286,7 +539,7 @@ const Calculator = function () {
 					$inp_visible.select(function(event, parent) {
 
 						let $this_inp 	= $(this),
-							val_inp 	= $this_inp.val().replace('$', '');
+							val_inp 	= Replace($this_inp.val());
 						/**
 						 * Set Cursor
 						 */
@@ -302,7 +555,6 @@ const Calculator = function () {
 					});
 
 				}
-
 
 			});
 
@@ -324,7 +576,6 @@ const Calculator = function () {
 
 			$('[data-tab="calc"]').parent().removeClass('active');
 			$this.parent().addClass('active');
-			//$this.parent().addClass('done');
 
 			$('.calc__tabs-content .item.active').removeClass('active');
 			$(tab).addClass('active');
@@ -343,6 +594,10 @@ const Calculator = function () {
 
 		});
 
+		$(document).on('keyup', '.changeDone', function (e, parent) {
+			Calculate();
+		});
+
 	};
 
 	/**
@@ -350,7 +605,6 @@ const Calculator = function () {
 	 * @constructor
 	 */
 	const AnimateNumber = function () {
-
 
 		$('.calc__result-total').removeClass('pulse');
 		$('.totalNumber').animateNumber({
@@ -556,6 +810,48 @@ const Calculator = function () {
 
 		});
 
+
+		/**
+		 * **********************************************
+		 * Input Number
+		 */
+
+		/**
+		 * @keyup
+		 */
+		$(document).on('keyup change', '.inputNumber', function (event, parent) {
+
+			let $this 		= $(this),
+				v 			= parseInt($this.val()),
+				min 		= parseInt($this.attr('min')),
+				max 		= parseInt($this.attr('max')),
+				maxlength 	= parseInt($this.attr('maxlength'));
+
+			if( ! $this.val() ) {
+				$this.val(0);
+				this.select();
+			}
+
+			if (v < min)
+				$this.val(min);
+
+			if (v > max)
+				$this.val(max);
+
+			if ($this.val().length > maxlength)
+				$this.val($this.val().slice(0, maxlength));
+
+		});
+
+		/**
+		 * @keypress
+		 */
+		$(document).on('focusin', '.inputNumber', function (event, parent) {
+
+			this.select();
+
+		});
+
 	}
 
 	/**
@@ -563,6 +859,12 @@ const Calculator = function () {
 	 * @constructor
 	 */
 	const Calculate = function () {
+
+		/**
+		 * Global Calc Variables
+		 * @type {number}
+		 */
+		let GLOBAL_your_total_annual_ap_processor_people_cost = 0;
 
 		/**
 		 * Calculate Tab 1
@@ -581,6 +883,7 @@ const Calculator = function () {
 				let tab_1_content_annual 		= Number(Replace($('.tab_1_content_annual').val())),
 					tab_1_content_burden_rate 	= Number(Replace($('.tab_1_content_burden_rate').val())),
 					tab_1_content_headcount_reduction = Number(Replace($('.tab_1_content_headcount_reduction').val())),
+					tab_1_content_full_time_processors = Number(Replace($('.tab_1_content_full_time_processors').val())),
 					total_1 = 0,
 					total_2 = 0,
 					total_3 = 0;
@@ -602,6 +905,11 @@ const Calculator = function () {
 				 * @type {number}
 				 */
 				total_3 = total_1 * tab_1_content_headcount_reduction;
+
+				/**
+				 * Set Global
+				 */
+				GLOBAL_your_total_annual_ap_processor_people_cost = Number(tab_1_content_full_time_processors * total_1);
 
 				/**
 				 * Currency Formated
@@ -626,6 +934,80 @@ const Calculator = function () {
 
 		tab_1();
 
+		/**
+		 * Calculate Tab 2
+		 */
+		const tab_2 = function () {
+
+			/**
+			 * Footer Calc
+			 */
+			const footer_calc = function () {
+
+				/**
+				 * Variables
+				 * @type {number}
+				 */
+				let tab_2_content_invoices_processed_per_year = $('.tab_2_content_invoices_processed_per_year').val(),
+					tab_2_content_annual_invoice = Replace($('.tab_2_content_annual_invoice').val()),
+					tab_2_content_invoices_paid_late = Replace($('.tab_2_content_invoices_paid_late').val()),
+					tab_2_content_charged_per_late_payment = ReplaceFloat($('.tab_2_content_charged_per_late_payment').val()),
+					tab_2_content_avg_amount_of_invoice = Replace($('.tab_2_content_avg_amount_of_invoice').val()),
+					tab_2_content_invoices_missed_early_discount = Replace($('.tab_2_content_invoices_missed_early_discount').val()),
+					tab_2_content_duplicate_payments = ReplaceFloat($('.tab_2_content_duplicate_payments').val()),
+					total_1 = 0,
+					total_2 = 0,
+					total_3 = 0,
+					total_4 = 0;
+
+				/**
+				 * Calc Item 1
+				 * @type {number}
+				 */
+				total_1 = Number(GLOBAL_your_total_annual_ap_processor_people_cost / tab_2_content_invoices_processed_per_year);
+
+				/**
+				 * Calc Item 2
+				 * @type {number}
+				 */
+				total_2 = Number(tab_2_content_annual_invoice * tab_2_content_invoices_paid_late * tab_2_content_charged_per_late_payment * tab_2_content_avg_amount_of_invoice);
+
+				/**
+				 * Calc Item 3
+				 * @type {number}
+				 */
+				total_3 = Number(tab_2_content_annual_invoice * tab_2_content_invoices_missed_early_discount * 0.02 * tab_2_content_avg_amount_of_invoice);
+
+				/**
+				 * Calc Item 4
+				 * @type {number}
+				 */
+				total_4 = Number(tab_2_content_duplicate_payments * tab_2_content_annual_invoice * tab_2_content_avg_amount_of_invoice);
+
+				/**
+				 * Currency Formated
+				 * @type {string}
+				 */
+				total_1 = Currency(total_1);
+				total_2 = Currency(total_2);
+				total_3 = Currency(total_3);
+				total_4 = Currency(total_4);
+
+				/**
+				 * Set Html
+				 */
+				$('.tab_2_footer_invoice').html(total_1);
+				$('.tab_2_footer_late_payments').html(total_2);
+				$('.tab_2_footer_discounts').html(total_3);
+				$('.tab_2_footer_duplicate_payments').html(total_4);
+
+			};
+			footer_calc();
+
+		};
+
+		tab_2();
+
 
 
 	}
@@ -639,6 +1021,21 @@ const Calculator = function () {
 	const Replace = function (val) {
 
 		const regEx = /[^\d]/g;
+		val = val.replace(regEx, '');
+
+		return val;
+
+	}
+
+	/**
+	 * Replacer Float
+	 * @param val
+	 * @returns integer
+	 * @constructor
+	 */
+	const ReplaceFloat = function (val) {
+
+		const regEx = /[^\d\.]/g;
 		val = val.replace(regEx, '');
 
 		return val;
