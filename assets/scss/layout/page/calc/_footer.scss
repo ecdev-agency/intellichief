@@ -9,7 +9,7 @@
       border-radius: 8px;
       position: relative;
       margin: 0 -3px;
-      font-size: 22px;
+      font-size: 18px;
       line-height: 1.4;
       color: $color-blue-dark;
       font-weight: normal;
@@ -17,7 +17,7 @@
       align-items: center;
       height: 200px;
       @include media(xl) {
-        font-size: 18px;
+        font-size: 16px;
         padding: 0px 40px 0px 35%;
       }
       @include media(lg) {

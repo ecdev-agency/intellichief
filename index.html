@@ -71,7 +71,7 @@
                                 <!-- Tabs > List -->
                                 <ul class="calc__tabs-list">
 
-                                    <li class="done active">
+                                    <li class="active">
 
                                         <a href="#tab-1" data-tab="calc">
                                             <span>People Costs</span>
@@ -128,79 +128,56 @@
                                                 <div class="calc__tab_first-form-row">
 
                                                     <!-- col -->
-                                                    <div class="calc__tab_first-form-row-col">
+                                                    <div class="calc__tab_first-form-row-col range">
 
-                                                        <label for="calc_full_time"># of Full-Time<br> AP Processors:</label>
-                                                        <select
-                                                                name="calc_full_time"
-                                                                id="calc_full_time"
-                                                                class="js-select animateNumber selectMessage"
-                                                                style="width: 100%"
-                                                                data-message="<strong>Enterprise Management</strong> - New Text Message Select Field #3."
+                                                        <label for="calc_full_time_processors"># of Full-Time<br> AP Processors:</label>
+
+                                                        <input
+                                                                type="text"
+                                                                name="calc_full_time_processors"
+                                                                id="calc_full_time_processors"
+                                                                class="rangeSlider changeDone tab_1_content_full_time_processors"
+                                                                data-tab="1"
+                                                                value="5"
+                                                                data-min="1"
+                                                                data-max="50"
+                                                                data-step="1"
+                                                                data-hide-min-max="true"
+                                                                data-hide-from-to="true"
+                                                                data-input-type="percent"
                                                         >
-                                                            <option></option>
-                                                            <option value="1">Item #1</option>
-                                                            <option value="2">Item #2</option>
-                                                            <option value="3">Item #3</option>
-                                                            <option value="4">Item #4</option>
-                                                            <option value="5">Item #5</option>
-                                                        </select>
+
+                                                        <input
+                                                                type="text"
+                                                                id="calc_full_time_processors_visible"
+                                                                class="form-control inputMessage changeDone"
+                                                                data-tab="1"
+                                                                value="5"
+                                                                maxlength="4"
+                                                                data-message="Your AP Processors are responsible for keeping your AP Department moving forward. From processing invoices to routing invoices for approval and performing other clerical tasks, your business can't function without them. But how do you know that you have the right # of employees to efficiently handle AP?"
+                                                        >
 
                                                     </div>
                                                     <!-- end col -->
 
                                                     <!-- col -->
-                                                    <div class="calc__tab_first-form-row-col group">
+                                                    <div class="calc__tab_first-form-row-col">
 
-                                                        <!-- left -->
-                                                        <div class="left">
-
-                                                            <label for="calc_reduction">AP Automation<br> Headcount Reduction:</label>
-                                                            <select
-                                                                    name="calc_reduction"
-                                                                    id="calc_reduction"
-                                                                    class="js-select animateNumber selectMessage"
-                                                                    style="width: 100%"
-                                                                    data-message="<strong>Enterprise Management</strong> - New Text Message Select Field #2."
-                                                            >
-                                                                <option></option>
-                                                                <option value="1">Item #1</option>
-                                                                <option value="2">Item #2</option>
-                                                                <option value="3">Item #3</option>
-                                                                <option value="4">Item #4</option>
-                                                                <option value="5">Item #5</option>
-                                                            </select>
-
-                                                        </div>
-                                                        <!-- end left -->
-
-                                                        <!-- right -->
-                                                        <div class="right">
-
-                                                            <label for="calc_percentage">
-                                                                <img
-                                                                        src="assets/images/info.png"
-                                                                        alt="AP Automation Headcount Reduction"
-                                                                        title="AP Automation Headcount Reduction"
-                                                                >
-                                                            </label>
-                                                            <select
-                                                                    name="calc_percentage"
-                                                                    id="calc_percentage"
-                                                                    class="js-select animateNumber selectMessage"
-                                                                    style="width: 100%"
-                                                                    data-message="<strong>Enterprise Management</strong> - New Text Message Select Field #1."
-                                                            >
-                                                                <option></option>
-                                                                <option value="1">40%</option>
-                                                                <option value="2">60%</option>
-                                                                <option value="3">70%</option>
-                                                                <option value="4">80%</option>
-                                                                <option value="5">100%</option>
-                                                            </select>
-
-                                                        </div>
-                                                        <!-- end right -->
+                                                        <label for="calc_reduction">AP Automation<br> Headcount Reduction:</label>
+                                                        <input
+                                                                type="text"
+                                                                name="calc_reduction"
+                                                                id="calc_reduction"
+                                                                class="form-control animateNumber inputMessage inputPercent changeDone tab_1_content_headcount_reduction"
+                                                                data-tab="1"
+                                                                placeholder=""
+                                                                value="5%"
+                                                                data-min="0"
+                                                                data-max="70"
+                                                                data-step="10"
+                                                                maxlength="10"
+                                                                data-message="IntelliChief eliminates problems of scale by allowing you to process more invoices with fewer employees. Even as your invoice volume increases, IntelliChief continues to handle the bulk of your AP workload, reducing the need for additional or extraneous headcount."
+                                                        >
 
                                                     </div>
                                                     <!-- end col -->
@@ -213,11 +190,14 @@
                                                                 type="text"
                                                                 name="calc_salary"
                                                                 id="calc_salary"
-                                                                class="form-control animateNumber inputMessage inputMoney"
+                                                                class="form-control animateNumber inputMessage inputMoney changeDone tab_1_content_annual"
+                                                                data-tab="1"
                                                                 placeholder=""
-                                                                value="$0"
+                                                                value="$39,720"
+                                                                data-min="0"
+                                                                data-max="150000"
                                                                 maxlength="10"
-                                                                data-message="<strong>Enterprise Management</strong> - New Text Message."
+                                                                data-message="According to Glassdoor, the average salary for an AP Processor is $39,270."
                                                         >
 
                                                     </div>
@@ -226,15 +206,17 @@
                                                     <!-- col -->
                                                     <div class="calc__tab_first-form-row-col range">
 
-                                                        <label for="calc_burden_rate">Average Burden Rate (%):</label>
+                                                        <label for="calc_burden_rate">Average Burden<br> Rate (%):</label>
 
                                                         <input
                                                                 type="text"
                                                                 name="calc_burden_rate"
                                                                 id="calc_burden_rate"
-                                                                class="rangeSlider"
-                                                                value=""
-                                                                data-min="0"
+                                                                class="rangeSlider changeDone tab_1_content_burden_rate"
+                                                                data-tab="1"
+                                                                value="12"
+                                                                data-min="1"
+                                                                data-step="1"
                                                                 data-max="100"
                                                                 data-hide-min-max="true"
                                                                 data-hide-from-to="true"
@@ -244,10 +226,11 @@
                                                         <input
                                                                 type="text"
                                                                 id="calc_burden_rate_visible"
-                                                                class="form-control inputMessage"
+                                                                class="form-control inputMessage changeDone"
+                                                                data-tab="1"
                                                                 value=""
                                                                 maxlength="4"
-                                                                data-message="<strong>Enterprise Management</strong> - New Text Message Input Percent Field #1."
+                                                                data-message="The burden rate refers to the total cost to a company for hiring and maintaining an employee beyond their direct compensation in wages. Burden rates will include items such as training, fringe benefits, sick leave, and pension contributions, among several others. Many costs associated with the burden rate, such as payroll tax and social security deductions, are mandated by the government. Others, such as pension contributions, may be optional."
                                                         >
 
                                                     </div>
@@ -275,18 +258,18 @@
                                                     <ul class="three">
 
                                                         <li>
-                                                            <p>AP Processor Fully Burdened Annual Salary</p>
-                                                            <span>$ 400,000</span>
+                                                            <p>AP Processor Fully Burdened Annual Salary:</p>
+                                                            <span class="tab_1_footer_annual">$ 0</span>
                                                         </li>
 
                                                         <li>
-                                                            <p>AP Processor Fully Burdened Hourly Rate</p>
-                                                            <span>$ 400,000</span>
+                                                            <p>AP Processor Fully Burdened Hourly Rate:</p>
+                                                            <span class="tab_1_footer_rate">$ 0</span>
                                                         </li>
 
                                                         <li>
-                                                            <p>Your Total AP Processor Cost Savings</p>
-                                                            <span>$ 400,000</span>
+                                                            <p>Your Total AP Processor Cost Savings:</p>
+                                                            <span class="tab_1_footer_cost">$ 0</span>
                                                         </li>
 
                                                     </ul>
@@ -329,7 +312,8 @@
                                                         <select
                                                                 name="calc_year"
                                                                 id="calc_year"
-                                                                class="js-select animateNumber"
+                                                                class="js-select animateNumber changeDone"
+                                                                data-tab="2"
                                                                 style="width: 100%"
                                                         >
                                                             <option></option>
@@ -350,7 +334,8 @@
                                                         <select
                                                                 name="calc_growth_rate"
                                                                 id="calc_growth_rate"
-                                                                class="js-select animateNumber"
+                                                                class="js-select animateNumber changeDone"
+                                                                data-tab="2"
                                                                 style="width: 100%"
                                                         >
                                                             <option></option>
@@ -379,7 +364,8 @@
                                                                 type="text"
                                                                 name="calc_invoice"
                                                                 id="calc_invoice"
-                                                                class="rangeSlider"
+                                                                class="rangeSlider changeDone"
+                                                                data-tab="2"
                                                                 value=""
                                                                 maxlength="10"
                                                                 data-min="0"
@@ -392,7 +378,8 @@
                                                         <input
                                                                 type="text"
                                                                 id="calc_invoice_visible"
-                                                                class="form-control"
+                                                                class="form-control changeDone"
+                                                                data-tab="2"
                                                                 value=""
                                                                 maxlength="11"
                                                         >
@@ -403,13 +390,14 @@
                                                     <!-- col -->
                                                     <div class="calc__tab_next-form-row-col range">
 
-                                                        <label for="calc_late">Annual % of<br> nvoices Paid Late:</label>
+                                                        <label for="calc_late">Annual % of<br> invoices Paid Late:</label>
 
                                                         <input
                                                                 type="text"
                                                                 name="calc_late"
                                                                 id="calc_late"
-                                                                class="rangeSlider"
+                                                                class="rangeSlider changeDone"
+                                                                data-tab="2"
                                                                 value=""
                                                                 maxlength="10"
                                                                 data-min="0"
@@ -422,7 +410,8 @@
                                                         <input
                                                                 type="text"
                                                                 id="calc_late_visible"
-                                                                class="form-control inputPercent"
+                                                                class="form-control inputPercent changeDone"
+                                                                data-tab="2"
                                                                 value=""
                                                                 maxlength="4"
                                                         >
@@ -439,7 +428,8 @@
                                                                 type="text"
                                                                 name="calc_payment"
                                                                 id="calc_payment"
-                                                                class="rangeSlider"
+                                                                class="rangeSlider changeDone"
+                                                                data-tab="2"
                                                                 value=""
                                                                 maxlength="10"
                                                                 data-min="0"
@@ -452,7 +442,8 @@
                                                         <input
                                                                 type="text"
                                                                 id="calc_payment_visible"
-                                                                class="form-control inputPercent"
+                                                                class="form-control inputPercent changeDone"
+                                                                data-tab="2"
                                                                 value=""
                                                                 maxlength="4"
                                                         >
@@ -469,7 +460,8 @@
                                                                 type="text"
                                                                 name="calc_early_discount"
                                                                 id="calc_early_discount"
-                                                                class="rangeSlider"
+                                                                class="rangeSlider changeDone"
+                                                                data-tab="2"
                                                                 value=""
                                                                 maxlength="10"
                                                                 data-min="0"
@@ -482,7 +474,8 @@
                                                         <input
                                                                 type="text"
                                                                 id="calc_early_discount_visible"
-                                                                class="form-control inputPercent"
+                                                                class="form-control inputPercent changeDone"
+                                                                data-tab="2"
                                                                 value=""
                                                                 maxlength="4"
                                                         >
@@ -499,7 +492,8 @@
                                                                 type="text"
                                                                 name="calc_pay_discount"
                                                                 id="calc_pay_discount"
-                                                                class="rangeSlider"
+                                                                class="rangeSlider changeDone"
+                                                                data-tab="2"
                                                                 value=""
                                                                 maxlength="10"
                                                                 data-min="0"
@@ -512,7 +506,8 @@
                                                         <input
                                                                 type="text"
                                                                 id="calc_pay_discount_visible"
-                                                                class="form-control inputPercent"
+                                                                class="form-control inputPercent changeDone"
+                                                                data-tab="2"
                                                                 value=""
                                                                 maxlength="4"
                                                         >
@@ -529,7 +524,8 @@
                                                                 type="text"
                                                                 name="calc_duplicate_payment"
                                                                 id="calc_duplicate_payment"
-                                                                class="rangeSlider"
+                                                                class="rangeSlider changeDone"
+                                                                data-tab="2"
                                                                 value=""
                                                                 maxlength="10"
                                                                 data-min="0"
@@ -542,7 +538,8 @@
                                                         <input
                                                                 type="text"
                                                                 id="calc_duplicate_payment_visible"
-                                                                class="form-control inputPercent"
+                                                                class="form-control inputPercent changeDone"
+                                                                data-tab="2"
                                                                 value=""
                                                                 maxlength="4"
                                                         >
@@ -640,7 +637,8 @@
                                                             <select
                                                                     name="calc_filing_invoices"
                                                                     id="calc_filing_invoices"
-                                                                    class="js-select animateNumber"
+                                                                    class="js-select animateNumber changeDone"
+                                                                    data-tab="3"
                                                                     style="width: 100%"
                                                             >
                                                                 <option></option>
@@ -667,7 +665,8 @@
                                                             <select
                                                                     name="calc_filing_invoices_percent"
                                                                     id="calc_filing_invoices_percent"
-                                                                    class="js-select animateNumber"
+                                                                    class="js-select animateNumber changeDone"
+                                                                    data-tab="3"
                                                                     style="width: 100%"
                                                             >
                                                                 <option></option>
@@ -694,7 +693,8 @@
                                                             <select
                                                                     name="calc_routed_for_approval"
                                                                     id="calc_routed_for_approval"
-                                                                    class="js-select animateNumber"
+                                                                    class="js-select animateNumber changeDone"
+                                                                    data-tab="3"
                                                                     style="width: 100%"
                                                             >
                                                                 <option></option>
@@ -721,7 +721,8 @@
                                                             <select
                                                                     name="calc_routed_for_approval_percent"
                                                                     id="calc_routed_for_approval_percent"
-                                                                    class="js-select animateNumber"
+                                                                    class="js-select animateNumber changeDone"
+                                                                    data-tab="3"
                                                                     style="width: 100%"
                                                             >
                                                                 <option></option>
@@ -748,7 +749,8 @@
                                                             <select
                                                                     name="calc_exception_handling"
                                                                     id="calc_exception_handling"
-                                                                    class="js-select animateNumber"
+                                                                    class="js-select animateNumber changeDone"
+                                                                    data-tab="3"
                                                                     style="width: 100%"
                                                             >
                                                                 <option></option>
@@ -775,7 +777,8 @@
                                                             <select
                                                                     name="calc_exception_handling_percent"
                                                                     id="calc_exception_handling_percent"
-                                                                    class="js-select animateNumber"
+                                                                    class="js-select animateNumber changeDone"
+                                                                    data-tab="3"
                                                                     style="width: 100%"
                                                             >
                                                                 <option></option>
@@ -802,7 +805,8 @@
                                                             <select
                                                                     name="calc_resolving_duplicate_payments"
                                                                     id="calc_resolving_duplicate_payments"
-                                                                    class="js-select animateNumber"
+                                                                    class="js-select animateNumber changeDone"
+                                                                    data-tab="3"
                                                                     style="width: 100%"
                                                             >
                                                                 <option></option>
@@ -829,7 +833,8 @@
                                                             <select
                                                                     name="calc_resolving_duplicate_payments_percent"
                                                                     id="calc_resolving_duplicate_payments_percent"
-                                                                    class="js-select animateNumber"
+                                                                    class="js-select animateNumber changeDone"
+                                                                    data-tab="3"
                                                                     style="width: 100%"
                                                             >
                                                                 <option></option>
@@ -856,7 +861,8 @@
                                                             <select
                                                                     name="calc_conversions_discrepancies"
                                                                     id="calc_conversions_discrepancies"
-                                                                    class="js-select animateNumber"
+                                                                    class="js-select animateNumber changeDone"
+                                                                    data-tab="3"
                                                                     style="width: 100%"
                                                             >
                                                                 <option></option>
@@ -883,7 +889,8 @@
                                                             <select
                                                                     name="calc_conversions_discrepancies_percent"
                                                                     id="calc_conversions_discrepancies_percent"
-                                                                    class="js-select animateNumber"
+                                                                    class="js-select animateNumber changeDone"
+                                                                    data-tab="3"
                                                                     style="width: 100%"
                                                             >
                                                                 <option></option>
@@ -910,7 +917,8 @@
                                                             <select
                                                                     name="calc_erp_system"
                                                                     id="calc_erp_system"
-                                                                    class="js-select animateNumber"
+                                                                    class="js-select animateNumber changeDone"
+                                                                    data-tab="3"
                                                                     style="width: 100%"
                                                             >
                                                                 <option></option>
@@ -937,7 +945,8 @@
                                                             <select
                                                                     name="calc_erp_system_percent"
                                                                     id="calc_erp_system_percent"
-                                                                    class="js-select animateNumber"
+                                                                    class="js-select animateNumber changeDone"
+                                                                    data-tab="3"
                                                                     style="width: 100%"
                                                             >
                                                                 <option></option>
@@ -964,7 +973,8 @@
                                                             <select
                                                                     name="calc_ap_processing"
                                                                     id="calc_ap_processing"
-                                                                    class="js-select animateNumber"
+                                                                    class="js-select animateNumber changeDone"
+                                                                    data-tab="3"
                                                                     style="width: 100%"
                                                             >
                                                                 <option></option>
@@ -991,7 +1001,8 @@
                                                             <select
                                                                     name="calc_ap_processing_percent"
                                                                     id="calc_ap_processing_percent"
-                                                                    class="js-select animateNumber"
+                                                                    class="js-select animateNumber changeDone"
+                                                                    data-tab="3"
                                                                     style="width: 100%"
                                                             >
                                                                 <option></option>
@@ -1018,7 +1029,8 @@
                                                             <select
                                                                     name="calc_off_site_storage"
                                                                     id="calc_off_site_storage"
-                                                                    class="js-select animateNumber"
+                                                                    class="js-select animateNumber changeDone"
+                                                                    data-tab="3"
                                                                     style="width: 100%"
                                                             >
                                                                 <option></option>
@@ -1045,7 +1057,8 @@
                                                             <select
                                                                     name="calc_off_site_storage_percent"
                                                                     id="calc_off_site_storage_percent"
-                                                                    class="js-select animateNumber"
+                                                                    class="js-select animateNumber changeDone"
+                                                                    data-tab="3"
                                                                     style="width: 100%"
                                                             >
                                                                 <option></option>
@@ -1072,7 +1085,8 @@
                                                             <select
                                                                     name="calc_audit_inquiries"
                                                                     id="calc_audit_inquiries"
-                                                                    class="js-select animateNumber"
+                                                                    class="js-select animateNumber changeDone"
+                                                                    data-tab="3"
                                                                     style="width: 100%"
                                                             >
                                                                 <option></option>
@@ -1099,7 +1113,8 @@
                                                             <select
                                                                     name="calc_audit_inquiries_percent"
                                                                     id="calc_audit_inquiries_percent"
-                                                                    class="js-select animateNumber"
+                                                                    class="js-select animateNumber changeDone"
+                                                                    data-tab="3"
                                                                     style="width: 100%"
                                                             >
                                                                 <option></option>
@@ -1198,7 +1213,8 @@
                                                                     name="calc_form_first_name"
                                                                     id="calc_form_first_name"
                                                                     value=""
-                                                                    class="form-control"
+                                                                    class="form-control changeDone"
+                                                                    data-tab="4"
                                                             >
 
                                                         </div>
@@ -1213,7 +1229,8 @@
                                                                     name="calc_form_last_name"
                                                                     id="calc_form_last_name"
                                                                     value=""
-                                                                    class="form-control"
+                                                                    class="form-control changeDone"
+                                                                    data-tab="4"
                                                             >
 
                                                         </div>
@@ -1228,7 +1245,8 @@
                                                                     name="calc_form_company"
                                                                     id="calc_form_company"
                                                                     value=""
-                                                                    class="form-control"
+                                                                    class="form-control changeDone"
+                                                                    data-tab="4"
                                                             >
 
                                                         </div>
@@ -1243,7 +1261,8 @@
                                                                     name="calc_form_email"
                                                                     id="calc_form_email"
                                                                     value=""
-                                                                    class="form-control"
+                                                                    class="form-control changeDone"
+                                                                    data-tab="4"
                                                             >
 
                                                         </div>
@@ -1258,7 +1277,8 @@
                                                                     name="calc_form_erp"
                                                                     id="calc_form_erp"
                                                                     value=""
-                                                                    class="form-control"
+                                                                    class="form-control changeDone"
+                                                                    data-tab="4"
                                                             >
 
                                                         </div>
@@ -1273,7 +1293,8 @@
                                                                     name="calc_form_country"
                                                                     id="calc_form_country"
                                                                     value=""
-                                                                    class="form-control"
+                                                                    class="form-control changeDone"
+                                                                    data-tab="4"
                                                             >
 
                                                         </div>
@@ -1298,7 +1319,8 @@
                                                             <select
                                                                     name="calc_form_project"
                                                                     id="calc_form_project"
-                                                                    class="js-select"
+                                                                    class="js-select changeDone"
+                                                                    data-tab="4"
                                                                     style="width: 100%"
                                                             >
                                                                 <option></option>
