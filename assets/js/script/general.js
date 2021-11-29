@@ -16,12 +16,27 @@ const Calculator = function () {
     const pluginStart = function () {
 
 		/**
-		 * Select2
+		 * Select2 Default
 		 */
 		$('.js-select').select2({
 			placeholder					: '- Select a Value -',
 			allowClear					: true,
 			minimumResultsForSearch		: Infinity,
+		});
+
+		/**
+		 * Select2 Countries
+		 */
+		$('.js-select-countries').select2({
+			placeholder					: '- Select a Value -',
+			allowClear					: true,
+			selectOnClose				: false,
+			tags						: false,
+			tokenSeparators				: [',', ' '],
+			ajax						: {
+				dataType : "json",
+				url      : "./assets/js/json/countries.json",
+			},
 		});
 
 	};
@@ -577,6 +592,8 @@ const Calculator = function () {
 			$('[data-tab="calc"]').parent().removeClass('active');
 			$this.parent().addClass('active');
 
+			$('.calc__tabs-list li.active').addClass('done');
+
 			$('.calc__tabs-content .item.active').removeClass('active');
 			$(tab).addClass('active');
 
@@ -586,9 +603,9 @@ const Calculator = function () {
 
 			e.preventDefault();
 
-			let tab = $(this).data('tab');
-
-			$('.calc__tabs-list li.active').addClass('done');
+			// let tab = $(this).data('tab');
+			//
+			// $('.calc__tabs-list li.active').addClass('done');
 
 			Calculate();
 
@@ -822,19 +839,14 @@ const Calculator = function () {
 		$(document).on('keyup change', '.inputNumber', function (event, parent) {
 
 			let $this 		= $(this),
-				v 			= parseInt($this.val()),
-				min 		= parseInt($this.attr('min')),
-				max 		= parseInt($this.attr('max')),
+				v 			= parseFloat($this.val()),
+				min 		= parseFloat($this.attr('min')),
+				max 		= parseFloat($this.attr('max')),
 				maxlength 	= parseInt($this.attr('maxlength'));
-
-			if( ! $this.val() ) {
-				$this.val(0);
-				this.select();
-			}
 
 			if (v < min)
 				$this.val(min);
-
+			//
 			if (v > max)
 				$this.val(max);
 
@@ -850,6 +862,40 @@ const Calculator = function () {
 
 			this.select();
 
+		});
+
+		/**
+		 * @keydown
+		 */
+		$(document).on('keydown', '.inputNumber', function (event, parent) {
+
+			let $this = $(this);
+
+			setTimeout(function () {
+
+				let val = $this.val();
+
+				if( val === '' ) {
+
+					$this.val(0);
+					$this.select();
+
+				}
+
+			}, 100);
+
+		});
+
+		/**
+		 * @change
+		 * @keyup
+		 * @input
+		 * @click
+		 */
+		$('.inputNumber').bind('change keyup input click', function() {
+			if (this.value.match(/[^0-9\.]/g)) {
+				this.value = this.value.replace(/[^0-9\.]/g, '');
+			}
 		});
 
 	}
@@ -872,9 +918,9 @@ const Calculator = function () {
 		const tab_1 = function () {
 
 			/**
-			 * Footer Calc
+			 * Calc
 			 */
-			const footer_calc = function () {
+			const calc = function () {
 
 				/**
 				 * Variables
@@ -883,6 +929,7 @@ const Calculator = function () {
 				let tab_1_content_annual 		= Number(Replace($('.tab_1_content_annual').val())),
 					tab_1_content_burden_rate 	= Number(Replace($('.tab_1_content_burden_rate').val())),
 					tab_1_content_headcount_reduction = Number(Replace($('.tab_1_content_headcount_reduction').val())),
+					tab_1_content_headcount_reduction_ic_saver = Number($('.tab_1_content_headcount_reduction').val()),
 					tab_1_content_full_time_processors = Number(Replace($('.tab_1_content_full_time_processors').val())),
 					total_1 = 0,
 					total_2 = 0,
@@ -892,7 +939,7 @@ const Calculator = function () {
 				 * Calc Item 1
 				 * @type {number}
 				 */
-				total_1 = tab_1_content_annual + ((tab_1_content_burden_rate / 100) * tab_1_content_annual);
+				total_1 = tab_1_content_annual + (parseFloat(tab_1_content_burden_rate / 100) * tab_1_content_annual);
 
 				/**
 				 * Calc Item 2
@@ -927,7 +974,7 @@ const Calculator = function () {
 				$('.tab_1_footer_cost').html(total_3);
 
 			};
-			footer_calc();
+			calc();
 
 
 		};
@@ -940,9 +987,9 @@ const Calculator = function () {
 		const tab_2 = function () {
 
 			/**
-			 * Footer Calc
+			 * Calc
 			 */
-			const footer_calc = function () {
+			const calc = function () {
 
 				/**
 				 * Variables
@@ -955,6 +1002,7 @@ const Calculator = function () {
 					tab_2_content_avg_amount_of_invoice = Replace($('.tab_2_content_avg_amount_of_invoice').val()),
 					tab_2_content_invoices_missed_early_discount = Replace($('.tab_2_content_invoices_missed_early_discount').val()),
 					tab_2_content_duplicate_payments = ReplaceFloat($('.tab_2_content_duplicate_payments').val()),
+					tab_2_content_average_of_early_pay_discount = ReplaceFloat($('.tab_2_content_average_of_early_pay_discount').val()),
 					total_1 = 0,
 					total_2 = 0,
 					total_3 = 0,
@@ -964,25 +1012,25 @@ const Calculator = function () {
 				 * Calc Item 1
 				 * @type {number}
 				 */
-				total_1 = Number(GLOBAL_your_total_annual_ap_processor_people_cost / tab_2_content_invoices_processed_per_year);
+				total_1 = Number(tab_2_content_invoices_processed_per_year / GLOBAL_your_total_annual_ap_processor_people_cost);
 
 				/**
 				 * Calc Item 2
 				 * @type {number}
 				 */
-				total_2 = Number(tab_2_content_annual_invoice * tab_2_content_invoices_paid_late * tab_2_content_charged_per_late_payment * tab_2_content_avg_amount_of_invoice);
+				total_2 = Number(tab_2_content_invoices_processed_per_year * parseFloat(tab_2_content_invoices_paid_late / 100) * parseFloat(tab_2_content_charged_per_late_payment / 100) * tab_2_content_avg_amount_of_invoice);
 
 				/**
 				 * Calc Item 3
 				 * @type {number}
 				 */
-				total_3 = Number(tab_2_content_annual_invoice * tab_2_content_invoices_missed_early_discount * 0.02 * tab_2_content_avg_amount_of_invoice);
+				total_3 = Number(tab_2_content_invoices_processed_per_year * parseFloat(tab_2_content_invoices_missed_early_discount / 100) * parseFloat(tab_2_content_average_of_early_pay_discount / 100) * tab_2_content_avg_amount_of_invoice);
 
 				/**
 				 * Calc Item 4
 				 * @type {number}
 				 */
-				total_4 = Number(tab_2_content_duplicate_payments * tab_2_content_annual_invoice * tab_2_content_avg_amount_of_invoice);
+				total_4 = Number(parseFloat(tab_2_content_duplicate_payments / 100) * tab_2_content_annual_invoice * tab_2_content_avg_amount_of_invoice);
 
 				/**
 				 * Currency Formated
@@ -1002,13 +1050,76 @@ const Calculator = function () {
 				$('.tab_2_footer_duplicate_payments').html(total_4);
 
 			};
-			footer_calc();
+			calc();
 
 		};
 
 		tab_2();
 
+		/**
+		 * Calculate Tab 3
+		 */
+		const tab_3 = function () {
 
+			/**
+			 * Calc
+			 */
+			const calc = function () {
+
+				/**
+				 * Variables
+				 * @type {number}
+				 */
+				let total_1 = 0,
+					total_2 = 0;
+
+
+			};
+			calc();
+
+		};
+
+		tab_3();
+
+
+	}
+
+	/**
+	 * Calculate Event
+	 * @constructor
+	 */
+	const CalculateEvent = function () {
+
+		/**
+		 * @change
+		 */
+		$(document).on('change', '.tab_1_content_headcount_reduction_ic_saver', function (e, parent) {
+
+			e.preventDefault();
+
+			let val 	= $(this).val(),
+				total 	= parseFloat($('.tab_1_content_full_time_processors').val() * val);
+
+			$('.tab_1_content_headcount_reduction').val(FormatedNumber(total));
+
+		});
+
+		/**
+		 * @change
+		 */
+		$(document).on('change', '.tab_1_content_full_time_processors', function (e, parent) {
+
+			e.preventDefault();
+
+			let val 	= $(this).val(),
+				total 	= Number(val * $('.tab_1_content_headcount_reduction_ic_saver').val());
+
+			console.log(total);
+
+			$('.tab_1_content_headcount_reduction').val(FormatedNumber(total));
+
+
+		});
 
 	}
 
@@ -1056,6 +1167,19 @@ const Calculator = function () {
 
 	}
 
+	/**
+	 *
+	 * @param val
+	 * @returns {*}
+	 * @constructor
+	 */
+	const FormatedNumber = function (val) {
+
+		val = Math.round( val * 100 + Number.EPSILON ) / 100;
+
+		return val;
+	}
+
     /**
      * Init
      */
@@ -1067,6 +1191,7 @@ const Calculator = function () {
 			Message();
 			Formated();
 			Calculate();
+			CalculateEvent();
 		}
 	};
 

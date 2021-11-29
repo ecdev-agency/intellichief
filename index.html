@@ -71,7 +71,7 @@
                                 <!-- Tabs > List -->
                                 <ul class="calc__tabs-list">
 
-                                    <li class="active">
+                                    <li class="done active">
 
                                         <a href="#tab-1" data-tab="calc">
                                             <span>People Costs</span>
@@ -170,10 +170,10 @@
 
                                                             <label for="calc_filing_invoices">AP Automation<br> Headcount Reduction:</label>
                                                             <input
-                                                                    type="number"
+                                                                    type="text"
                                                                     name="calc_reduction"
                                                                     id="calc_reduction"
-                                                                    class="form-control animateNumber inputNumber inputMessage changeDone tab_1_content_headcount_reduction"
+                                                                    class="form-control animateNumber inputNumber inputMessage inputDisable changeDone tab_1_content_headcount_reduction"
                                                                     data-tab="1"
                                                                     placeholder=""
                                                                     value="2"
@@ -181,6 +181,7 @@
                                                                     min="0"
                                                                     maxlength="5"
                                                                     data-message="IntelliChief eliminates problems of scale by allowing you to process more invoices with fewer employees. Even as your invoice volume increases, IntelliChief continues to handle the bulk of your AP workload, reducing the need for additional or extraneous headcount."
+                                                                    readonly="readonly"
                                                             >
 
                                                         </div>
@@ -199,9 +200,10 @@
                                                             <select
                                                                     name="calc_reduction_in_headcount"
                                                                     id="calc_reduction_in_headcount"
-                                                                    class="js-select animateNumber changeDone"
+                                                                    class="js-select animateNumber selectMessage changeDone tab_1_content_headcount_reduction_ic_saver"
                                                                     data-tab="3"
                                                                     style="width: 100%"
+                                                                    data-message="IntelliChief eliminates problems of scale by allowing you to process more invoices with fewer employees. Even as your invoice volume increases, IntelliChief continues to handle the bulk of your AP workload, reducing the need for additional or extraneous headcount."
                                                             >
                                                                 <option></option>
                                                                 <option value="0">0%</option>
@@ -363,13 +365,13 @@
                                                             <option value="149999">100,001-149,999</option>
                                                             <option value="200000">150,000-200,000</option>
                                                             <option value="300000">250,000-300,000</option>
-                                                            <option value="400000">350-400,000</option>
-                                                            <option value="450000">400-450,000</option>
+                                                            <option value="400000">350,000-400,000</option>
+                                                            <option value="450000">400,000-450,000</option>
                                                             <option value="500000">450,000-500,00</option>
-                                                            <option value="600000">500-600,000</option>
+                                                            <option value="600000">500,000-600,000</option>
                                                             <option value="700000">600,000-700,000</option>
-                                                            <option value="800000">700-800,000</option>
-                                                            <option value="900000">800-900,000</option>
+                                                            <option value="800000">700,000-800,000</option>
+                                                            <option value="900000">800,000-900,000</option>
                                                             <option value="900000">900,000+</option>
                                                         </select>
 
@@ -421,11 +423,11 @@
                                                                 id="calc_invoice"
                                                                 class="rangeSlider changeDone tab_2_content_avg_amount_of_invoice"
                                                                 data-tab="2"
-                                                                value="5"
+                                                                value="5000"
                                                                 maxlength="6"
                                                                 data-min="0"
                                                                 data-max="100000"
-                                                                data-step="1"
+                                                                data-step="1000"
                                                                 data-hide-min-max="true"
                                                                 data-hide-from-to="true"
                                                                 data-input-type="money"
@@ -436,7 +438,7 @@
                                                                 id="calc_invoice_visible"
                                                                 class="form-control inputMessage"
                                                                 data-tab="2"
-                                                                value="5"
+                                                                value="5000"
                                                                 maxlength="8"
                                                                 data-message="The higher the value of your invoices, the more critical  it becomes to ensure that they are being processed accurately. The last thing your  organization needs is to pay the same $100,000 invoice twice!"
                                                         >
@@ -555,7 +557,7 @@
                                                                 type="text"
                                                                 name="calc_pay_discount"
                                                                 id="calc_pay_discount"
-                                                                class="rangeSlider changeDone"
+                                                                class="rangeSlider changeDone tab_2_content_average_of_early_pay_discount"
                                                                 data-tab="2"
                                                                 value="2"
                                                                 maxlength="3"
@@ -1339,14 +1341,20 @@
                                                         <div class="calc__tab_end-form-row-col">
 
                                                             <label for="calc_form_erp">ERP:</label>
-                                                            <input
-                                                                    type="text"
+                                                            <select
                                                                     name="calc_form_erp"
                                                                     id="calc_form_erp"
-                                                                    value=""
-                                                                    class="form-control changeDone"
+                                                                    class="js-select changeDone"
                                                                     data-tab="4"
+                                                                    style="width: 100%"
                                                             >
+                                                                <option></option>
+                                                                <option value="0">#item 1</option>
+                                                                <option value="1">#item 2</option>
+                                                                <option value="2">#item 3</option>
+                                                                <option value="3">#item 4</option>
+                                                                <option value="4">#item 5</option>
+                                                            </select>
 
                                                         </div>
                                                         <!-- end col -->
@@ -1355,14 +1363,15 @@
                                                         <div class="calc__tab_end-form-row-col">
 
                                                             <label for="calc_form_country">Country:</label>
-                                                            <input
-                                                                    type="text"
+                                                            <select
                                                                     name="calc_form_country"
                                                                     id="calc_form_country"
-                                                                    value=""
-                                                                    class="form-control changeDone"
+                                                                    class="js-select-countries changeDone"
                                                                     data-tab="4"
+                                                                    style="width: 100%"
                                                             >
+                                                                <option></option>
+                                                            </select>
 
                                                         </div>
                                                         <!-- end col -->
@@ -1391,11 +1400,8 @@
                                                                     style="width: 100%"
                                                             >
                                                                 <option></option>
-                                                                <option value="1">Item #1</option>
-                                                                <option value="2">Item #2</option>
-                                                                <option value="3">Item #3</option>
-                                                                <option value="4">Item #4</option>
-                                                                <option value="5">Item #5</option>
+                                                                <option value="Yes">Yes</option>
+                                                                <option value="No">No</option>
                                                             </select>
 
                                                         </div>
