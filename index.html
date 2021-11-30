@@ -136,7 +136,7 @@
                                                                 type="text"
                                                                 name="calc_full_time_processors"
                                                                 id="calc_full_time_processors"
-                                                                class="rangeSlider changeDone tab_1_content_full_time_processors"
+                                                                class="rangeSlider tab_1_content_full_time_processors"
                                                                 data-tab="1"
                                                                 value="5"
                                                                 data-min="1"
@@ -173,7 +173,7 @@
                                                                     type="text"
                                                                     name="calc_reduction"
                                                                     id="calc_reduction"
-                                                                    class="form-control animateNumber inputNumber inputMessage inputDisable changeDone tab_1_content_headcount_reduction"
+                                                                    class="form-control changeDone animateNumber inputNumber inputMessage inputDisable changeDone tab_1_content_headcount_reduction"
                                                                     data-tab="1"
                                                                     placeholder=""
                                                                     value="2"
@@ -200,7 +200,7 @@
                                                             <select
                                                                     name="calc_reduction_in_headcount"
                                                                     id="calc_reduction_in_headcount"
-                                                                    class="js-select animateNumber selectMessage changeDone tab_1_content_headcount_reduction_ic_saver"
+                                                                    class="js-select animateNumber selectMessage tab_1_content_headcount_reduction_ic_saver"
                                                                     data-tab="3"
                                                                     style="width: 100%"
                                                                     data-message="IntelliChief eliminates problems of scale by allowing you to process more invoices with fewer employees. Even as your invoice volume increases, IntelliChief continues to handle the bulk of your AP workload, reducing the need for additional or extraneous headcount."
@@ -388,6 +388,7 @@
                                                                 class="js-select animateNumber changeDone tab_2_content_annual_invoice"
                                                                 data-tab="2"
                                                                 style="width: 100%"
+                                                                data-message="TBD"
                                                         >
                                                             <option></option>
                                                             <option value="0">0%</option>
@@ -1366,11 +1367,11 @@
                                                             <select
                                                                     name="calc_form_country"
                                                                     id="calc_form_country"
-                                                                    class="js-select-countries changeDone"
+                                                                    class="js-select-countries inputFormCountry"
                                                                     data-tab="4"
                                                                     style="width: 100%"
                                                             >
-                                                                <option></option>
+                                                                <option value="US" selected="selected">United States</option>
                                                             </select>
 
                                                         </div>
@@ -1421,7 +1422,7 @@
                                                 <!-- end description -->
 
                                                 <!-- check -->
-                                                <div class="calc__tab_end-form-check">
+                                                <div class="calc__tab_end-form-check acceptForm hidden">
 
                                                     <!-- checkbox -->
                                                     <div class="form-control-checkbox">

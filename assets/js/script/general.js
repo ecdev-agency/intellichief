@@ -18,26 +18,33 @@ const Calculator = function () {
 		/**
 		 * Select2 Default
 		 */
-		$('.js-select').select2({
+		let $inSelect = $('.js-select').select2({
 			placeholder					: '- Select a Value -',
-			allowClear					: true,
+			allowClear					: false,
 			minimumResultsForSearch		: Infinity,
+			minimumResultsForSearch		: -1,
 		});
 
 		/**
-		 * Select2 Countries
+		 * After Open Select set Message
 		 */
-		$('.js-select-countries').select2({
-			placeholder					: '- Select a Value -',
-			allowClear					: true,
-			selectOnClose				: false,
-			tags						: false,
-			tokenSeparators				: [',', ' '],
-			ajax						: {
-				dataType : "json",
-				url      : "./assets/js/json/countries.json",
-			},
+		$inSelect.on('select2:open', function (e) {
+
+			let id 			= e.target.id,
+				$container 	= $('.containerMessage');
+
+			if( id.length ) {
+
+				let message = $('#' + id).data('message');
+
+				//if( message.length ) {
+					$container.html(message);
+				//}
+
+			}
+
 		});
+
 
 	};
 
@@ -84,7 +91,7 @@ const Calculator = function () {
 						if( type === 'money' ) value = '$' + (new Intl.NumberFormat('ja-JP').format(Math.floor(data.from)));
 
 						$inp_visible.prop('value', value);
-
+						$inp_visible.trigger('change');
 
 					},
 					onFinish: function () {
@@ -928,7 +935,7 @@ const Calculator = function () {
 				 */
 				let tab_1_content_annual 		= Number(Replace($('.tab_1_content_annual').val())),
 					tab_1_content_burden_rate 	= Number(Replace($('.tab_1_content_burden_rate').val())),
-					tab_1_content_headcount_reduction = Number(Replace($('.tab_1_content_headcount_reduction').val())),
+					tab_1_content_headcount_reduction = Number($('.tab_1_content_headcount_reduction').val()),
 					tab_1_content_headcount_reduction_ic_saver = Number($('.tab_1_content_headcount_reduction').val()),
 					tab_1_content_full_time_processors = Number(Replace($('.tab_1_content_full_time_processors').val())),
 					total_1 = 0,
@@ -951,7 +958,7 @@ const Calculator = function () {
 				 * Calc Item 3
 				 * @type {number}
 				 */
-				total_3 = total_1 * tab_1_content_headcount_reduction;
+				total_3 = Number(total_1 * tab_1_content_headcount_reduction);
 
 				/**
 				 * Set Global
@@ -1100,7 +1107,7 @@ const Calculator = function () {
 			let val 	= $(this).val(),
 				total 	= parseFloat($('.tab_1_content_full_time_processors').val() * val);
 
-			$('.tab_1_content_headcount_reduction').val(FormatedNumber(total));
+			$('.tab_1_content_headcount_reduction').val(FormatedNumber(total)).trigger('change');
 
 		});
 
@@ -1116,7 +1123,7 @@ const Calculator = function () {
 
 			console.log(total);
 
-			$('.tab_1_content_headcount_reduction').val(FormatedNumber(total));
+			$('.tab_1_content_headcount_reduction').val(FormatedNumber(total)).trigger('change');
 
 
 		});
@@ -1180,6 +1187,47 @@ const Calculator = function () {
 		return val;
 	}
 
+	/**
+	 *
+	 * @param val
+	 * @returns {*}
+	 * @constructor
+	 */
+	const Form = function () {
+
+		/**
+		 * Select2 Countries
+		 */
+		$('.inputFormCountry').select2({
+			placeholder					: '- Select a Value -',
+			allowClear					: false,
+			selectOnClose				: false,
+			minimumResultsForSearch: 10,
+			tokenSeparators: [',', ' '],
+			tags: true,
+			minimumResultsForSearch		: Infinity,
+			ajax						: {
+				dataType : "json",
+				url      : "./assets/js/json/countries.json",
+				type: "GET",
+			},
+		});
+
+		$('.inputFormCountry').on('select2:select', function (e) {
+
+			let data = e.params.data,
+				$accept = $('.acceptForm');
+
+			if( data.id === 'US' ) {
+				$accept.hide();
+			}else{
+				$accept.show();
+			}
+
+		});
+
+	}
+
     /**
      * Init
      */
@@ -1192,6 +1240,7 @@ const Calculator = function () {
 			Formated();
 			Calculate();
 			CalculateEvent();
+			Form();
 		}
 	};
 
