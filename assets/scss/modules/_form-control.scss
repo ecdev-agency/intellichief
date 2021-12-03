@@ -250,6 +250,15 @@
                 }
 
             }
+
+            &--focus {
+
+                .select2-selection--single {
+                    border-color: $color-blue-light;
+                }
+
+            }
+
         }
 
         &.select2-container--open {

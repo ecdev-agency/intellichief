@@ -45,6 +45,26 @@ const Calculator = function () {
 
 		});
 
+		/**
+		 * Change Font Size
+		 */
+		$('body').on('DOMSubtreeModified', '.longNumber', function() {
+			let $this = $(this);
+
+			if( $this.text().length > 12 ) {
+				$this.addClass('small');
+			}else{
+				$this.removeClass('small');
+			}
+
+			if( $this.text().length > 15 ) {
+				$this.addClass('longsmall');
+			}else{
+				$this.removeClass('longsmall');
+			}
+
+		});
+
 
 	};
 
@@ -176,7 +196,24 @@ const Calculator = function () {
 					 */
 					$inp_visible.focusin(function(event, parent) {
 
-						this.select();
+						var $this = this;
+
+						$this.select();
+
+						window.setTimeout(function() {
+							$this.select();
+						}, 10);
+
+					});
+					$inp_visible.focus(function(event, parent) {
+
+						var $this = this;
+
+						$this.select();
+
+						window.setTimeout(function() {
+							$this.select();
+						}, 200);
 
 					});
 
@@ -185,7 +222,13 @@ const Calculator = function () {
 					 */
 					$inp_visible.click(function(event, parent) {
 
-						this.select();
+						var $this = this;
+
+						$this.select();
+
+						window.setTimeout(function() {
+							$this.select();
+						}, 10);
 
 					});
 
@@ -194,7 +237,13 @@ const Calculator = function () {
 					 */
 					$inp_visible.select(function(event, parent) {
 
-						this.select();
+						var $this = this;
+
+						$this.select();
+
+						window.setTimeout(function() {
+							$this.select();
+						}, 10);
 
 					});
 
@@ -287,6 +336,24 @@ const Calculator = function () {
 						 */
 						$this_inp[0].setSelectionRange(0, val_inp.length);
 
+						window.setTimeout(function() {
+							$this_inp[0].setSelectionRange(0, val_inp.length);
+						}, 10);
+
+					});
+					$inp_visible.focus(function(event, parent) {
+
+						let $this_inp 	= $(this),
+							val_inp 	= Replace($this_inp.val());
+						/**
+						 * Set Cursor
+						 */
+						$this_inp[0].setSelectionRange(0, val_inp.length);
+
+						window.setTimeout(function() {
+							$this_inp[0].setSelectionRange(0, val_inp.length);
+						}, 200);
+
 					});
 
 					/**
@@ -301,21 +368,11 @@ const Calculator = function () {
 						 */
 						$this_inp[0].setSelectionRange(0, val_inp.length);
 
-					});
+						window.setTimeout(function() {
+							$this_inp[0].setSelectionRange(0, val_inp.length);
+						}, 10);
 
-					/**
-					 * Select Number
-					 */
-					// $inp_visible.select(function(event, parent) {
-					//
-					// 	let $this_inp 	= $(this),
-					// 		val_inp 	= $this_inp.val().replace('%', '');
-					// 	/**
-					// 	 * Set Cursor
-					// 	 */
-					// 	$this_inp[0].setSelectionRange(0, val_inp.length);
-					//
-					// });
+					});
 
 					/**
 					 * Paste
@@ -435,6 +492,25 @@ const Calculator = function () {
 						 */
 						$this_inp[0].setSelectionRange(0, val_inp.length);
 
+						window.setTimeout(function() {
+							$this_inp[0].setSelectionRange(0, val_inp.length);
+						}, 10);
+
+					});
+					$inp_visible.focus(function(event, parent) {
+
+						let $this_inp 	= $(this),
+							val_inp 	= ReplaceFloat($this_inp.val());
+
+						/**
+						 * Set Cursor
+						 */
+						$this_inp[0].setSelectionRange(0, val_inp.length);
+
+						window.setTimeout(function() {
+							$this_inp[0].setSelectionRange(0, val_inp.length);
+						}, 200);
+
 					});
 
 					/**
@@ -448,6 +524,10 @@ const Calculator = function () {
 						 * Set Cursor
 						 */
 						$this_inp[0].setSelectionRange(0, val_inp.length);
+
+						window.setTimeout(function() {
+							$this_inp[0].setSelectionRange(0, val_inp.length);
+						}, 10);
 
 					});
 
@@ -533,25 +613,47 @@ const Calculator = function () {
 					$inp_visible.focusin(function(event, parent) {
 
 						let $this_inp 	= $(this),
-							val_inp 	= Replace($this_inp.val());
+							val_inp 	= $this_inp.val();
 						/**
 						 * Set Cursor
 						 */
-						$this_inp[0].setSelectionRange(1, Number(val_inp.length + 1));
+						$this_inp[0].setSelectionRange(1, val_inp.length);
+
+						window.setTimeout(function() {
+							$this_inp[0].setSelectionRange(1, val_inp.length);
+						}, 10);
+
 
 					});
+					$inp_visible.focus(function(event, parent) {
 
+						let $this_inp 	= $(this),
+							val_inp 	= $this_inp.val();
+						/**
+						 * Set Cursor
+						 */
+						$this_inp[0].setSelectionRange(1, val_inp.length);
+
+						window.setTimeout(function() {
+							$this_inp[0].setSelectionRange(1, val_inp.length);
+						}, 200);
+
+					});
 					/**
 					 * Click Number
 					 */
 					$inp_visible.click(function(event, parent) {
 
 						let $this_inp 	= $(this),
-							val_inp 	= Replace($this_inp.val());
+							val_inp 	= $this_inp.val();
 						/**
 						 * Set Cursor
 						 */
-						$this_inp[0].setSelectionRange(1, Number(val_inp.length + 1));
+						$this_inp[0].setSelectionRange(1, val_inp.length);
+
+						window.setTimeout(function() {
+							$this_inp[0].setSelectionRange(1, val_inp.length);
+						}, 10);
 
 					});
 
@@ -561,11 +663,15 @@ const Calculator = function () {
 					$inp_visible.select(function(event, parent) {
 
 						let $this_inp 	= $(this),
-							val_inp 	= Replace($this_inp.val());
+							val_inp 	= $this_inp.val();
 						/**
 						 * Set Cursor
 						 */
-						$this_inp[0].setSelectionRange(1, Number(val_inp.length + 1));
+						$this_inp[0].setSelectionRange(1, val_inp.length);
+
+						window.setTimeout(function() {
+							$this_inp[0].setSelectionRange(1, val_inp.length);
+						}, 10);
 
 					});
 
@@ -610,16 +716,12 @@ const Calculator = function () {
 
 			e.preventDefault();
 
-			// let tab = $(this).data('tab');
-			//
-			// $('.calc__tabs-list li.active').addClass('done');
-
 			Calculate();
 
 		});
 
 		$(document).on('keyup', '.changeDone', function (e, parent) {
-			Calculate();
+			//Calculate();
 		});
 
 	};
@@ -741,6 +843,20 @@ const Calculator = function () {
 			$this_inp[0].setSelectionRange(1, Number(val_inp.length + 1));
 
 		});
+		$('.inputMoney').focus(function(event) {
+
+			let $this_inp 	= $(this),
+				val_inp 	= $this_inp.val().replace('$', '');
+			/**
+			 * Set Cursor
+			 */
+			$this_inp[0].setSelectionRange(1, Number(val_inp.length + 1));
+
+			window.setTimeout(function() {
+				$this_inp[0].setSelectionRange(1, Number(val_inp.length + 1));
+			}, 200);
+
+		});
 
 		/**
 		 * Paste
@@ -824,6 +940,20 @@ const Calculator = function () {
 			$this_inp[0].setSelectionRange(0, Number(String(val_inp.length)));
 
 		});
+		$('.inputPercent').focus(function(event) {
+
+			let $this_inp 	= $(this),
+				val_inp 	= Replace($this_inp.val());
+			/**
+			 * Set Cursor
+			 */
+			$this_inp[0].setSelectionRange(0, Number(String(val_inp.length)));
+
+			window.setTimeout(function() {
+				$this_inp[0].setSelectionRange(0, Number(String(val_inp.length)));
+			}, 200);
+
+		});
 
 		/**
 		 * Paste
@@ -833,7 +963,6 @@ const Calculator = function () {
 			return false;
 
 		});
-
 
 		/**
 		 * **********************************************
@@ -867,7 +996,20 @@ const Calculator = function () {
 		 */
 		$(document).on('focusin', '.inputNumber', function (event, parent) {
 
-			this.select();
+			let $this = this;
+
+			$this.select();
+
+		});
+		$('.inputNumber').focus(function(event) {
+
+			let $this = this;
+
+			$this.select();
+
+			window.setTimeout(function() {
+				$this.select();
+			}, 200);
 
 		});
 
@@ -1051,10 +1193,10 @@ const Calculator = function () {
 				/**
 				 * Set Html
 				 */
-				$('.tab_2_footer_invoice').html(total_1);
-				$('.tab_2_footer_late_payments').html(total_2);
-				$('.tab_2_footer_discounts').html(total_3);
-				$('.tab_2_footer_duplicate_payments').html(total_4);
+				$('.tab_2_footer_invoice').html(total_1).trigger('resize');
+				$('.tab_2_footer_late_payments').html(total_2).trigger('resize');
+				$('.tab_2_footer_discounts').html(total_3).trigger('resize');
+				$('.tab_2_footer_duplicate_payments').html(total_4).trigger('resize');
 
 			};
 			calc();
@@ -1225,6 +1367,10 @@ const Calculator = function () {
 			}
 
 		});
+
+	}
+
+	const TextSize = function () {
 
 	}
 
