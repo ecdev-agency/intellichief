@@ -201,7 +201,7 @@
                                                                     name="calc_reduction_in_headcount"
                                                                     id="calc_reduction_in_headcount"
                                                                     class="js-select animateNumber selectMessage tab_1_content_headcount_reduction_ic_saver"
-                                                                    data-tab="3"
+                                                                    data-tab="1"
                                                                     style="width: 100%"
                                                                     data-message="IntelliChief eliminates problems of scale by allowing you to process more invoices with fewer employees. Even as your invoice volume increases, IntelliChief continues to handle the bulk of your AP workload, reducing the need for additional or extraneous headcount."
                                                             >
@@ -567,16 +567,16 @@
                                                                 data-step="0.5"
                                                                 data-hide-min-max="true"
                                                                 data-hide-from-to="true"
-                                                                data-input-type="percent"
+                                                                data-input-type="percent_float"
                                                         >
 
                                                         <input
                                                                 type="text"
                                                                 id="calc_pay_discount_visible"
-                                                                class="form-control inputPercent selectMessage"
+                                                                class="form-control selectMessage"
                                                                 data-tab="2"
                                                                 value="2"
-                                                                maxlength="4"
+                                                                maxlength="5"
                                                                 data-message="TBD"
                                                         >
 
@@ -701,23 +701,36 @@
                                                     <div class="calc__tab_now-form-row-col group">
 
                                                         <!-- left -->
-                                                        <div class="left">
+                                                        <div class="left range">
 
-                                                            <label for="calc_filing_invoices">Printing, sorting and filing invoices</label>
-                                                            <select
-                                                                    name="calc_filing_invoices"
-                                                                    id="calc_filing_invoices"
-                                                                    class="js-select animateNumber changeDone"
+                                                            <label for="tab_3_content_printing_sorting_and_filing_invoices">Printing, sorting and filing invoices</label>
+
+                                                            <input
+                                                                    type="text"
+                                                                    name="tab_3_content_printing_sorting_and_filing_invoices"
+                                                                    id="tab_3_content_printing_sorting_and_filing_invoices"
+                                                                    class="rangeSlider changeDone tab_3_content_printing_sorting_and_filing_invoices"
                                                                     data-tab="3"
-                                                                    style="width: 100%"
+                                                                    value="2000"
+                                                                    data-min="0"
+                                                                    data-max="10000"
+                                                                    data-step="500"
+                                                                    data-hide-min-max="true"
+                                                                    data-hide-from-to="true"
+                                                                    data-input-type="number"
                                                             >
-                                                                <option></option>
-                                                                <option value="1">1,000</option>
-                                                                <option value="2">3,000</option>
-                                                                <option value="3">5,000</option>
-                                                                <option value="4">7,000</option>
-                                                                <option value="5">10,000</option>
-                                                            </select>
+
+                                                            <input
+                                                                    type="number"
+                                                                    id="tab_3_content_printing_sorting_and_filing_invoices_visible"
+                                                                    class="form-control inputMessage"
+                                                                    data-tab="3"
+                                                                    value="2000"
+                                                                    min="0"
+                                                                    max="10000"
+                                                                    maxlength="7"
+                                                                    data-message="TBD"
+                                                            >
 
                                                         </div>
                                                         <!-- end left -->
@@ -725,7 +738,7 @@
                                                         <!-- right -->
                                                         <div class="right">
 
-                                                            <label for="calc_filing_invoices_percent">
+                                                            <label for="printing_sorting_and_filing_invoices_ic_saver">
                                                                 <img
                                                                         src="assets/images/info.png"
                                                                         alt="AP Automation Headcount Reduction"
@@ -733,18 +746,25 @@
                                                                 >
                                                             </label>
                                                             <select
-                                                                    name="calc_filing_invoices_percent"
-                                                                    id="calc_filing_invoices_percent"
-                                                                    class="js-select animateNumber changeDone"
+                                                                    name="printing_sorting_and_filing_invoices_ic_saver"
+                                                                    id="printing_sorting_and_filing_invoices_ic_saver"
+                                                                    class="js-select animateNumber selectMessage printing_sorting_and_filing_invoices_ic_saver"
                                                                     data-tab="3"
                                                                     style="width: 100%"
+                                                                    data-message=""
                                                             >
                                                                 <option></option>
-                                                                <option value="1">40%</option>
-                                                                <option value="2">60%</option>
-                                                                <option value="3">70%</option>
-                                                                <option value="4">80%</option>
-                                                                <option value="5">100%</option>
+                                                                <option value="0">0%</option>
+                                                                <option value="0.1">10%</option>
+                                                                <option value="0.2">20%</option>
+                                                                <option value="0.3">30%</option>
+                                                                <option value="0.4">40%</option>
+                                                                <option value="0.5">50%</option>
+                                                                <option value="0.6">60%</option>
+                                                                <option value="0.7">70%</option>
+                                                                <option value="0.8">80%</option>
+                                                                <option value="0.9" selected>90%</option>
+                                                                <option value="1">100%</option>
                                                             </select>
 
                                                         </div>
@@ -757,23 +777,36 @@
                                                     <div class="calc__tab_now-form-row-col group">
 
                                                         <!-- left -->
-                                                        <div class="left">
+                                                        <div class="left range">
 
-                                                            <label for="calc_routed_for_approval">Tracking invoices routed for Approval</label>
-                                                            <select
-                                                                    name="calc_routed_for_approval"
-                                                                    id="calc_routed_for_approval"
-                                                                    class="js-select animateNumber changeDone"
+                                                            <label for="tab_3_content_tracking_invoices_routed_for_approval">Tracking invoices routed for Approval</label>
+
+                                                            <input
+                                                                    type="text"
+                                                                    name="tab_3_content_tracking_invoices_routed_for_approval"
+                                                                    id="tab_3_content_tracking_invoices_routed_for_approval"
+                                                                    class="rangeSlider changeDone tab_3_content_tracking_invoices_routed_for_approval"
                                                                     data-tab="3"
-                                                                    style="width: 100%"
+                                                                    value="2000"
+                                                                    data-min="0"
+                                                                    data-max="10000"
+                                                                    data-step="500"
+                                                                    data-hide-min-max="true"
+                                                                    data-hide-from-to="true"
+                                                                    data-input-type="number"
                                                             >
-                                                                <option></option>
-                                                                <option value="1">1,000</option>
-                                                                <option value="2">3,000</option>
-                                                                <option value="3">5,000</option>
-                                                                <option value="4">7,000</option>
-                                                                <option value="5">10,000</option>
-                                                            </select>
+
+                                                            <input
+                                                                    type="number"
+                                                                    id="tab_3_content_tracking_invoices_routed_for_approval_visible"
+                                                                    class="form-control inputMessage"
+                                                                    data-tab="3"
+                                                                    value="2000"
+                                                                    min="0"
+                                                                    max="10000"
+                                                                    maxlength="7"
+                                                                    data-message="TBD"
+                                                            >
 
                                                         </div>
                                                         <!-- end left -->
@@ -781,7 +814,7 @@
                                                         <!-- right -->
                                                         <div class="right">
 
-                                                            <label for="calc_routed_for_approval_percent">
+                                                            <label for="tracking_invoices_routed_for_approval_ic_saver">
                                                                 <img
                                                                         src="assets/images/info.png"
                                                                         alt="AP Automation Headcount Reduction"
@@ -789,18 +822,25 @@
                                                                 >
                                                             </label>
                                                             <select
-                                                                    name="calc_routed_for_approval_percent"
-                                                                    id="calc_routed_for_approval_percent"
-                                                                    class="js-select animateNumber changeDone"
+                                                                    name="tracking_invoices_routed_for_approval_ic_saver"
+                                                                    id="tracking_invoices_routed_for_approval_ic_saver"
+                                                                    class="js-select animateNumber selectMessage tracking_invoices_routed_for_approval_ic_saver"
                                                                     data-tab="3"
                                                                     style="width: 100%"
+                                                                    data-message=""
                                                             >
                                                                 <option></option>
-                                                                <option value="1">40%</option>
-                                                                <option value="2">60%</option>
-                                                                <option value="3">70%</option>
-                                                                <option value="4">80%</option>
-                                                                <option value="5">100%</option>
+                                                                <option value="0">0%</option>
+                                                                <option value="0.1">10%</option>
+                                                                <option value="0.2">20%</option>
+                                                                <option value="0.3">30%</option>
+                                                                <option value="0.4">40%</option>
+                                                                <option value="0.5">50%</option>
+                                                                <option value="0.6">60%</option>
+                                                                <option value="0.7">70%</option>
+                                                                <option value="0.8">80%</option>
+                                                                <option value="0.9" selected>90%</option>
+                                                                <option value="1">100%</option>
                                                             </select>
 
                                                         </div>
@@ -813,23 +853,36 @@
                                                     <div class="calc__tab_now-form-row-col group">
 
                                                         <!-- left -->
-                                                        <div class="left">
+                                                        <div class="left range">
 
-                                                            <label for="calc_exception_handling">Routing invoices for exception handling <small>(change to % of invoices<br> requiring exception handling)</small></label>
-                                                            <select
-                                                                    name="calc_exception_handling"
-                                                                    id="calc_exception_handling"
-                                                                    class="js-select animateNumber changeDone"
+                                                            <label for="tab_3_content_researching_or_resolving_duplicate_payments">Researching or resolving duplicate payments</label>
+
+                                                            <input
+                                                                    type="text"
+                                                                    name="tab_3_content_researching_or_resolving_duplicate_payments"
+                                                                    id="tab_3_content_researching_or_resolving_duplicate_payments"
+                                                                    class="rangeSlider changeDone tab_3_content_researching_or_resolving_duplicate_payments"
                                                                     data-tab="3"
-                                                                    style="width: 100%"
+                                                                    value="2000"
+                                                                    data-min="0"
+                                                                    data-max="10000"
+                                                                    data-step="500"
+                                                                    data-hide-min-max="true"
+                                                                    data-hide-from-to="true"
+                                                                    data-input-type="number"
                                                             >
-                                                                <option></option>
-                                                                <option value="1">1,000</option>
-                                                                <option value="2">3,000</option>
-                                                                <option value="3">5,000</option>
-                                                                <option value="4">7,000</option>
-                                                                <option value="5">10,000</option>
-                                                            </select>
+
+                                                            <input
+                                                                    type="number"
+                                                                    id="tab_3_content_researching_or_resolving_duplicate_payments_visible"
+                                                                    class="form-control inputMessage"
+                                                                    data-tab="3"
+                                                                    value="2000"
+                                                                    min="0"
+                                                                    max="10000"
+                                                                    maxlength="7"
+                                                                    data-message="TBD"
+                                                            >
 
                                                         </div>
                                                         <!-- end left -->
@@ -837,7 +890,7 @@
                                                         <!-- right -->
                                                         <div class="right">
 
-                                                            <label for="calc_exception_handling_percent">
+                                                            <label for="researching_or_resolving_duplicate_payments_ic_saver">
                                                                 <img
                                                                         src="assets/images/info.png"
                                                                         alt="AP Automation Headcount Reduction"
@@ -845,18 +898,25 @@
                                                                 >
                                                             </label>
                                                             <select
-                                                                    name="calc_exception_handling_percent"
-                                                                    id="calc_exception_handling_percent"
-                                                                    class="js-select animateNumber changeDone"
+                                                                    name="researching_or_resolving_duplicate_payments_ic_saver"
+                                                                    id="researching_or_resolving_duplicate_payments_ic_saver"
+                                                                    class="js-select animateNumber selectMessage researching_or_resolving_duplicate_payments_ic_saver"
                                                                     data-tab="3"
                                                                     style="width: 100%"
+                                                                    data-message=""
                                                             >
                                                                 <option></option>
-                                                                <option value="1">40%</option>
-                                                                <option value="2">60%</option>
-                                                                <option value="3">70%</option>
-                                                                <option value="4">80%</option>
-                                                                <option value="5">100%</option>
+                                                                <option value="0">0%</option>
+                                                                <option value="0.1">10%</option>
+                                                                <option value="0.2">20%</option>
+                                                                <option value="0.3">30%</option>
+                                                                <option value="0.4">40%</option>
+                                                                <option value="0.5">50%</option>
+                                                                <option value="0.6">60%</option>
+                                                                <option value="0.7">70%</option>
+                                                                <option value="0.8">80%</option>
+                                                                <option value="0.9" selected>90%</option>
+                                                                <option value="1">100%</option>
                                                             </select>
 
                                                         </div>
@@ -869,23 +929,36 @@
                                                     <div class="calc__tab_now-form-row-col group">
 
                                                         <!-- left -->
-                                                        <div class="left">
+                                                        <div class="left range">
 
-                                                            <label for="calc_filing_invoices">Researching or resolving duplicate payments</label>
-                                                            <select
-                                                                    name="calc_resolving_duplicate_payments"
-                                                                    id="calc_resolving_duplicate_payments"
-                                                                    class="js-select animateNumber changeDone"
+                                                            <label for="tab_3_content_calculating_unit_of_measure_conversions_discrepancies">Calculating unit of measure conversions & discrepancies</label>
+
+                                                            <input
+                                                                    type="text"
+                                                                    name="tab_3_content_calculating_unit_of_measure_conversions_discrepancies"
+                                                                    id="tab_3_content_calculating_unit_of_measure_conversions_discrepancies"
+                                                                    class="rangeSlider changeDone tab_3_content_calculating_unit_of_measure_conversions_discrepancies"
                                                                     data-tab="3"
-                                                                    style="width: 100%"
+                                                                    value="2000"
+                                                                    data-min="0"
+                                                                    data-max="10000"
+                                                                    data-step="500"
+                                                                    data-hide-min-max="true"
+                                                                    data-hide-from-to="true"
+                                                                    data-input-type="number"
                                                             >
-                                                                <option></option>
-                                                                <option value="1">1,000</option>
-                                                                <option value="2">3,000</option>
-                                                                <option value="3">5,000</option>
-                                                                <option value="4">7,000</option>
-                                                                <option value="5">10,000</option>
-                                                            </select>
+
+                                                            <input
+                                                                    type="number"
+                                                                    id="tab_3_content_calculating_unit_of_measure_conversions_discrepancies_visible"
+                                                                    class="form-control inputMessage"
+                                                                    data-tab="3"
+                                                                    value="2000"
+                                                                    min="0"
+                                                                    max="10000"
+                                                                    maxlength="7"
+                                                                    data-message="TBD"
+                                                            >
 
                                                         </div>
                                                         <!-- end left -->
@@ -893,26 +966,34 @@
                                                         <!-- right -->
                                                         <div class="right">
 
-                                                            <label for="calc_resolving_duplicate_payments_percent">
+                                                            <label for="calculating_unit_of_measure_conversions_discrepancies_ic_saver">
                                                                 <img
                                                                         src="assets/images/info.png"
                                                                         alt="AP Automation Headcount Reduction"
                                                                         title="AP Automation Headcount Reduction"
                                                                 >
                                                             </label>
+
                                                             <select
-                                                                    name="calc_resolving_duplicate_payments_percent"
-                                                                    id="calc_resolving_duplicate_payments_percent"
-                                                                    class="js-select animateNumber changeDone"
+                                                                    name="calculating_unit_of_measure_conversions_discrepancies_ic_saver"
+                                                                    id="calculating_unit_of_measure_conversions_discrepancies_ic_saver"
+                                                                    class="js-select animateNumber selectMessage calculating_unit_of_measure_conversions_discrepancies_ic_saver"
                                                                     data-tab="3"
                                                                     style="width: 100%"
+                                                                    data-message=""
                                                             >
                                                                 <option></option>
-                                                                <option value="1">40%</option>
-                                                                <option value="2">60%</option>
-                                                                <option value="3">70%</option>
-                                                                <option value="4">80%</option>
-                                                                <option value="5">100%</option>
+                                                                <option value="0">0%</option>
+                                                                <option value="0.1">10%</option>
+                                                                <option value="0.2">20%</option>
+                                                                <option value="0.3">30%</option>
+                                                                <option value="0.4">40%</option>
+                                                                <option value="0.5">50%</option>
+                                                                <option value="0.6">60%</option>
+                                                                <option value="0.7">70%</option>
+                                                                <option value="0.8">80%</option>
+                                                                <option value="0.9" selected>90%</option>
+                                                                <option value="1">100%</option>
                                                             </select>
 
                                                         </div>
@@ -925,23 +1006,36 @@
                                                     <div class="calc__tab_now-form-row-col group">
 
                                                         <!-- left -->
-                                                        <div class="left">
+                                                        <div class="left range">
 
-                                                            <label for="calc_conversions_discrepancies">Calculating unit of measure conversions & discrepancies</label>
-                                                            <select
-                                                                    name="calc_conversions_discrepancies"
-                                                                    id="calc_conversions_discrepancies"
-                                                                    class="js-select animateNumber changeDone"
+                                                            <label for="tab_3_content_entering_invoices_into_erp_system">Entering invoices into ERP system</label>
+
+                                                            <input
+                                                                    type="text"
+                                                                    name="tab_3_content_entering_invoices_into_erp_system"
+                                                                    id="tab_3_content_entering_invoices_into_erp_system"
+                                                                    class="rangeSlider changeDone tab_3_content_entering_invoices_into_erp_system"
                                                                     data-tab="3"
-                                                                    style="width: 100%"
+                                                                    value="2000"
+                                                                    data-min="0"
+                                                                    data-max="30000"
+                                                                    data-step="500"
+                                                                    data-hide-min-max="true"
+                                                                    data-hide-from-to="true"
+                                                                    data-input-type="number"
                                                             >
-                                                                <option></option>
-                                                                <option value="1">1,000</option>
-                                                                <option value="2">3,000</option>
-                                                                <option value="3">5,000</option>
-                                                                <option value="4">7,000</option>
-                                                                <option value="5">10,000</option>
-                                                            </select>
+
+                                                            <input
+                                                                    type="number"
+                                                                    id="tab_3_content_entering_invoices_into_erp_system_visible"
+                                                                    class="form-control inputMessage"
+                                                                    data-tab="3"
+                                                                    value="2000"
+                                                                    min="0"
+                                                                    max="30000"
+                                                                    maxlength="7"
+                                                                    data-message="TBD"
+                                                            >
 
                                                         </div>
                                                         <!-- end left -->
@@ -949,26 +1043,34 @@
                                                         <!-- right -->
                                                         <div class="right">
 
-                                                            <label for="calc_conversions_discrepancies_percent">
+                                                            <label for="entering_invoices_into_erp_system_ic_saver">
                                                                 <img
                                                                         src="assets/images/info.png"
                                                                         alt="AP Automation Headcount Reduction"
                                                                         title="AP Automation Headcount Reduction"
                                                                 >
                                                             </label>
+
                                                             <select
-                                                                    name="calc_conversions_discrepancies_percent"
-                                                                    id="calc_conversions_discrepancies_percent"
-                                                                    class="js-select animateNumber changeDone"
+                                                                    name="entering_invoices_into_erp_system_ic_saver"
+                                                                    id="entering_invoices_into_erp_system_ic_saver"
+                                                                    class="js-select animateNumber selectMessage entering_invoices_into_erp_system_ic_saver"
                                                                     data-tab="3"
                                                                     style="width: 100%"
+                                                                    data-message=""
                                                             >
                                                                 <option></option>
-                                                                <option value="1">40%</option>
-                                                                <option value="2">60%</option>
-                                                                <option value="3">70%</option>
-                                                                <option value="4">80%</option>
-                                                                <option value="5">100%</option>
+                                                                <option value="0">0%</option>
+                                                                <option value="0.1">10%</option>
+                                                                <option value="0.2">20%</option>
+                                                                <option value="0.3">30%</option>
+                                                                <option value="0.4">40%</option>
+                                                                <option value="0.5">50%</option>
+                                                                <option value="0.6">60%</option>
+                                                                <option value="0.7">70%</option>
+                                                                <option value="0.8">80%</option>
+                                                                <option value="0.9" selected>90%</option>
+                                                                <option value="1">100%</option>
                                                             </select>
 
                                                         </div>
@@ -981,23 +1083,36 @@
                                                     <div class="calc__tab_now-form-row-col group">
 
                                                         <!-- left -->
-                                                        <div class="left">
+                                                        <div class="left range">
 
-                                                            <label for="calc_erp_system">Entering invoices into ERP system</label>
-                                                            <select
-                                                                    name="calc_erp_system"
-                                                                    id="calc_erp_system"
-                                                                    class="js-select animateNumber changeDone"
+                                                            <label for="tab_3_content_tracking_reporting_managing_ap_processing">Tracking, reporting, and managing AP processing</label>
+
+                                                            <input
+                                                                    type="text"
+                                                                    name="tab_3_content_tracking_reporting_managing_ap_processing"
+                                                                    id="tab_3_content_tracking_reporting_managing_ap_processing"
+                                                                    class="rangeSlider changeDone tab_3_content_tracking_reporting_managing_ap_processing"
                                                                     data-tab="3"
-                                                                    style="width: 100%"
+                                                                    value="2000"
+                                                                    data-min="0"
+                                                                    data-max="10000"
+                                                                    data-step="500"
+                                                                    data-hide-min-max="true"
+                                                                    data-hide-from-to="true"
+                                                                    data-input-type="number"
                                                             >
-                                                                <option></option>
-                                                                <option value="1">1,000</option>
-                                                                <option value="2">3,000</option>
-                                                                <option value="3">5,000</option>
-                                                                <option value="4">7,000</option>
-                                                                <option value="5">10,000</option>
-                                                            </select>
+
+                                                            <input
+                                                                    type="number"
+                                                                    id="tab_3_content_tracking_reporting_managing_ap_processing_visible"
+                                                                    class="form-control inputMessage"
+                                                                    data-tab="3"
+                                                                    value="2000"
+                                                                    min="0"
+                                                                    max="10000"
+                                                                    maxlength="7"
+                                                                    data-message="TBD"
+                                                            >
 
                                                         </div>
                                                         <!-- end left -->
@@ -1005,26 +1120,34 @@
                                                         <!-- right -->
                                                         <div class="right">
 
-                                                            <label for="calc_erp_system_percent">
+                                                            <label for="tracking_reporting_managing_ap_processing_ic_saver">
                                                                 <img
                                                                         src="assets/images/info.png"
                                                                         alt="AP Automation Headcount Reduction"
                                                                         title="AP Automation Headcount Reduction"
                                                                 >
                                                             </label>
+
                                                             <select
-                                                                    name="calc_erp_system_percent"
-                                                                    id="calc_erp_system_percent"
-                                                                    class="js-select animateNumber changeDone"
+                                                                    name="tracking_reporting_managing_ap_processing_ic_saver"
+                                                                    id="tracking_reporting_managing_ap_processing_ic_saver"
+                                                                    class="js-select animateNumber selectMessage tracking_reporting_managing_ap_processing_ic_saver"
                                                                     data-tab="3"
                                                                     style="width: 100%"
+                                                                    data-message=""
                                                             >
                                                                 <option></option>
-                                                                <option value="1">40%</option>
-                                                                <option value="2">60%</option>
-                                                                <option value="3">70%</option>
-                                                                <option value="4">80%</option>
-                                                                <option value="5">100%</option>
+                                                                <option value="0">0%</option>
+                                                                <option value="0.1">10%</option>
+                                                                <option value="0.2">20%</option>
+                                                                <option value="0.3">30%</option>
+                                                                <option value="0.4">40%</option>
+                                                                <option value="0.5">50%</option>
+                                                                <option value="0.6">60%</option>
+                                                                <option value="0.7">70%</option>
+                                                                <option value="0.8">80%</option>
+                                                                <option value="0.9" selected>90%</option>
+                                                                <option value="1">100%</option>
                                                             </select>
 
                                                         </div>
@@ -1037,23 +1160,36 @@
                                                     <div class="calc__tab_now-form-row-col group">
 
                                                         <!-- left -->
-                                                        <div class="left">
+                                                        <div class="left range">
 
-                                                            <label for="calc_ap_processing">Tracking, reporting, and managing AP processing</label>
-                                                            <select
-                                                                    name="calc_ap_processing"
-                                                                    id="calc_ap_processing"
-                                                                    class="js-select animateNumber changeDone"
+                                                            <label for="tab_3_content_researching_vendor_internal_audit_inquiries">Researching Vendor, Internal, or Audit Inquiries</label>
+
+                                                            <input
+                                                                    type="text"
+                                                                    name="tab_3_content_researching_vendor_internal_audit_inquiries"
+                                                                    id="tab_3_content_researching_vendor_internal_audit_inquiries"
+                                                                    class="rangeSlider changeDone tab_3_content_researching_vendor_internal_audit_inquiries"
                                                                     data-tab="3"
-                                                                    style="width: 100%"
+                                                                    value="2000"
+                                                                    data-min="0"
+                                                                    data-max="30000"
+                                                                    data-step="500"
+                                                                    data-hide-min-max="true"
+                                                                    data-hide-from-to="true"
+                                                                    data-input-type="number"
                                                             >
-                                                                <option></option>
-                                                                <option value="1">1,000</option>
-                                                                <option value="2">3,000</option>
-                                                                <option value="3">5,000</option>
-                                                                <option value="4">7,000</option>
-                                                                <option value="5">10,000</option>
-                                                            </select>
+
+                                                            <input
+                                                                    type="number"
+                                                                    id="tab_3_content_researching_vendor_internal_audit_inquiries_visible"
+                                                                    class="form-control inputMessage"
+                                                                    data-tab="3"
+                                                                    value="2000"
+                                                                    min="0"
+                                                                    max="30000"
+                                                                    maxlength="7"
+                                                                    data-message="TBD"
+                                                            >
 
                                                         </div>
                                                         <!-- end left -->
@@ -1061,26 +1197,34 @@
                                                         <!-- right -->
                                                         <div class="right">
 
-                                                            <label for="calc_ap_processing_percent">
+                                                            <label for="researching_vendor_internal_audit_inquiries_ic_saver">
                                                                 <img
                                                                         src="assets/images/info.png"
                                                                         alt="AP Automation Headcount Reduction"
                                                                         title="AP Automation Headcount Reduction"
                                                                 >
                                                             </label>
+
                                                             <select
-                                                                    name="calc_ap_processing_percent"
-                                                                    id="calc_ap_processing_percent"
-                                                                    class="js-select animateNumber changeDone"
+                                                                    name="researching_vendor_internal_audit_inquiries_ic_saver"
+                                                                    id="researching_vendor_internal_audit_inquiries_ic_saver"
+                                                                    class="js-select animateNumber selectMessage researching_vendor_internal_audit_inquiries_ic_saver"
                                                                     data-tab="3"
                                                                     style="width: 100%"
+                                                                    data-message=""
                                                             >
                                                                 <option></option>
-                                                                <option value="1">40%</option>
-                                                                <option value="2">60%</option>
-                                                                <option value="3">70%</option>
-                                                                <option value="4">80%</option>
-                                                                <option value="5">100%</option>
+                                                                <option value="0">0%</option>
+                                                                <option value="0.1">10%</option>
+                                                                <option value="0.2">20%</option>
+                                                                <option value="0.3">30%</option>
+                                                                <option value="0.4">40%</option>
+                                                                <option value="0.5">50%</option>
+                                                                <option value="0.6">60%</option>
+                                                                <option value="0.7">70%</option>
+                                                                <option value="0.8">80%</option>
+                                                                <option value="0.9" selected>90%</option>
+                                                                <option value="1">100%</option>
                                                             </select>
 
                                                         </div>
@@ -1093,23 +1237,36 @@
                                                     <div class="calc__tab_now-form-row-col group">
 
                                                         <!-- left -->
-                                                        <div class="left">
+                                                        <div class="left range">
 
-                                                            <label for="calc_off_site_storage">Annual cost of off-site storage</label>
-                                                            <select
-                                                                    name="calc_off_site_storage"
-                                                                    id="calc_off_site_storage"
-                                                                    class="js-select animateNumber changeDone"
+                                                            <label for="tab_3_content_invoices_requiring_exception_handling">% of Invoices Requiring Exception Handling</label>
+
+                                                            <input
+                                                                    type="text"
+                                                                    name="tab_3_content_invoices_requiring_exception_handling"
+                                                                    id="tab_3_content_invoices_requiring_exception_handling"
+                                                                    class="rangeSlider changeDone tab_3_content_invoices_requiring_exception_handling"
                                                                     data-tab="3"
-                                                                    style="width: 100%"
+                                                                    value="25"
+                                                                    data-min="1"
+                                                                    data-max="100"
+                                                                    data-step="1"
+                                                                    data-hide-min-max="true"
+                                                                    data-hide-from-to="true"
+                                                                    data-input-type="percent"
                                                             >
-                                                                <option></option>
-                                                                <option value="1">1,000</option>
-                                                                <option value="2">3,000</option>
-                                                                <option value="3">5,000</option>
-                                                                <option value="4">7,000</option>
-                                                                <option value="5">10,000</option>
-                                                            </select>
+
+                                                            <input
+                                                                    type="text"
+                                                                    id="tab_3_content_invoices_requiring_exception_handling_visible"
+                                                                    class="form-control inputMessage"
+                                                                    data-tab="3"
+                                                                    value="25"
+                                                                    min="1"
+                                                                    max="100"
+                                                                    maxlength="4"
+                                                                    data-message="TBD"
+                                                            >
 
                                                         </div>
                                                         <!-- end left -->
@@ -1117,26 +1274,34 @@
                                                         <!-- right -->
                                                         <div class="right">
 
-                                                            <label for="calc_off_site_storage_percent">
+                                                            <label for="invoices_requiring_exception_handling_ic_saver">
                                                                 <img
                                                                         src="assets/images/info.png"
                                                                         alt="AP Automation Headcount Reduction"
                                                                         title="AP Automation Headcount Reduction"
                                                                 >
                                                             </label>
+
                                                             <select
-                                                                    name="calc_off_site_storage_percent"
-                                                                    id="calc_off_site_storage_percent"
-                                                                    class="js-select animateNumber changeDone"
+                                                                    name="invoices_requiring_exception_handling_ic_saver"
+                                                                    id="invoices_requiring_exception_handling_ic_saver"
+                                                                    class="js-select animateNumber selectMessage invoices_requiring_exception_handling_ic_saver"
                                                                     data-tab="3"
                                                                     style="width: 100%"
+                                                                    data-message=""
                                                             >
                                                                 <option></option>
-                                                                <option value="1">40%</option>
-                                                                <option value="2">60%</option>
-                                                                <option value="3">70%</option>
-                                                                <option value="4">80%</option>
-                                                                <option value="5">100%</option>
+                                                                <option value="0">0%</option>
+                                                                <option value="0.1">10%</option>
+                                                                <option value="0.2">20%</option>
+                                                                <option value="0.3">30%</option>
+                                                                <option value="0.4">40%</option>
+                                                                <option value="0.5">50%</option>
+                                                                <option value="0.6">60%</option>
+                                                                <option value="0.7">70%</option>
+                                                                <option value="0.8">80%</option>
+                                                                <option value="0.9" selected>90%</option>
+                                                                <option value="1">100%</option>
                                                             </select>
 
                                                         </div>
@@ -1149,23 +1314,36 @@
                                                     <div class="calc__tab_now-form-row-col group">
 
                                                         <!-- left -->
-                                                        <div class="left">
+                                                        <div class="left range">
 
-                                                            <label for="calc_audit_inquiries">Researching Vendor, Internal, or Audit Inquiries</label>
-                                                            <select
-                                                                    name="calc_audit_inquiries"
-                                                                    id="calc_audit_inquiries"
-                                                                    class="js-select animateNumber changeDone"
+                                                            <label for="tab_3_content_annual_cost_off_site_storage">Annual Cost of Off-Site Storage</label>
+
+                                                            <input
+                                                                    type="text"
+                                                                    name="tab_3_content_annual_cost_off_site_storage"
+                                                                    id="tab_3_content_annual_cost_off_site_storage"
+                                                                    class="rangeSlider changeDone tab_3_content_annual_cost_off_site_storage"
                                                                     data-tab="3"
-                                                                    style="width: 100%"
+                                                                    value="12000"
+                                                                    data-min="0"
+                                                                    data-max="200000"
+                                                                    data-step="5000"
+                                                                    data-hide-min-max="true"
+                                                                    data-hide-from-to="true"
+                                                                    data-input-type="money"
                                                             >
-                                                                <option></option>
-                                                                <option value="1">1,000</option>
-                                                                <option value="2">3,000</option>
-                                                                <option value="3">5,000</option>
-                                                                <option value="4">7,000</option>
-                                                                <option value="5">10,000</option>
-                                                            </select>
+
+                                                            <input
+                                                                    type="text"
+                                                                    id="tab_3_content_annual_cost_off_site_storage_visible"
+                                                                    class="form-control inputMessage"
+                                                                    data-tab="3"
+                                                                    value="12000"
+                                                                    min="0"
+                                                                    max="200000"
+                                                                    maxlength="7"
+                                                                    data-message="TBD"
+                                                            >
 
                                                         </div>
                                                         <!-- end left -->
@@ -1173,26 +1351,34 @@
                                                         <!-- right -->
                                                         <div class="right">
 
-                                                            <label for="calc_audit_inquiries_percent">
+                                                            <label for="annual_cost_off_site_storage_ic_saver">
                                                                 <img
                                                                         src="assets/images/info.png"
                                                                         alt="AP Automation Headcount Reduction"
                                                                         title="AP Automation Headcount Reduction"
                                                                 >
                                                             </label>
+
                                                             <select
-                                                                    name="calc_audit_inquiries_percent"
-                                                                    id="calc_audit_inquiries_percent"
-                                                                    class="js-select animateNumber changeDone"
+                                                                    name="annual_cost_off_site_storage_ic_saver"
+                                                                    id="annual_cost_off_site_storage_ic_saver"
+                                                                    class="js-select animateNumber selectMessage annual_cost_off_site_storage_ic_saver"
                                                                     data-tab="3"
                                                                     style="width: 100%"
+                                                                    data-message=""
                                                             >
                                                                 <option></option>
-                                                                <option value="1">40%</option>
-                                                                <option value="2">60%</option>
-                                                                <option value="3">70%</option>
-                                                                <option value="4">80%</option>
-                                                                <option value="5">100%</option>
+                                                                <option value="0">0%</option>
+                                                                <option value="0.1">10%</option>
+                                                                <option value="0.2">20%</option>
+                                                                <option value="0.3">30%</option>
+                                                                <option value="0.4">40%</option>
+                                                                <option value="0.5">50%</option>
+                                                                <option value="0.6">60%</option>
+                                                                <option value="0.7">70%</option>
+                                                                <option value="0.8">80%</option>
+                                                                <option value="0.9" selected>90%</option>
+                                                                <option value="1">100%</option>
                                                             </select>
 
                                                         </div>
@@ -1224,12 +1410,12 @@
 
                                                         <li>
                                                             <p>Hours Reclaimed</p>
-                                                            <span class="longNumber">100 hours</span>
+                                                            <span class="longNumber tab_3_footer_hours_reclaimed">100 hours</span>
                                                         </li>
 
                                                         <li>
                                                             <p>Total Productivity Savings:</p>
-                                                            <span class="longNumber">$100,000</span>
+                                                            <span class="longNumber tab_3_footer_total_productivity_savings">$100,000</span>
                                                         </li>
 
                                                     </ul>

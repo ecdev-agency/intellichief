@@ -48,22 +48,22 @@ const Calculator = function () {
 		/**
 		 * Change Font Size
 		 */
-		$('body').on('DOMSubtreeModified', '.longNumber', function() {
-			let $this = $(this);
-
-			if( $this.text().length > 12 ) {
-				$this.addClass('small');
-			}else{
-				$this.removeClass('small');
-			}
-
-			if( $this.text().length > 15 ) {
-				$this.addClass('longsmall');
-			}else{
-				$this.removeClass('longsmall');
-			}
-
-		});
+		// $('body').on('DOMSubtreeModified', '.longNumber', function() {
+		// 	let $this = $(this);
+		//
+		// 	if( $this.text().length > 12 ) {
+		// 		$this.addClass('small');
+		// 	}else{
+		// 		$this.removeClass('small');
+		// 	}
+		//
+		// 	if( $this.text().length > 15 ) {
+		// 		$this.addClass('longsmall');
+		// 	}else{
+		// 		$this.removeClass('longsmall');
+		// 	}
+		//
+		// });
 
 
 	};
@@ -1161,13 +1161,13 @@ const Calculator = function () {
 				 * Calc Item 1
 				 * @type {number}
 				 */
-				total_1 = Number(tab_2_content_invoices_processed_per_year / GLOBAL_your_total_annual_ap_processor_people_cost);
+				total_1 = Number(GLOBAL_your_total_annual_ap_processor_people_cost / tab_2_content_invoices_processed_per_year);
 
 				/**
 				 * Calc Item 2
 				 * @type {number}
 				 */
-				total_2 = Number(tab_2_content_invoices_processed_per_year * parseFloat(tab_2_content_invoices_paid_late / 100) * parseFloat(tab_2_content_charged_per_late_payment / 100) * tab_2_content_avg_amount_of_invoice);
+				total_2 = Number(tab_2_content_invoices_processed_per_year) * parseFloat(tab_2_content_invoices_paid_late / 100) * parseFloat(tab_2_content_charged_per_late_payment / 100) * tab_2_content_avg_amount_of_invoice;
 
 				/**
 				 * Calc Item 3
@@ -1179,7 +1179,7 @@ const Calculator = function () {
 				 * Calc Item 4
 				 * @type {number}
 				 */
-				total_4 = Number(parseFloat(tab_2_content_duplicate_payments / 100) * tab_2_content_annual_invoice * tab_2_content_avg_amount_of_invoice);
+				total_4 = Number(parseFloat(tab_2_content_duplicate_payments / 100) * tab_2_content_invoices_processed_per_year * tab_2_content_avg_amount_of_invoice);
 
 				/**
 				 * Currency Formated
@@ -1210,6 +1210,9 @@ const Calculator = function () {
 		 */
 		const tab_3 = function () {
 
+			//Hours Reclaimed
+			// Formula: [(19a)*(19b)] + [(20a)*(20b)] + [(22a)*(22b)] +[(23a)*(23b)] + [(24a)*(24b)] +  [(25a)*(25b)] + [(27a)*(27b)]
+
 			/**
 			 * Calc
 			 */
@@ -1219,8 +1222,40 @@ const Calculator = function () {
 				 * Variables
 				 * @type {number}
 				 */
-				let total_1 = 0,
+				let tab_3_content_printing_sorting_and_filing_invoices = ReplaceFloat($('.tab_3_content_printing_sorting_and_filing_invoices').val()),
+					printing_sorting_and_filing_invoices_ic_saver = $('.printing_sorting_and_filing_invoices_ic_saver').val(),
+					tab_3_content_tracking_invoices_routed_for_approval = ReplaceFloat($('.tab_3_content_tracking_invoices_routed_for_approval').val()),
+					tracking_invoices_routed_for_approval_ic_saver = $('.tracking_invoices_routed_for_approval_ic_saver').val(),
+					tab_3_content_researching_or_resolving_duplicate_payments = ReplaceFloat($('.tab_3_content_researching_or_resolving_duplicate_payments').val()),
+					researching_or_resolving_duplicate_payments_ic_saver = $('.researching_or_resolving_duplicate_payments_ic_saver').val(),
+					tab_3_content_calculating_unit_of_measure_conversions_discrepancies = ReplaceFloat($('.tab_3_content_calculating_unit_of_measure_conversions_discrepancies').val()),
+					calculating_unit_of_measure_conversions_discrepancies_ic_saver = $('.calculating_unit_of_measure_conversions_discrepancies_ic_saver').val(),
+					tab_3_content_entering_invoices_into_erp_system = ReplaceFloat($('.tab_3_content_entering_invoices_into_erp_system').val()),
+					entering_invoices_into_erp_system_ic_saver = $('.entering_invoices_into_erp_system_ic_saver').val(),
+					tab_3_content_tracking_reporting_managing_ap_processing = ReplaceFloat($('.tab_3_content_tracking_reporting_managing_ap_processing').val()),
+					tracking_reporting_managing_ap_processing_ic_saver = $('.tracking_reporting_managing_ap_processing_ic_saver').val(),
+					tab_3_content_researching_vendor_internal_audit_inquiries = ReplaceFloat($('.tab_3_content_researching_vendor_internal_audit_inquiries').val()),
+					researching_vendor_internal_audit_inquiries_ic_saver = $('.researching_vendor_internal_audit_inquiries_ic_saver').val(),
+					tab_3_content_invoices_requiring_exception_handling = ReplaceFloat($('.tab_3_content_invoices_requiring_exception_handling').val()),
+					invoices_requiring_exception_handling_ic_saver = $('.invoices_requiring_exception_handling_ic_saver').val(),
+					tab_3_content_annual_cost_off_site_storage = ReplaceFloat($('.tab_3_content_annual_cost_off_site_storage').val()),
+					annual_cost_off_site_storage_ic_saver = $('.annual_cost_off_site_storage_ic_saver').val(),
+					total_1 = 0,
 					total_2 = 0;
+
+				total_1 = (Number(tab_3_content_printing_sorting_and_filing_invoices) * Number(printing_sorting_and_filing_invoices_ic_saver)) +
+					(Number(tab_3_content_tracking_invoices_routed_for_approval) * Number(tracking_invoices_routed_for_approval_ic_saver)) +
+					(Number(tab_3_content_researching_or_resolving_duplicate_payments) * Number(researching_or_resolving_duplicate_payments_ic_saver)) +
+					(Number(tab_3_content_calculating_unit_of_measure_conversions_discrepancies) * Number(calculating_unit_of_measure_conversions_discrepancies_ic_saver)) +
+					(Number(tab_3_content_entering_invoices_into_erp_system) * Number(entering_invoices_into_erp_system_ic_saver)) +
+					(Number(tab_3_content_tracking_reporting_managing_ap_processing) * Number(tracking_reporting_managing_ap_processing_ic_saver)) +
+					(Number(tab_3_content_researching_vendor_internal_audit_inquiries) * Number(researching_vendor_internal_audit_inquiries_ic_saver));
+
+				//total_1 = total_1;
+
+				//total_2 = total_1;
+
+				$('.tab_3_footer_hours_reclaimed').html(total_1 + ' hours');
 
 
 			};
@@ -1344,7 +1379,7 @@ const Calculator = function () {
 			placeholder					: '- Select a Value -',
 			allowClear					: false,
 			selectOnClose				: false,
-			minimumResultsForSearch: 10,
+			minimumResultsForSearch		: 10,
 			tokenSeparators: [',', ' '],
 			tags: true,
 			minimumResultsForSearch		: Infinity,

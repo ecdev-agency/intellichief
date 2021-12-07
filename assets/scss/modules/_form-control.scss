@@ -157,8 +157,26 @@
         border-color: $focus-color !important;
     }
 
+    select {
+        font-size: $font-size;
+        height: $calc-input-height;
+        border: $border-width solid $border-color;
+        color: $color;
+        border-radius: $border-radius;
+        background: #fff url('../images/select-arrow.png') 95% center no-repeat;
+        padding: 0 27px 0 12px;
+        -moz-appearance:none;
+        -webkit-appearance:none;
+        appearance:none;
+
+    }
+
     .select2 {
         $arrow-color: #aab0ba;
+
+        &-search {
+            display: none !important;
+        }
 
         &-container {
 
@@ -268,6 +286,11 @@
         }
     }
 
+}
+
+.select2-search,
+input.rangeSlider{
+    display: none;
 }
 
 
