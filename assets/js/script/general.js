@@ -4,12 +4,6 @@
  */
 const Calculator = function () {
 
-	$(document).on('change', '.animateNumber', function (e, parent) {
-
-		//AnimateNumber();
-
-	});
-
     /**
      * Plugin
      */
@@ -684,6 +678,15 @@ const Calculator = function () {
 
 				}
 
+				/**
+				 * focusout
+				 */
+				$inp_visible.on('focusout', function(event, parent) {
+
+					Calculate();
+
+				});
+
 			});
 
 		}
@@ -1211,10 +1214,10 @@ const Calculator = function () {
 				/**
 				 * Set Html
 				 */
-				$('.tab_2_footer_invoice').html(total_1).trigger('resize');
-				$('.tab_2_footer_late_payments').html(total_2).trigger('resize');
-				$('.tab_2_footer_discounts').html(total_3).trigger('resize');
-				$('.tab_2_footer_duplicate_payments').html(total_4).trigger('resize');
+				$('.tab_2_footer_invoice').html(total_1);
+				$('.tab_2_footer_late_payments').html(total_2);
+				$('.tab_2_footer_discounts').html(total_3);
+				$('.tab_2_footer_duplicate_payments').html(total_4);
 
 			};
 			calc();
@@ -1275,7 +1278,8 @@ const Calculator = function () {
 				 * Total 2
 				 * @type {number}
 				 */
-				total_2 = total_1 * GLOBAL_ap_processor_fully_burdened_hourly_rate + (tab_3_content_annual_cost_off_site_storage * annual_cost_off_site_storage_ic_saver) + (tab_2_content_invoices_processed_per_year * GLOBAL_your_average_people_cost_per_Invoice * (tab_3_content_invoices_requiring_exception_handling * invoices_requiring_exception_handling_ic_saver));
+
+				total_2 = (total_1 * parseFloat(GLOBAL_ap_processor_fully_burdened_hourly_rate).toFixed(2)) + (tab_3_content_annual_cost_off_site_storage * annual_cost_off_site_storage_ic_saver) + (tab_2_content_invoices_processed_per_year * parseFloat(GLOBAL_your_average_people_cost_per_Invoice).toFixed(2) * (tab_3_content_invoices_requiring_exception_handling / 100) * invoices_requiring_exception_handling_ic_saver);
 
 				/**
 				 * Set Global Var
@@ -1344,10 +1348,7 @@ const Calculator = function () {
 			let val 	= $(this).val(),
 				total 	= Number(val * $('.tab_1_content_headcount_reduction_ic_saver').val());
 
-			console.log(total);
-
 			$('.tab_1_content_headcount_reduction').val(FormatedNumber(total)).trigger('change');
-
 
 		});
 
@@ -1448,10 +1449,6 @@ const Calculator = function () {
 			}
 
 		});
-
-	}
-
-	const TextSize = function () {
 
 	}
 
