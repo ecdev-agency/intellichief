@@ -6,7 +6,7 @@ const Calculator = function () {
 
 	$(document).on('change', '.animateNumber', function (e, parent) {
 
-		AnimateNumber();
+		//AnimateNumber();
 
 	});
 
@@ -116,7 +116,7 @@ const Calculator = function () {
 					},
 					onFinish: function () {
 
-						AnimateNumber();
+						Calculate();
 
 					}
 				});
@@ -187,7 +187,7 @@ const Calculator = function () {
 							to		: val
 						});
 
-						AnimateNumber();
+						//AnimateNumber();
 
 					});
 
@@ -320,7 +320,7 @@ const Calculator = function () {
 							to		: val
 						});
 
-						AnimateNumber();
+						//AnimateNumber();
 
 					});
 
@@ -475,7 +475,7 @@ const Calculator = function () {
 							to		: val
 						});
 
-						AnimateNumber();
+						//AnimateNumber();
 
 					});
 
@@ -603,7 +603,7 @@ const Calculator = function () {
 							to		: val
 						});
 
-						AnimateNumber();
+						//AnimateNumber();
 
 					});
 
@@ -730,11 +730,12 @@ const Calculator = function () {
 	 * Animate Number
 	 * @constructor
 	 */
-	const AnimateNumber = function () {
+	const AnimateNumber = function (number = 0) {
 
 		$('.calc__result-total').removeClass('pulse');
+
 		$('.totalNumber').animateNumber({
-			number: 400000,
+			number: number,
 			numberStep: function(now, tween) {
 
 				var num = (new Intl.NumberFormat('ja-JP').format(Math.floor(now)));
@@ -826,7 +827,7 @@ const Calculator = function () {
 				$this[0].setSelectionRange(1, $this.val().length);
 			}
 
-			AnimateNumber();
+			//AnimateNumber();
 
 		});
 
@@ -923,7 +924,7 @@ const Calculator = function () {
 				$this[0].setSelectionRange(0, 1);
 			}
 
-			AnimateNumber();
+			//AnimateNumber();
 
 		});
 
@@ -1059,7 +1060,14 @@ const Calculator = function () {
 		 * Global Calc Variables
 		 * @type {number}
 		 */
-		let GLOBAL_your_total_annual_ap_processor_people_cost = 0;
+		let GLOBAL_your_total_annual_ap_processor_people_cost = 0,
+			GLOBAL_ap_processor_fully_burdened_hourly_rate = 0,
+			GLOBAL_your_average_people_cost_per_Invoice = 0,
+			GLOBAL_your_total_ap_processor_cost_savings = 0,
+			GLOBAL_annual_savings_for_eliminating_late_payments = 0,
+			GLOBAL_annual_savings_for_eliminating_missed_discounts = 0,
+			GLOBAL_annual_savings_for_eliminating_duplicate_payments = 0,
+			GLOBAL_total_productivity_savings = 0;
 
 		/**
 		 * Calculate Tab 1
@@ -1106,6 +1114,8 @@ const Calculator = function () {
 				 * Set Global
 				 */
 				GLOBAL_your_total_annual_ap_processor_people_cost = Number(tab_1_content_full_time_processors * total_1);
+				GLOBAL_ap_processor_fully_burdened_hourly_rate = total_2;
+				GLOBAL_your_total_ap_processor_cost_savings =total_3;
 
 				/**
 				 * Currency Formated
@@ -1182,6 +1192,14 @@ const Calculator = function () {
 				total_4 = Number(parseFloat(tab_2_content_duplicate_payments / 100) * tab_2_content_invoices_processed_per_year * tab_2_content_avg_amount_of_invoice);
 
 				/**
+				 *
+				 */
+				GLOBAL_your_average_people_cost_per_Invoice = total_1;
+				GLOBAL_annual_savings_for_eliminating_late_payments = total_2;
+				GLOBAL_annual_savings_for_eliminating_missed_discounts = total_3;
+				GLOBAL_annual_savings_for_eliminating_duplicate_payments = total_4;
+
+				/**
 				 * Currency Formated
 				 * @type {string}
 				 */
@@ -1210,9 +1228,6 @@ const Calculator = function () {
 		 */
 		const tab_3 = function () {
 
-			//Hours Reclaimed
-			// Formula: [(19a)*(19b)] + [(20a)*(20b)] + [(22a)*(22b)] +[(23a)*(23b)] + [(24a)*(24b)] +  [(25a)*(25b)] + [(27a)*(27b)]
-
 			/**
 			 * Calc
 			 */
@@ -1236,13 +1251,18 @@ const Calculator = function () {
 					tracking_reporting_managing_ap_processing_ic_saver = $('.tracking_reporting_managing_ap_processing_ic_saver').val(),
 					tab_3_content_researching_vendor_internal_audit_inquiries = ReplaceFloat($('.tab_3_content_researching_vendor_internal_audit_inquiries').val()),
 					researching_vendor_internal_audit_inquiries_ic_saver = $('.researching_vendor_internal_audit_inquiries_ic_saver').val(),
-					tab_3_content_invoices_requiring_exception_handling = ReplaceFloat($('.tab_3_content_invoices_requiring_exception_handling').val()),
-					invoices_requiring_exception_handling_ic_saver = $('.invoices_requiring_exception_handling_ic_saver').val(),
 					tab_3_content_annual_cost_off_site_storage = ReplaceFloat($('.tab_3_content_annual_cost_off_site_storage').val()),
 					annual_cost_off_site_storage_ic_saver = $('.annual_cost_off_site_storage_ic_saver').val(),
+					tab_2_content_invoices_processed_per_year = $('.tab_2_content_invoices_processed_per_year ').val(),
+					tab_3_content_invoices_requiring_exception_handling = Replace($('.tab_3_content_invoices_requiring_exception_handling').val()),
+					invoices_requiring_exception_handling_ic_saver = $('.invoices_requiring_exception_handling_ic_saver ').val(),
 					total_1 = 0,
 					total_2 = 0;
 
+				/**
+				 * Total 1
+				 * @type {number}
+				 */
 				total_1 = (Number(tab_3_content_printing_sorting_and_filing_invoices) * Number(printing_sorting_and_filing_invoices_ic_saver)) +
 					(Number(tab_3_content_tracking_invoices_routed_for_approval) * Number(tracking_invoices_routed_for_approval_ic_saver)) +
 					(Number(tab_3_content_researching_or_resolving_duplicate_payments) * Number(researching_or_resolving_duplicate_payments_ic_saver)) +
@@ -1251,11 +1271,29 @@ const Calculator = function () {
 					(Number(tab_3_content_tracking_reporting_managing_ap_processing) * Number(tracking_reporting_managing_ap_processing_ic_saver)) +
 					(Number(tab_3_content_researching_vendor_internal_audit_inquiries) * Number(researching_vendor_internal_audit_inquiries_ic_saver));
 
-				//total_1 = total_1;
+				/**
+				 * Total 2
+				 * @type {number}
+				 */
+				total_2 = total_1 * GLOBAL_ap_processor_fully_burdened_hourly_rate + (tab_3_content_annual_cost_off_site_storage * annual_cost_off_site_storage_ic_saver) + (tab_2_content_invoices_processed_per_year * GLOBAL_your_average_people_cost_per_Invoice * (tab_3_content_invoices_requiring_exception_handling * invoices_requiring_exception_handling_ic_saver));
 
-				//total_2 = total_1;
+				/**
+				 * Set Global Var
+				 * @type {number}
+				 */
+				GLOBAL_total_productivity_savings = total_2;
 
+				/**
+				 * Currency
+				 * @type {string}
+				 */
+				total_2 = Currency(total_2);
+
+				/**
+				 * Set Html
+				 */
 				$('.tab_3_footer_hours_reclaimed').html(total_1 + ' hours');
+				$('.tab_3_footer_total_productivity_savings').html(total_2);
 
 
 			};
@@ -1264,6 +1302,14 @@ const Calculator = function () {
 		};
 
 		tab_3();
+
+		/**
+		 * Cal Savings Estimate
+		 * @type {number}
+		 */
+		let animate = GLOBAL_your_total_ap_processor_cost_savings + GLOBAL_annual_savings_for_eliminating_late_payments + GLOBAL_annual_savings_for_eliminating_missed_discounts + GLOBAL_annual_savings_for_eliminating_duplicate_payments + GLOBAL_total_productivity_savings;
+
+		AnimateNumber(animate);
 
 
 	}
