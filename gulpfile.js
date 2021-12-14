@@ -14,7 +14,7 @@ const   gulp            = require('gulp'),
  */
 gulp.task('serve', function() {
     browserSync.init({
-        proxy: "http://intellichief.loc",
+        proxy: "http://intellichief.loc/wp-content/themes/enfold-child/assets/calc",
         notify: false
     });
     gulp.watch(

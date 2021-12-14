@@ -1419,41 +1419,13 @@ const Calculator = function () {
 	 */
 	const Form = function () {
 
-		/**
-		 * Select2 Countries
-		 */
-		$('.inputFormCountry').select2({
-			placeholder					: '- Select a Value -',
-			allowClear					: false,
-			selectOnClose				: false,
-			minimumResultsForSearch		: 10,
-			tokenSeparators: [',', ' '],
-			tags: true,
-			minimumResultsForSearch		: Infinity,
-			ajax						: {
-				dataType : "json",
-				url      : "./assets/js/json/countries.json",
-				type: "GET",
-			},
-		});
 
-		$('.inputFormCountry').on('select2:select', function (e) {
-
-			let data = e.params.data,
-				$accept = $('.acceptForm');
-
-			if( data.id === 'US' ) {
-				$accept.hide();
-			}else{
-				$accept.show();
-			}
-
-		});
 
 	}
 
     /**
      * Init
+	 *
      */
 	return {
 		init: function () {
@@ -1475,6 +1447,110 @@ const Calculator = function () {
  */
 jQuery(document).ready(function() {
 	Calculator.init();
+});
+
+/**
+ * ontact Form 7
+ */
+jQuery('.wpcf7').ready(function(){
+
+	/**
+	 * Standart Select2
+	 */
+	jQuery('.wpcf7-select').select2({
+		placeholder					: '- Select a Value -',
+		allowClear					: false,
+		minimumResultsForSearch		: Infinity,
+		minimumResultsForSearch		: -1,
+		width: 'resolve',
+	});
+	jQuery('.wpcf7-select').val(null).trigger('change');
+
+	/**
+	 * Select2 Countries
+	 */
+	let url_countries = $('.calc').data('url');
+
+	jQuery('.inputFormCountry').select2({
+		placeholder					: '- Select a Value -',
+		allowClear					: false,
+		selectOnClose				: false,
+		minimumResultsForSearch		: 10,
+		tokenSeparators: [',', ' '],
+		tags: true,
+		minimumResultsForSearch		: Infinity,
+		ajax						: {
+			dataType : "json",
+			url      : url_countries + "js/json/countries.json",
+			type: "GET",
+		},
+	});
+	jQuery('.inputFormCountry').val(null).trigger('change');
+	jQuery('.inputFormCountry').on('select2:select', function (e) {
+
+		let data = e.params.data,
+			$accept = $('.acceptForm');
+
+		if( data.id === 'US' ) {
+			$accept.hide();
+			$('#calc_form_policy').prop('checked', true);
+		}else{
+			$accept.show();
+			$('#calc_form_policy').prop('checked', false);
+		}
+
+	});
+
+	/**
+	 *
+	 */
+	jQuery('#calc_form_policy').prop('checked', true);
+
+	jQuery('.wpcf7-form').on('submit', function (e) {
+		jQuery('.wpcf7').addClass('loader');
+	});
+
+	/**
+	 *
+	 */
+	document.addEventListener( 'wpcf7submit', function( event ) {
+		jQuery('.wpcf7').removeClass('loader');
+	});
+
+	document.addEventListener( 'wpcf7mailsent', function( event ) {
+
+		//TODO this hardcode
+		setTimeout(function (){
+			alert($('.screen-reader-response p').text());
+		}, 200)
+
+	});
+
+	/**
+	 *
+	 */
+	jQuery(document).on('keyup', '.wpcf7-form-control', function (e, parent) {
+
+		let $this 	= jQuery(this),
+			val 	= $this.val();
+
+		if( val.length > 1 ) {
+			$this.removeClass('wpcf7-not-valid');
+			$this.parent().find('.wpcf7-not-valid-tip').remove();
+		}
+
+	});
+
+
+	//
+
+
+});
+jQuery('.wpcf7').on( 'wpcf7:mailsent', function( event ){
+
+	jQuery('.wpcf7-select').val(null).trigger('change');
+	jQuery('.inputFormCountry').val(null).trigger('change');
+
 });
 
 

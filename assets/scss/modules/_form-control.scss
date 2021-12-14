@@ -168,7 +168,7 @@
         -moz-appearance:none;
         -webkit-appearance:none;
         appearance:none;
-
+        //width: 100% !important;
     }
 
     .select2 {
@@ -291,6 +291,9 @@
 .select2-search,
 input.rangeSlider{
     display: none;
+}
+.loading-results {
+    display: none !important;
 }
 
 
