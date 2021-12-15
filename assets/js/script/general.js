@@ -1212,6 +1212,16 @@ const Calculator = function () {
 				total_4 = Currency(total_4);
 
 				/**
+				 * Change Font Size Footer Numbers
+				 */
+				let number_length = 12;
+				if( total_1.length > number_length || total_2.length > number_length || total_3.length > number_length || total_4.length > number_length ) {
+					$('.dinamicFontSize-tab2').addClass('small');
+				}else{
+					$('.dinamicFontSize-tab2').removeClass('small');
+				}
+
+				/**
 				 * Set Html
 				 */
 				$('.tab_2_footer_invoice').html(total_1);

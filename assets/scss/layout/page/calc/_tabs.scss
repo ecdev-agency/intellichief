@@ -303,7 +303,17 @@
 
           }
 
-
+          &.small {
+            ul {
+              > li {
+                span, .onspan {
+                  @include media_min(xl) {
+                    font-size: 24px;
+                  }
+                }
+              }
+            }
+          }
 
 
         }
