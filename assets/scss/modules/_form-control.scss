@@ -1,261 +1,273 @@
-.calc {
-    $calc-input-height  : 48px;
-    $border-color       : #cecccc;
-    $border-width       : 2px;
-    $border-radius      : 6px;
-    $color              : #2c2b29;
-    $font-size          : 16px;
-    $font-weight        : normal;
-    $focus-color        : $color-blue-light;
+#top {
 
-    label {
-        color: $color-blue;
-        display: block;
-        font-weight: normal;
-        font-size: 16px;
-        line-height: 1.3;
-        text-align: center;
-        margin: 0 0 15px 0;
-        width: 100%;
-        @include media(xxs) {
-            margin: 0 0 8px 0;
-        }
+    .calc {
+        $calc-input-height  : 48px;
+        $border-color       : #cecccc;
+        $border-width       : 2px;
+        $border-radius      : 6px;
+        $color              : #2c2b29;
+        $font-size          : 16px;
+        $font-weight        : normal;
+        $focus-color        : $color-blue-light;
 
-
-        &.nowrap {
-            white-space: nowrap;
-        }
-
-        img {
-            max-height: 40px;
-            margin: 0 auto;
-        }
-
-        small {
-            font-size: 14px;
+        label {
+            color: $color-blue;
             display: block;
-            padding: 8px 0 0 0;
-        }
-    }
-
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-        /* display: none; <- Crashes Chrome on hover */
-        -webkit-appearance: none;
-        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
-    }
-
-    input[type=number] {
-        -moz-appearance:textfield; /* Firefox */
-    }
-
-    .form {
-
-        &-control {
-            color: $color;
-            height: $calc-input-height;
-            font-size: $font-size;
-            border: $border-width solid $border-color;
-            border-radius: $border-radius;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 1.3;
             text-align: center;
-            line-height: 18px;
-            padding: 0 20px;
-            font-weight: $font-weight;
+            margin: 0 0 15px 0;
             width: 100%;
-            display: block;
-            transition: all 0.12s linear;
-
-            &:focus {
-                border-color: $focus-color;
+            @include media(xxs) {
+                margin: 0 0 8px 0;
             }
 
-            &-checkbox {
-                position: relative;
-                display: flex;
-                justify-content: center;
-                margin: 0 0 25px 0;
 
-                [type="checkbox"] {
-                    position: absolute;
-                    opacity: 0;
-                    z-index: -1;
-                    width: 0;
-                    height: 0;
-
-                    + label {
-                        display: inline-flex;
-                        position: relative;
-                        padding: 0 0 0 30px;
-                        color: $color-blue;
-                        font-weight: normal;
-                        font-size: 18px;
-                        line-height: 1.3;
-                        margin: 0;
-                        width: unset;
-                        cursor: pointer;
-                        text-align: left;
-
-                        &::before {
-                            $size: 17px;
-
-                            content: '';
-                            display: block;
-                            position: absolute;
-                            width: $size;
-                            height: $size;
-                            border: $border-width solid $border-color;
-                            left: 0;
-                            border-radius: 4px;
-                            background-color: #fff;
-                            top: 3px;
-                        }
-
-                        &::after {
-                            content: '';
-                            display: block;
-                            width: 10px;
-                            height: 6px;
-                            border: 2px solid #fff;
-                            border-top: none;
-                            border-right: none;
-                            position: absolute;
-                            z-index: 2;
-                            left: 4px;
-                            top: 7px;
-                            transform: rotate(-45deg);
-                        }
-
-                    }
-
-                    &:checked {
-
-                        + label {
-
-                            &::before {
-                                border-color: $color-orange;
-                                background-color: $color-orange;
-                            }
-                        }
-                    }
-
-                    &[data-focus-visible-added] {
-                        + label {
-                            &::before {
-                                border-color: $focus-color !important;
-                            }
-                        }
-                    }
-
-                }
-
+            &.nowrap {
+                white-space: nowrap;
             }
 
-        }
-    }
+            img {
+                max-height: 40px;
+                margin: 0 auto;
+            }
 
-    [data-focus-visible-added] {
-        border-color: $focus-color !important;
-    }
-
-    select {
-        font-size: $font-size;
-        height: $calc-input-height;
-        border: $border-width solid $border-color;
-        color: $color;
-        border-radius: $border-radius;
-        background: #fff url('../images/select-arrow.png') 95% center no-repeat;
-        padding: 0 27px 0 12px;
-        -moz-appearance:none;
-        -webkit-appearance:none;
-        appearance:none;
-        //width: 100% !important;
-    }
-
-    .select2 {
-        $arrow-color: #aab0ba;
-
-        &-search {
-            display: none !important;
+            small {
+                font-size: 14px;
+                display: block;
+                padding: 8px 0 0 0;
+            }
         }
 
-        &-container {
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            /* display: none; <- Crashes Chrome on hover */
+            -webkit-appearance: none;
+            margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+        }
 
-            .select2 {
+        input[type=number] {
+            -moz-appearance:textfield; /* Firefox */
+        }
 
-                &-selection {
+        .form {
 
-                    &--single {
-                        height: $calc-input-height;
-                    }
+            &-control {
+                color: $color;
+                height: $calc-input-height;
+                font-size: $font-size;
+                border: $border-width solid $border-color;
+                border-radius: $border-radius;
+                text-align: center;
+                line-height: 18px;
+                padding: 0 20px;
+                font-weight: $font-weight;
+                width: 100%;
+                display: block;
+                transition: all 0.12s linear;
+                margin-bottom: 0;
+
+                &:focus {
+                    border-color: $focus-color;
                 }
-            }
 
-            &--default {
+                &-checkbox {
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    margin: 0 0 25px 0;
 
-                .select2 {
-                    &-selection {
-                        &--single {
-                            border: $border-width solid $border-color;
-                            border-radius: $border-radius;
-                            transition: all 0.12s linear;
+                    [type="checkbox"] {
+                        position: absolute;
+                        opacity: 0;
+                        z-index: -1;
+                        width: 0;
+                        height: 0;
 
-                            .select2 {
-                                &-selection {
-                                    &__rendered {
-                                        line-height: calc(#{$calc-input-height} - 4px);
-                                        height: $calc-input-height;
-                                        text-align: center;
-                                        padding: 0 50px 0 25px;
-                                        color: $color;
-                                        font-size: $font-size;
-                                        font-weight: $font-weight;
-                                    }
-                                    &__clear {
-                                        position: relative;
-                                        top: 50%;
-                                        transform: translateY(-50%);
-                                        margin-top: 1px;
-                                        position: absolute;
-                                        float: none;
-                                        margin: 0;
-                                        right: 50px;
-                                        color: $arrow-color;
-                                    }
+                        + label {
+                            display: inline-flex;
+                            position: relative;
+                            padding: 0 0 0 30px;
+                            color: $color-blue;
+                            font-weight: normal;
+                            font-size: 18px;
+                            line-height: 1.3;
+                            margin: 0;
+                            width: unset;
+                            cursor: pointer;
+                            text-align: left;
+
+                            &::before {
+                                $size: 17px;
+
+                                content: '';
+                                display: block;
+                                position: absolute;
+                                width: $size;
+                                height: $size;
+                                border: $border-width solid $border-color;
+                                left: 0;
+                                border-radius: 4px;
+                                background-color: #fff;
+                                top: 3px;
+                            }
+
+                            &::after {
+                                content: '';
+                                display: block;
+                                width: 10px;
+                                height: 6px;
+                                border: 2px solid #fff;
+                                border-top: none;
+                                border-right: none;
+                                position: absolute;
+                                z-index: 2;
+                                left: 4px;
+                                top: 7px;
+                                transform: rotate(-45deg);
+                            }
+
+                        }
+
+                        &:checked {
+
+                            + label {
+
+                                &::before {
+                                    border-color: $color-orange;
+                                    background-color: $color-orange;
                                 }
                             }
                         }
-                        &__arrow {
-                            top: 50%;
-                            transform: translateY(-50%);
-                            margin: 0;
-                            width: 24px;
-                            right: 15px;
 
-                            b {
-                                top: 50%;
-                                transform: translateY(-50%);
-                                left: 0;
-                                margin-left: unset;
-                                margin-top: unset;
-                                border-width: 10px 11px 0;
-                                border-color: $arrow-color transparent transparent;
+                        &[data-focus-visible-added] {
+                            + label {
+                                &::before {
+                                    border-color: $focus-color !important;
+                                }
                             }
+                        }
+
+                    }
+
+                }
+
+            }
+        }
+
+        [data-focus-visible-added] {
+            border-color: $focus-color !important;
+        }
+
+        select {
+            font-size: $font-size;
+            height: $calc-input-height;
+            border: $border-width solid $border-color;
+            color: $color;
+            border-radius: $border-radius;
+            background: #fff url('../images/select-arrow.png') 95% center no-repeat;
+            padding: 0 27px 0 12px;
+            -moz-appearance:none;
+            -webkit-appearance:none;
+            appearance:none;
+
+            &.wpcf7-not-valid {
+                + span {
+                    .select2-selection--single {
+                        border-color: $color-red !important;
+                    }
+                }
+            }
+
+        }
+
+        .select2 {
+            $arrow-color: #aab0ba;
+
+            &-search {
+                display: none !important;
+            }
+
+            &-container {
+
+                .select2 {
+
+                    &-selection {
+
+                        &--single {
+                            height: $calc-input-height;
                         }
                     }
                 }
 
-                &.select2 {
-                    &-container {
-                        &--open {
-                            .select2 {
-                                &-selection {
-                                    &--single {
-                                        .select2 {
-                                            &-selection {
-                                                &__arrow {
-                                                    b {
-                                                        border-color: transparent transparent $arrow-color;
-                                                        border-width: 0 11px 10px;
+                &--default {
+
+                    .select2 {
+                        &-selection {
+                            &--single {
+                                border: $border-width solid $border-color;
+                                border-radius: $border-radius;
+                                transition: all 0.12s linear;
+
+                                .select2 {
+                                    &-selection {
+                                        &__rendered {
+                                            line-height: calc(#{$calc-input-height} - 4px);
+                                            height: $calc-input-height;
+                                            text-align: center;
+                                            padding: 0 50px 0 25px;
+                                            color: $color;
+                                            font-size: $font-size;
+                                            font-weight: $font-weight;
+                                        }
+                                        &__clear {
+                                            position: relative;
+                                            top: 50%;
+                                            transform: translateY(-50%);
+                                            margin-top: 1px;
+                                            position: absolute;
+                                            float: none;
+                                            margin: 0;
+                                            right: 50px;
+                                            color: $arrow-color;
+                                        }
+                                    }
+                                }
+                            }
+                            &__arrow {
+                                top: 50%;
+                                transform: translateY(-50%);
+                                margin: 0;
+                                width: 24px;
+                                right: 15px;
+
+                                b {
+                                    top: 50%;
+                                    transform: translateY(-50%);
+                                    left: 0;
+                                    margin-left: unset;
+                                    margin-top: unset;
+                                    border-width: 10px 11px 0;
+                                    border-color: $arrow-color transparent transparent;
+                                }
+                            }
+                        }
+                    }
+
+                    &.select2 {
+                        &-container {
+                            &--open {
+                                .select2 {
+                                    &-selection {
+                                        &--single {
+                                            .select2 {
+                                                &-selection {
+                                                    &__arrow {
+                                                        b {
+                                                            border-color: transparent transparent $arrow-color;
+                                                            border-width: 0 11px 10px;
+                                                        }
                                                     }
                                                 }
                                             }
@@ -265,35 +277,37 @@
                             }
                         }
                     }
+
+                }
+
+                &--focus {
+
+                    .select2-selection--single {
+                        border-color: $color-blue-light;
+                    }
+
                 }
 
             }
 
-            &--focus {
-
+            &.select2-container--open {
                 .select2-selection--single {
-                    border-color: $color-blue-light;
+                    border-color: $focus-color;
                 }
-
-            }
-
-        }
-
-        &.select2-container--open {
-            .select2-selection--single {
-                border-color: $focus-color;
             }
         }
+
+    }
+
+    .select2-search,
+    input.rangeSlider{
+        display: none;
+    }
+    .loading-results {
+        display: none !important;
     }
 
 }
 
-.select2-search,
-input.rangeSlider{
-    display: none;
-}
-.loading-results {
-    display: none !important;
-}
 
 

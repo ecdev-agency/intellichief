@@ -1,72 +1,78 @@
-.calc {
-  width: 100%;
-  min-height: 100vh;
-  background: $color-blue url('../images/background-min.jpg') left top no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  padding: 60px;
-  @include media(md) {
-    padding: 60px 15px;
-  }
-
-  * {
-    font-family: 'Gotham';
-  }
-
-  a {
-    color: #000;
-    text-decoration: none;
-    outline: none !important;
-    position: relative;
-  }
-  a:hover {
-    text-decoration: none;
-    color: #000;
-    border-bottom-color: transparent;
-  }
-  a:active, a:visited {
-    text-decoration: none !important;
-    color: #000;
-    border-bottom-color: transparent;
-  }
-
-  ol, ul {
-    list-style: none;
-    counter-reset: point;
-    padding: 0;
-  }
-  ol > li,
-  ul > li {
-    position: relative;
-  }
-  ol > li::before {
-    content: counter(point);
-    counter-increment: point 1;
-  }
-
-  p {
-    padding: 0;
-    margin: 0 0 15px 0;
-  }
-
-  img{
-    display: block;
-    max-width: 100%;
-    height: auto;
-  }
-
-  .container-fluid {
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 30px;
-    padding-right: 30px;
-    max-width: 1480px;
+#top {
+  .calc {
     width: 100%;
-
-    @include media(sm) {
-      padding-left: 15px;
-      padding-right: 15px;
+    min-height: 100vh;
+    background: $color-blue url('../images/background-min.jpg') left top no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 60px;
+    @include media(md) {
+      padding: 60px 15px;
     }
-  }
 
+    * {
+      font-family: 'Gotham';
+    }
+
+    a {
+      color: #000;
+      text-decoration: none;
+      outline: none !important;
+      position: relative;
+    }
+
+    a:hover {
+      text-decoration: none;
+      color: #000;
+      border-bottom-color: transparent;
+    }
+
+    a:active, a:visited {
+      text-decoration: none !important;
+      color: #000;
+      border-bottom-color: transparent;
+    }
+
+    ol, ul {
+      list-style: none;
+      counter-reset: point;
+      padding: 0;
+    }
+
+    ol > li,
+    ul > li {
+      position: relative;
+    }
+
+    ol > li::before {
+      content: counter(point);
+      counter-increment: point 1;
+    }
+
+    p {
+      padding: 0;
+      margin: 0 0 15px 0;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .container-fluid {
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 30px;
+      padding-right: 30px;
+      max-width: 1480px;
+      width: 100%;
+
+      @include media(sm) {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+
+  }
 }

@@ -1,95 +1,99 @@
-.calc {
-  $max-width: 830px;
-  $max-width-md: 400px;
+#top {
+  .calc {
+    $max-width: 830px;
+    $max-width-md: 400px;
 
-  &__tab_first {
-    max-width: $max-width;
-    margin: 0 auto;
-    @include media(md) {
-      max-width: $max-width-md;
-    }
-
-    &-form {
-      padding: 30px 0 0 0;
-      @include media(xl) {
-        padding: 0;
+    &__tab_first {
+      max-width: $max-width;
+      margin: 0 auto;
+      @include media(md) {
+        max-width: $max-width-md;
       }
 
-      &-row {
-        $gutter     : 40px;
-        $gutter-xl  : 15px;
-
-        position: relative;
-        margin: 0 -#{$gutter};
-        display: flex;
-        flex-wrap: wrap;
+      &-form {
+        padding: 30px 0 0 0;
         @include media(xl) {
-          margin: 0 -#{$gutter-xl};
+          padding: 0;
         }
 
-        &-col {
-          padding: 0 $gutter;
+        &-row {
+          $gutter: 40px;
+          $gutter-xl: 15px;
+
+          position: relative;
+          margin: 0 -#{$gutter};
           display: flex;
-          flex-direction: column;
-          width: 50%;
-          margin: 0 0 $gutter 0;
+          flex-wrap: wrap;
           @include media(xl) {
-            padding: 0 $gutter-xl;
-          }
-          @include media(lg) {
-            width: 100%;
+            margin: 0 -#{$gutter-xl};
           }
 
-          &.group {
-            $right-width: 100px;
-
+          &-col {
+            padding: 0 $gutter;
             display: flex;
-            justify-content: space-between;
-            flex-direction: row;
-            @include media(xxs) {
-              flex-direction: column;
+            flex-direction: column;
+            width: 50%;
+            margin: 0 0 $gutter 0;
+            @include media(xl) {
+              padding: 0 $gutter-xl;
+            }
+            @include media(lg) {
+              width: 100%;
             }
 
-            .left {
-              width: calc(100% - #{$right-width});
-              padding: 0 15px 0 0;
-              @include media(xxs) {
-                width: 100%;
-                padding: 0;
-                margin: 0 0 25px 0;
-              }
-            }
+            &.group {
+              $right-width: 100px;
 
-            .right {
-              width: $right-width;
+              display: flex;
+              justify-content: space-between;
+              flex-direction: row;
               @include media(xxs) {
-                width: 100%;
+                flex-direction: column;
               }
 
-              .select2-container--default {
+              .left {
+                width: calc(100% - #{$right-width});
+                padding: 0 15px 0 0;
+                @include media(xxs) {
+                  width: 100%;
+                  padding: 0;
+                  margin: 0 0 25px 0;
+                }
+              }
 
-                .select2-selection__arrow {
-                  right: 4px;
-                  b {
-                    transform: translateY(-50%) scale(0.8);
-                  }
-
+              .right {
+                width: $right-width;
+                @include media(xxs) {
+                  width: 100%;
                 }
 
-                .select2-selection--single {
+                .select2-container--default {
 
-                  .select2-selection {
+                  .select2-selection__arrow {
+                    right: 4px;
 
-                    &__clear {
-                      right: 30px;
+                    b {
+                      transform: translateY(-50%) scale(0.8);
                     }
 
-                    &__rendered {
-                      padding: 0 27px 0 12px;
-                      text-align: left;
-                      @include media(xxs) {
-                        text-align: center;
+                  }
+
+                  .select2-selection--single {
+
+                    .select2-selection {
+
+                      &__clear {
+                        right: 30px;
                       }
+
+                      &__rendered {
+                        padding: 0 27px 0 12px;
+                        text-align: left;
+                        @include media(xxs) {
+                          text-align: center;
+                        }
+                      }
+
                     }
 
                   }
@@ -98,33 +102,31 @@
 
               }
 
+
             }
 
+            &.range {
 
+              label {
+                order: 1;
+              }
 
-          }
+              input {
+                order: 2;
+                max-width: 160px;
+                margin: 0 auto;
+              }
 
-          &.range {
-
-            label {
-              order: 1;
+              .irs {
+                order: 3;
+              }
             }
 
-            input {
-              order: 2;
-              max-width: 160px;
-              margin: 0 auto;
-            }
-
-            .irs {
-              order: 3;
-            }
           }
 
         }
 
       }
-
     }
   }
 }

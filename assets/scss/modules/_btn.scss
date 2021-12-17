@@ -4,43 +4,44 @@
  * btn
  *
  */
+#top {
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: inherit;
+        font-weight: 600;
+        text-align: center;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        background-color: $color-blue;
+        border: 1px solid transparent;
+        color: #fff !important;
+        white-space: nowrap;
+        padding: 0px 40px;
+        height: 50px;
+        font-size: 12px;
+        line-height: 1.42857143;
+        border-radius: 99px;
+        user-select: none;
+        position: relative;
+        text-decoration: none;
+        transition: all .12s linear;
+        text-transform: uppercase;
 
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-family: inherit;
-    font-weight: 600;
-    text-align: center;
-    vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    cursor: pointer;
-    background-color: $color-blue;
-    border: 1px solid transparent;
-    color: #fff !important;
-    white-space: nowrap;
-    padding: 0px 40px;
-    height: 50px;
-    font-size: 12px;
-    line-height: 1.42857143;
-    border-radius: 99px;
-    user-select: none;
-    position: relative;
-    text-decoration: none;
-    transition: all .12s linear;
-    text-transform: uppercase;
+        &:hover {
+            transform: scale(1.05);
+        }
 
-    &:hover {
-        transform: scale(1.05);
+        &-orange {
+            background-color: $color-orange;
+        }
+
+        &-blue {
+            background-color: $color-blue-light;
+        }
+
     }
-
-    &-orange {
-        background-color: $color-orange;
-    }
-
-    &-blue {
-        background-color: $color-blue-light;
-    }
-
 }

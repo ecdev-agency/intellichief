@@ -1,325 +1,336 @@
-.calc {
+#top {
+  .calc {
 
-  &__tabs {
-    height: 100%;
+    &__tabs {
+      height: 100%;
 
-    &-list {
-      $gutter: 3px;
+      &-list {
+        $gutter: 3px;
 
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      margin: 0;
-      padding: 0;
-      @include media(sm) {
-        margin: 0 -#{$gutter};
-      }
-
-      > li {
-        width: 25%;
-        padding: 0 $gutter;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
         @include media(sm) {
-          width: 50%;
-          margin-bottom: $gutter * 2;
+          margin: 0 -#{$gutter};
         }
 
-        &:first-child {
-          @include media_min(sm) {
-            padding-left: 0;
-          }
-        }
-
-        &:last-child {
-          @include media_min(sm) {
-            padding-right: 0;
-          }
-        }
-
-        a {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 15px;
-          border: 2px solid #fff;
-          color: #fff;
-          font-weight: 500;
-          font-size: 16px;
-          padding: 0px 25px;
-          height: $calc-tabs-height;
-          white-space: normal;
-          transition: all 0.1s linear;
-          @include media_min(sm) {
-            border-bottom-left-radius: 0px;
-            border-bottom-right-radius: 0px;
-            border-bottom: none;
-          }
-          @include media(xxs) {
-            font-size: 14px;
+        > li {
+          width: 25%;
+          padding: 0 $gutter;
+          @include media(sm) {
+            width: 50%;
+            margin-bottom: $gutter * 2;
           }
 
-          &:visited {
-            border-color: #fff;
+          &:first-child {
+            @include media_min(sm) {
+              padding-left: 0;
+            }
           }
 
-          &:hover {
+          &:last-child {
+            @include media_min(sm) {
+              padding-right: 0;
+            }
+          }
+
+          a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            border: 2px solid #fff;
             color: #fff;
-          }
+            font-weight: 500;
+            font-size: 16px;
+            padding: 0px 25px;
+            height: $calc-tabs-height;
+            white-space: normal;
+            transition: all 0.1s linear;
+            @include media_min(sm) {
+              border-bottom-left-radius: 0px;
+              border-bottom-right-radius: 0px;
+              border-bottom: none;
+            }
+            @include media(xxs) {
+              font-size: 14px;
+            }
 
-          &:active {
-            color: #fff;
-          }
+            &:visited {
+              border-color: #fff;
+            }
 
-          &:visited {
-            color: #fff;
-          }
+            &:hover {
+              color: #fff;
+            }
 
-          span {
-            position: relative;
-            display: inline-block;
+            &:active {
+              color: #fff;
+            }
 
-            &::after {
-              $size: 25px;
+            &:visited {
+              color: #fff;
+            }
 
-              content: '';
-              width: $size;
-              height: $size;
-              background: url('../images/check.png') center center no-repeat;
-              background-size: contain;
-              display: none;
-              position: absolute;
-              top: 50%;
-              transform: translateY(-50%);
-              margin-top: -2px;
-              right: 0;
-              @include media(xxs) {
-                $size: 18px;
+            span {
+              position: relative;
+              display: inline-block;
 
+              &::after {
+                $size: 25px;
+
+                content: '';
                 width: $size;
                 height: $size;
+                background: url('../images/check.png') center center no-repeat;
+                background-size: contain;
+                display: none;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                margin-top: -2px;
+                right: 0;
+                @include media(xxs) {
+                  $size: 18px;
+
+                  width: $size;
+                  height: $size;
+                }
+
               }
-
             }
+
           }
 
-        }
+          &.active {
 
-        &.active {
-
-          span {
-            padding: 0 !important;
-            &::after {
-              display: none !important;
-            }
-          }
-
-          a {
-            background-color: $color-orange;
-            border-color: $color-orange;
-          }
-
-        }
-
-        &.done {
-          a {
             span {
-              padding: 0 30px 0 0;
+              padding: 0 !important;
+
               &::after {
-                display: block;
+                display: none !important;
+              }
+            }
+
+            a {
+              background-color: $color-orange;
+              border-color: $color-orange;
+            }
+
+          }
+
+          &.done {
+            a {
+              span {
+                padding: 0 30px 0 0;
+
+                &::after {
+                  display: block;
+                }
               }
             }
           }
-        }
 
-        &:not(.active) {
-          a {
-            &:hover {
-              background-color: $color-gray;
-              color: $color-blue;
+          &:not(.active) {
+            a {
+              &:hover {
+                background-color: $color-gray;
+                color: $color-blue;
+              }
             }
           }
-        }
 
-      }
-    }
-
-    &-content {
-      display: flex;
-      flex-direction: column;
-      background-color: $color-gray;
-      height: calc(100% - #{$calc-tabs-height});
-      padding: 50px 30px;
-
-      .item {
-        &:not(.active) {
-          display: none;
         }
       }
 
-      &-title {
-        color: $color-blue;
-        font-size: 22px;
-        line-height: 1.4;
-        margin: 0 0 25px 0;
-        text-align: center;
-        display: block;
-        font-weight: 500;
-      }
+      &-content {
+        display: flex;
+        flex-direction: column;
+        background-color: $color-gray;
+        height: calc(100% - #{$calc-tabs-height});
+        padding: 50px 30px;
 
-      &-excerpt {
-        margin: -15px 0 30px 0;
-        text-align: center;
-        font-weight: 300;
-        font-size: 18px;
-        line-height: 1.4;
-        color: $color-blue;
-        position: relative;
-      }
-
-      &-bottom {
-        padding: 70px 0 30px 0;
-        @include media(xl) {
-          padding: 30px 0 0 0;
+        .item {
+          &:not(.active) {
+            display: none;
+          }
         }
 
         &-title {
-          color: $color-orange;
-          text-transform: uppercase;
-          font-weight: 500;
-          font-size: 24px;
-          line-height: 1.3;
-          display: block;
+          color: $color-blue;
+          font-size: 22px;
+          line-height: 1.4;
+          margin: 0 0 25px 0;
           text-align: center;
-          letter-spacing: .08em;
-          margin: 0 0 30px 0;
+          display: block;
+          font-weight: 500;
         }
 
-        &-list {
-          margin: 0 auto;
+        &-excerpt {
+          margin: -15px 0 30px 0;
+          text-align: center;
+          font-weight: 300;
+          font-size: 18px;
+          line-height: 1.4;
+          color: $color-blue;
+          position: relative;
+        }
 
-          ul {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            position: relative;
-            padding: 0;
-            margin: 0 -15px;
+        &-bottom {
+          padding: 70px 0 30px 0;
+          @include media(xl) {
+            padding: 30px 0 0 0;
+          }
 
+          &-title {
+            color: $color-orange;
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 1.3;
+            display: block;
+            text-align: center;
+            letter-spacing: .08em;
+            margin: 0 0 30px 0;
+          }
 
-            > li {
+          &-list {
+            margin: 0 auto;
+
+            ul {
               display: flex;
-              flex-direction: column;
-              padding: 0 15px;
-              justify-content: space-between;
-              @include media(lg) {
-                text-align: center;
-              }
+              flex-wrap: wrap;
+              justify-content: center;
+              position: relative;
+              padding: 0;
+              margin: 0 -15px;
 
-              &:not(:last-child) {
-                @include media(lg) {
-                  margin: 0 0 30px 0;
-                }
-              }
 
-              * {
-                display: block;
-                color: $color-blue;
-              }
-
-              p {
-                font-weight: normal;
-                font-size: 18px;
-                line-height: 1.3;
-                margin: 0 0 15px 0;
-              }
-
-              span, .onspan {
-                font-weight: 500;
-                font-size: 28px;
-                line-height: 1.3;
-                display: flex;
-                align-items: center;
-                width: 100%;
-                height: 40px;
-                @include media(lg) {
-                  justify-content: center;
-                }
-
-                &.small {
-                  font-size: 20px;
-                }
-
-                &.longsmall {
-                  font-size: 18px;
-                }
-
-              }
-            }
-
-            &.two {
               > li {
-                &:first-child {
-                  width: 230px;
+                display: flex;
+                flex-direction: column;
+                padding: 0 15px;
+                justify-content: space-between;
+                @include media(lg) {
+                  text-align: center;
+                }
+
+                &:not(:last-child) {
+                  @include media(lg) {
+                    margin: 0 0 30px 0;
+                  }
+                }
+
+                * {
+                  display: block;
+                  color: $color-blue;
+                }
+
+                p {
+                  font-weight: normal;
+                  font-size: 18px;
+                  line-height: 1.3;
+                  margin: 0 0 15px 0;
+                }
+
+                span, .onspan {
+                  font-weight: 500;
+                  font-size: 28px;
+                  line-height: 1.3;
+                  display: flex;
+                  align-items: center;
+                  width: 100%;
+                  height: 40px;
+                  @include media(lg) {
+                    justify-content: center;
+                  }
+
+                  &.small {
+                    font-size: 20px;
+                  }
+
+                  &.longsmall {
+                    font-size: 18px;
+                  }
+
+                }
+              }
+
+              &.two {
+                > li {
+                  &:first-child {
+                    width: 230px;
+                    @include media(lg) {
+                      width: 100%;
+                    }
+                  }
+                }
+              }
+
+              &.three {
+                > li {
+                  width: 33.32%;
                   @include media(lg) {
                     width: 100%;
                   }
                 }
               }
-            }
 
-            &.three {
-              > li {
-                width: 33.32%;
-                @include media(lg) {
-                  width: 100%;
-                }
-              }
-            }
-
-            &.four {
-              > li {
-                width: 25%;
-                @include media(xl) {
-                  width: 50%;
-                  margin: 0 0 30px 0;
-                }
-                @include media(lg) {
-                  width: 100%;
-                  margin: 0 0 30px 0;
-                }
-
-                &:last-child {
+              &.four {
+                > li {
+                  width: 25%;
+                  @include media(xl) {
+                    //width: 50%;
+                    //margin: 0 0 30px 0;
+                  }
                   @include media(lg) {
-                    margin: 0;
+                    width: 100%;
+                    margin: 0 0 30px 0;
+                  }
+
+                  &:last-child {
+                    @include media(lg) {
+                      margin: 0;
+                    }
+                  }
+                }
+
+                &:not(:last-child) {
+                  @include media(lg) {
+                    margin: 0 0 30px 0;
                   }
                 }
               }
 
-              &:not(:last-child) {
-                @include media(lg) {
-                  margin: 0 0 30px 0;
-                }
-              }
             }
 
-          }
-
-          &.small {
-            ul {
-              > li {
-                span, .onspan {
-                  @include media_min(xl) {
-                    font-size: 24px;
+            &.small {
+              ul {
+                > li {
+                  span, .onspan {
+                    font-size: 20px;
+                    @media (max-width: 1280px) {
+                      font-size: 18px;
+                    }
+                    @include media(lg) {
+                      font-size: 28px;
+                    }
+                    @include media_min(xl) {
+                      //font-size: 24px;
+                    }
                   }
                 }
               }
             }
+
+
           }
-
-
         }
+
       }
 
     }
-
   }
 }

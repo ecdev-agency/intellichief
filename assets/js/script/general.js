@@ -39,27 +39,6 @@ const Calculator = function () {
 
 		});
 
-		/**
-		 * Change Font Size
-		 */
-		// $('body').on('DOMSubtreeModified', '.longNumber', function() {
-		// 	let $this = $(this);
-		//
-		// 	if( $this.text().length > 12 ) {
-		// 		$this.addClass('small');
-		// 	}else{
-		// 		$this.removeClass('small');
-		// 	}
-		//
-		// 	if( $this.text().length > 15 ) {
-		// 		$this.addClass('longsmall');
-		// 	}else{
-		// 		$this.removeClass('longsmall');
-		// 	}
-		//
-		// });
-
-
 	};
 
 	/**
@@ -91,6 +70,7 @@ const Calculator = function () {
 						if( type === 'percent' ) value = data.from + '%';
 						if( type === 'percent_float' ) value = data.from + '%';
 						if( type === 'money' ) value = '$' + (new Intl.NumberFormat('ja-JP').format(Math.floor(data.from)));
+						if( type === 'hour' ) value = (new Intl.NumberFormat('ja-JP').format(Math.floor(data.from)));
 
 						$inp_visible.prop('value', value);
 
@@ -103,6 +83,7 @@ const Calculator = function () {
 						if( type === 'percent' ) value = data.from + '%';
 						if( type === 'percent_float' ) value = data.from + '%';
 						if( type === 'money' ) value = '$' + (new Intl.NumberFormat('ja-JP').format(Math.floor(data.from)));
+						if( type === 'hour' ) value = (new Intl.NumberFormat('ja-JP').format(Math.floor(data.from)));
 
 						$inp_visible.prop('value', value);
 						$inp_visible.trigger('change');
@@ -679,6 +660,109 @@ const Calculator = function () {
 				}
 
 				/**
+				 * Hour
+				 */
+				if( type === 'hour' ) {
+
+					/**
+					 * @keypress
+					 */
+					$inp_visible.keypress(function(event, parent) {
+
+						let regex 	= new RegExp('^[0-9-,]'),
+							key 	= String.fromCharCode(event.charCode ? event.which : event.charCode);
+
+						if (!regex.test(key)) {
+
+							event.preventDefault();
+							return false;
+
+						}
+
+					});
+
+					/**
+					 * @keyup
+					 */
+					$inp_visible.keyup(function(event, parent) {
+
+						let $this 	= $(this),
+							val 	= Replace($this.val()),
+							len		= val.length,
+							key 	= event.keyCode;
+
+						if( len === 0 )
+							val = min;
+
+						if( val > max ) {
+							val = max;
+							this.select();
+						}
+
+						if( val < min ) {
+							val = min;
+						}
+
+						$(this).val( (new Intl.NumberFormat('ja-JP').format(Math.floor(val))));
+
+						if( key === 37 || key === 39 || key === 9 ) return false;
+
+						/**
+						 * Set Cursor
+						 */
+						this.select();
+
+						/**
+						 * Update Slider
+						 */
+						slider_data.update({
+							from	: val,
+							to		: val
+						});
+
+					});
+
+					/**
+					 * Focus Hour
+					 */
+					$inp_visible.focusin(function(event, parent) {
+
+						this.select();
+
+					});
+					$inp_visible.focus(function(event, parent) {
+
+						this.select();
+
+					});
+					/**
+					 * Click Hour
+					 */
+					$inp_visible.click(function(event, parent) {
+
+						this.select();
+
+					});
+
+					/**
+					 * Select Hour
+					 */
+					$inp_visible.select(function(event, parent) {
+
+						this.select();
+
+					});
+
+					/**
+					 * Paste
+					 */
+					$inp_visible.on('paste', function(event, parent) {
+						return false;
+					});
+
+				}
+
+				/**
 				 * focusout
 				 */
 				$inp_visible.on('focusout', function(event, parent) {
@@ -735,9 +819,11 @@ const Calculator = function () {
 	 */
 	const AnimateNumber = function (number = 0) {
 
+		let $totalNumber = $('.totalNumber');
+
 		$('.calc__result-total').removeClass('pulse');
 
-		$('.totalNumber').animateNumber({
+		$totalNumber.animateNumber({
 			number: number,
 			numberStep: function(now, tween) {
 
@@ -748,6 +834,13 @@ const Calculator = function () {
 			}
 		}, 500, function() {
 			$('.calc__result-total').addClass('pulse');
+
+			if( $totalNumber.text().length > 13 ) {
+				$totalNumber.addClass('small');
+			}else{
+				$totalNumber.removeClass('small');
+			}
+
 		});
 
 	};
@@ -1214,7 +1307,7 @@ const Calculator = function () {
 				/**
 				 * Change Font Size Footer Numbers
 				 */
-				let number_length = 12;
+				let number_length = 11;
 				if( total_1.length > number_length || total_2.length > number_length || total_3.length > number_length || total_4.length > number_length ) {
 					$('.dinamicFontSize-tab2').addClass('small');
 				}else{
@@ -1344,7 +1437,13 @@ const Calculator = function () {
 			let val 	= $(this).val(),
 				total 	= parseFloat($('.tab_1_content_full_time_processors').val() * val);
 
-			$('.tab_1_content_headcount_reduction').val(FormatedNumber(total)).trigger('change');
+			$('.tab_1_content_headcount_reduction').val(FormatedNumber(total));
+
+			// setTimeout(function () {
+			// 	$('.tab_1_content_full_time_processors').trigger('change');
+			// }, 100);
+
+			Calculate();
 
 		});
 
@@ -1495,7 +1594,8 @@ jQuery('.wpcf7').ready(function(){
 			type: "GET",
 		},
 	});
-	jQuery('.inputFormCountry').val(null).trigger('change');
+
+	jQuery('.inputFormCountry').val('US').trigger('change');
 	jQuery('.inputFormCountry').on('select2:select', function (e) {
 
 		let data = e.params.data,
