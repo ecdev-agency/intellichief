@@ -1636,7 +1636,9 @@ jQuery('.wpcf7').ready(function(){
 		//TODO this hardcode
 		setTimeout(function (){
 			alert($('.screen-reader-response p').text());
-		}, 200)
+		}, 200);
+
+		$('#calc_form_erp, #calc_form_project').val('').trigger('change');
 
 	});
 
@@ -1654,7 +1656,6 @@ jQuery('.wpcf7').ready(function(){
 		}
 
 	});
-
 
 	//
 
