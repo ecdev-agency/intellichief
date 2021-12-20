@@ -30,7 +30,7 @@
 
             img {
                 max-height: 40px;
-                margin: 0 auto;
+                margin: 0 auto 17px auto;
             }
 
             small {
@@ -67,6 +67,8 @@
                 display: block;
                 transition: all 0.12s linear;
                 margin-bottom: 0;
+                font-family: Gotham;
+                font-weight: 400;
 
                 &:focus {
                     border-color: $focus-color;

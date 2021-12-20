@@ -1609,7 +1609,11 @@ jQuery('.wpcf7').ready(function(){
 			$('#calc_form_policy').prop('checked', false);
 		}
 
+		jQuery('#calc_form_state_name').val(data.text);
+
 	});
+
+	jQuery('#calc_form_state_name').val($('#calc_form_country option:selected').text());
 
 	/**
 	 *

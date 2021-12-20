@@ -12,6 +12,7 @@
 
     * {
       font-family: 'Gotham';
+      vertical-align: unset;
     }
 
     a {
@@ -75,4 +76,15 @@
     }
 
   }
+
+  #wrap_all {
+    position: unset;
+    overflow: unset;
+  }
+
+}
+
+html.responsive,
+.responsive body {
+  overflow-x: unset;
 }
