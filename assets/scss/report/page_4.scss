@@ -1,0 +1,110 @@
+.report {
+
+  .page_4 {
+
+    &__content {
+      padding: 0 $var-padd-content;
+
+      &-text {
+        padding: 30px 0 0 0;
+        margin: 0 0 30px 0;
+
+        &-title {
+          font-size: 24px;
+          text-align: left;
+          margin: 0 0 15px 0;
+
+          span {
+            font-size: 22px;
+            color: #000;
+          }
+        }
+
+        &-excerpt {
+          font-size: 11px;
+          line-height: 1.6;
+          color: #000;
+          opacity: 0.95;
+        }
+      }
+
+      &-table {
+
+        &-thead {
+          background-color: $color-blue-dark;
+          color: #fff;
+          font-weight: 500;
+          text-align: center;
+          padding: 12px 15px;
+          font-size: 13px;
+          border-bottom: 4px solid $color-orange;
+        }
+
+        &-tbody {
+          $gutter: 3px;
+
+          position: relative;
+          list-style: none;
+          //margin-left: -#{$gutter};
+          //margin-right: -#{$gutter};
+          display: flex;
+          flex-wrap: wrap;
+          border: 1px solid $color-blue-dark;
+          border-top: none;
+          border-bottom: none;
+          background-color: #d9dbe8;
+          padding: 0;
+          margin-top: 0;
+          margin-bottom: 0;
+
+          > li {
+            display: flex;
+            padding: 0 $gutter;
+            background-color: transparent;
+            width: 16.66%;
+
+            &:first-child {
+              padding-left: 0;
+            }
+
+            &:last-child {
+              padding-right: 0;
+            }
+          }
+
+          &-inner {
+            background-color: #fff;
+            text-align: center;
+            font-size: 10px;
+            line-height: 1.6;
+            border-bottom: 1px solid $color-blue-dark;
+
+            div {
+              height: 65px;
+              display: flex;
+              align-items: center;
+              color: #fff;
+              background-color: #015698;
+              font-weight: 500;
+              margin: 0 0 18px 0;
+              width: 100%;
+              justify-content: center;
+              font-size: 10px;
+            }
+
+            p {
+              padding: 0 5px 15px 5px;
+              margin: 0;
+              color: #000;
+              opacity: 0.95;
+            }
+
+          }
+        }
+      }
+
+    }
+
+  }
+
+}

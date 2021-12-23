@@ -1,0 +1,101 @@
+.report {
+
+  &__page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 1123px;
+    width: 799px;
+    margin: 0 auto;
+
+
+    &-wrapper {
+
+    }
+
+
+    &-header {
+      display: flex;
+      align-items: flex-end;
+      margin: 0 0 30px 0;
+
+      img {
+        position: relative;
+        z-index: 1;
+        max-width: 100%;
+        display: block;
+        height: auto;
+      }
+
+    }
+
+    &-footer {
+      height: 100px;
+      background: url('../images/report/footer-left.jpg') left bottom no-repeat;
+      background-size: 400px;
+      padding: 0 $var-padd-content;
+      display: flex;
+
+      &-logo {
+        margin-left: auto;
+
+        img {
+          max-width: 230px;
+        }
+
+      }
+
+      &-contacts {
+        margin-left: auto;
+        padding: 15px 0 0 0;
+
+        &-list {
+          $gutter: 18px;
+
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          margin-left: -#{$gutter};
+          margin-right: -#{$gutter};
+
+          > li {
+            display: flex;
+            flex-direction: column;
+            padding: 0 $gutter;
+
+          }
+
+          span {
+            display: block;
+            margin: 0 0 2px 0;
+            text-transform: uppercase;
+            color: $color-orange;
+            font-size: 10px;
+            font-weight: 500;
+          }
+
+          p {
+            display: block;
+            margin: 0;
+            padding: 0;
+            font-size: 11px;
+            line-height: 1.1;
+            color: $color-blue;
+            font-weight: 400;
+          }
+
+        }
+
+      }
+
+    }
+
+
+
+  }
+
+
+
+}
