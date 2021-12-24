@@ -20,20 +20,32 @@
     &__request {
       $offset: 30px;
 
-      background: url('../images/report/request.png') center center no-repeat;
-      //width: 880px;
-      height: 206px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
       position: relative;
-      left: -#{$offset};
       text-align: center;
-      padding: 0 0 0 $offset;
-      justify-content: center;
+
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        z-index: 1;
+      }
+
+      .rows {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -30px;
+        bottom: 0;
+        z-index: 3;
+
+      }
 
       &-title {
-        margin: 0 0 25px 0;
+        margin: 0 0 10px 0;
 
         h3 {
           color: $color-yellow;
@@ -51,7 +63,7 @@
       }
 
       &-text {
-        margin: 0 0 30px 0;
+        margin: 0 0 25px 0;
 
         h5 {
           color: #fff;
@@ -59,7 +71,7 @@
           font-weight: 500;
           margin: 0 0 4px 0;
 
-          a {
+          a, b {
             color: $color-yellow;
             font-width: 900;
           }
@@ -79,6 +91,10 @@
         color: #5dafcb;
         font-size: 10px;
         line-height: 1.1;
+
+        a {
+          color: $color-yellow;
+        }
 
         strong {
           color: #fff;

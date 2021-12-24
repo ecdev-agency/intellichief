@@ -4,6 +4,20 @@
  */
 const Calculator = function () {
 
+	/**
+	 * Global Calc Variables
+	 * @type {number}
+	 */
+	let GLOBAL_your_total_annual_ap_processor_people_cost = 0,
+		GLOBAL_ap_processor_fully_burdened_hourly_rate = 0,
+		GLOBAL_your_average_people_cost_per_Invoice = 0,
+		GLOBAL_your_total_ap_processor_cost_savings = 0,
+		GLOBAL_annual_savings_for_eliminating_late_payments = 0,
+		GLOBAL_annual_savings_for_eliminating_missed_discounts = 0,
+		GLOBAL_annual_savings_for_eliminating_duplicate_payments = 0,
+		GLOBAL_total_productivity_savings = 0,
+		GLOBAL_app_processor_fully_burdened_annual_salary = 0;
+
     /**
      * Plugin
      */
@@ -391,7 +405,7 @@ const Calculator = function () {
 							let val = Number(Replace($this.val()));
 
 							if( val === 0 ) {
-								$this[0].setSelectionRange(0, 1);
+								//$this[0].setSelectionRange(0, 1);
 							}
 
 						}, 100)
@@ -417,8 +431,8 @@ const Calculator = function () {
 						}
 
 						if( val === 0 ) {
-							$this.val( val + '%');
-							$this[0].setSelectionRange(0, 1);
+							// $this.val( val + '%');
+							// $this[0].setSelectionRange(0, 1);
 						}
 
 						if( val > max ) {
@@ -1153,19 +1167,6 @@ const Calculator = function () {
 	const Calculate = function () {
 
 		/**
-		 * Global Calc Variables
-		 * @type {number}
-		 */
-		let GLOBAL_your_total_annual_ap_processor_people_cost = 0,
-			GLOBAL_ap_processor_fully_burdened_hourly_rate = 0,
-			GLOBAL_your_average_people_cost_per_Invoice = 0,
-			GLOBAL_your_total_ap_processor_cost_savings = 0,
-			GLOBAL_annual_savings_for_eliminating_late_payments = 0,
-			GLOBAL_annual_savings_for_eliminating_missed_discounts = 0,
-			GLOBAL_annual_savings_for_eliminating_duplicate_payments = 0,
-			GLOBAL_total_productivity_savings = 0;
-
-		/**
 		 * Calculate Tab 1
 		 */
 		const tab_1 = function () {
@@ -1211,7 +1212,8 @@ const Calculator = function () {
 				 */
 				GLOBAL_your_total_annual_ap_processor_people_cost = Number(tab_1_content_full_time_processors * total_1);
 				GLOBAL_ap_processor_fully_burdened_hourly_rate = total_2;
-				GLOBAL_your_total_ap_processor_cost_savings =total_3;
+				GLOBAL_your_total_ap_processor_cost_savings =total_3,
+				GLOBAL_app_processor_fully_burdened_annual_salary = total_1;
 
 				/**
 				 * Currency Formated
@@ -1532,6 +1534,140 @@ const Calculator = function () {
 
 	}
 
+	/**
+	 *
+	 * @param val
+	 * @returns {*}
+	 * @constructor
+	 */
+	const Report = function () {
+
+		let before_average_cost_to_process_an_ap_invoice = 0,
+			after_average_cost_to_process_an_ap_invoice = 0,
+			before_total_cost_to_process_ap_invoices = 0,
+			after_total_cost_to_process_ap_invoices = 0,
+			total_ap_processor_cost = 0;
+
+		let annual_people_costs = Replace($('#calc_full_time_processors').val()) * Replace($('#calc_salary').val()),
+			annual_cost_of_late_payments = GLOBAL_annual_savings_for_eliminating_late_payments,
+			annual_cost_of_missed_discounts = GLOBAL_annual_savings_for_eliminating_missed_discounts,
+			annual_cost_of_duplicates = GLOBAL_annual_savings_for_eliminating_duplicate_payments,
+			annual_missed_productivity_savings = GLOBAL_total_productivity_savings,
+			total_number_of_annual_invoices = $('#calc_year').val(),
+			calc_full_time_processors = Replace($('#calc_full_time_processors').val()),
+			calc_reduction = ReplaceFloat($('#calc_reduction').val());
+
+		/**
+		 * Before Average Cost to Process an AP Invoice
+		 * @type {number}
+		 */
+		before_average_cost_to_process_an_ap_invoice = Number((annual_people_costs + annual_cost_of_late_payments + annual_cost_of_missed_discounts + annual_cost_of_duplicates + annual_missed_productivity_savings) / total_number_of_annual_invoices);
+		before_average_cost_to_process_an_ap_invoice = Currency(before_average_cost_to_process_an_ap_invoice);
+		$('#before_average_cost_to_process_an_ap_invoice').html(before_average_cost_to_process_an_ap_invoice);
+
+		/**
+		 * Before Total Cost to Process AP Invoices
+		 * @type {number}
+		 */
+		before_total_cost_to_process_ap_invoices = Number(annual_people_costs + annual_cost_of_late_payments + annual_cost_of_missed_discounts + annual_cost_of_duplicates + annual_missed_productivity_savings);
+		before_total_cost_to_process_ap_invoices = Currency(before_total_cost_to_process_ap_invoices);
+		$('#before_total_cost_to_process_ap_invoices').html(before_total_cost_to_process_ap_invoices);
+
+		/**
+		 * After Average Cost to Process an AP Invoice
+		 * @type {number}
+		 */
+		total_ap_processor_cost = Number(GLOBAL_app_processor_fully_burdened_annual_salary * (calc_full_time_processors * calc_reduction));
+		after_average_cost_to_process_an_ap_invoice = total_ap_processor_cost / total_number_of_annual_invoices;
+		after_average_cost_to_process_an_ap_invoice = Currency(after_average_cost_to_process_an_ap_invoice);
+		$('#after_average_cost_to_process_an_ap_invoice').html(after_average_cost_to_process_an_ap_invoice);
+
+		/**
+		 * After Total Cost to Process an AP Invoice
+		 * @type {number}
+		 */
+		after_total_cost_to_process_ap_invoices = total_ap_processor_cost;
+		after_total_cost_to_process_ap_invoices = Currency(after_total_cost_to_process_ap_invoices);
+		$('#after_total_cost_to_process_ap_invoices').html(after_total_cost_to_process_ap_invoices);
+
+		/**
+		 *
+		 */
+		let total_savings_year_1 = 0,
+			total_savings_year_2 = 0,
+			total_savings_year_3 = 0,
+			total_savings_year_4 = 0,
+			total_savings_year_5 = 0,
+			total_estimated_savings = 0;
+
+		let anual_people_savings = Number(ReplaceFloat($('#calc_reduction').val()) * GLOBAL_app_processor_fully_burdened_annual_salary),
+			eliminating_late_payment_savings = GLOBAL_annual_savings_for_eliminating_late_payments,
+			eliminating_missed_payments_savings = GLOBAL_annual_savings_for_eliminating_missed_discounts,
+			eliminating_duplicate_payment_savings = GLOBAL_annual_savings_for_eliminating_duplicate_payments,
+			total_productivity_savings = GLOBAL_total_productivity_savings,
+			growth_rate = Replace($('#calc_growth_rate').val()) / 100;
+
+		/**
+		 * Year 1
+		 * @type {number}
+		 */
+		total_savings_year_1 = Number(anual_people_savings + eliminating_late_payment_savings + eliminating_missed_payments_savings + eliminating_duplicate_payment_savings + total_productivity_savings);
+		$('#total_savings_year_1').html(Currency(total_savings_year_1));
+
+		/**
+		 * Year 2
+		 * @type {number}
+		 */
+		total_savings_year_2 = Number(total_savings_year_1 + (growth_rate * total_savings_year_1));
+		$('#total_savings_year_2').html(Currency(total_savings_year_2));
+
+		/**
+		 * Year 3
+		 * @type {number}
+		 */
+		total_savings_year_3 = Number(total_savings_year_2 + (growth_rate * total_savings_year_2));
+		$('#total_savings_year_3').html(Currency(total_savings_year_3));
+
+		/**
+		 * Year 4
+		 * @type {number}
+		 */
+		total_savings_year_4 = Number(total_savings_year_3 + (growth_rate * total_savings_year_3));
+		$('#total_savings_year_4').html(Currency(total_savings_year_4));
+
+		/**
+		 * Year 5
+		 * @type {number}
+		 */
+		total_savings_year_5 = Number(total_savings_year_4 + (growth_rate * total_savings_year_4));
+		$('#total_savings_year_5').html(Currency(total_savings_year_5));
+
+		/**
+		 * Result
+		 * @type {number}
+		 */
+		total_estimated_savings = Number(total_savings_year_1 + total_savings_year_2 + total_savings_year_3 + total_savings_year_4 + total_savings_year_5);
+		$('#total_estimated_savings').html(Currency(total_estimated_savings));
+
+		/**
+		 *
+		 * @type {number}
+		 */
+		let late_payment_savings = GLOBAL_annual_savings_for_eliminating_late_payments,
+			early_payment_discount_savings = GLOBAL_annual_savings_for_eliminating_missed_discounts,
+			duplicate_payment_prevention_savings = GLOBAL_annual_savings_for_eliminating_duplicate_payments,
+			cost_savings_from_reducing_ap_staff_with_ap_automation = GLOBAL_your_total_ap_processor_cost_savings,
+			cost_savings_from_increasing_productivity_with_ap_automation = GLOBAL_total_productivity_savings;
+
+		$('#late_payment_savings').html(Currency(late_payment_savings));
+		$('#early_payment_discount_savings').html(Currency(early_payment_discount_savings));
+		$('#duplicate_payment_prevention_savings').html(Currency(duplicate_payment_prevention_savings));
+
+		$('#cost_savings_from_reducing_ap_staff_with_ap_automation').html(Currency(cost_savings_from_reducing_ap_staff_with_ap_automation));
+		$('#cost_savings_from_increasing_productivity_with_ap_automation').html(Currency(cost_savings_from_increasing_productivity_with_ap_automation));
+
+	}
+
     /**
      * Init
 	 *
@@ -1546,6 +1682,7 @@ const Calculator = function () {
 			Calculate();
 			CalculateEvent();
 			Form();
+			Report();
 		}
 	};
 
@@ -1555,7 +1692,70 @@ const Calculator = function () {
  * ready
  */
 jQuery(document).ready(function() {
+
+	/**
+	 * Init Calculator
+	 */
 	Calculator.init();
+
+	/**
+	 * PDF
+	 */
+	jQuery(document).on('click', '.generate_pdf', function (e, parent) {
+
+		e.preventDefault();
+
+		/**
+		 * Set Dinamic Records
+		 */
+		$('#html_company_name').text($('#calc_form_company').val());
+		$('#html_user_name').text($('#calc_form_first_name').val() + ' ' + $('#calc_form_last_name').val());
+
+		var element = document.getElementById('report-to-pdf');
+		var opt = {
+			margin: [0, -0.10, 0, 0],
+			enableLinks: true,
+			filename: 'report.pdf',
+			image: {type: 'png', quality: 1},
+			html2canvas: {scale: 1, y: 0,  scrollY: 0, letterRendering: true},
+			jsPDF: {unit: 'in', format: 'a4', orientation: 'portrait'}
+		};
+
+		html2pdf()
+			.set(opt)
+			.from(element)
+			.save();
+
+
+
+
+
+		// html2pdf().set( opt ).from( element ).toPdf().output('datauristring').then(function( pdfAsString ) {
+		//
+		// 	$.post(window.ajax_calc_object.ajax_url, {
+		// 		action                  : 'savings_calc_report',
+		// 	}, function(data){
+		//
+		// 	})
+		// 		.done(function (response) {
+		//
+		// 			console.log(response);
+		//
+		// 		})
+		// 		.fail(function () {
+		//
+		// 		})
+		// 		.always(function () {
+		//
+		//
+		//
+		// 		});
+		//
+		//
+		// } );
+
+	});
+
 });
 
 /**
@@ -1667,6 +1867,5 @@ jQuery('.wpcf7').on( 'wpcf7:mailsent', function( event ){
 	jQuery('.inputFormCountry').val(null).trigger('change');
 
 });
-
 
 

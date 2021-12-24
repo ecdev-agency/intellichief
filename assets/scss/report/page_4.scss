@@ -45,8 +45,8 @@
 
           position: relative;
           list-style: none;
-          //margin-left: -#{$gutter};
-          //margin-right: -#{$gutter};
+          margin-left: 0px;
+          margin-right: 0px;
           display: flex;
           flex-wrap: wrap;
           border: 1px solid $color-blue-dark;

@@ -12,6 +12,13 @@
 
         }
 
+        img {
+          display: block;
+          max-width: 100%;
+          height: auto;
+
+        }
+
       }
 
       &-totals {
@@ -61,7 +68,7 @@
               display: block;
               color: $color-orange;
               font-weight: 700;
-              font-size: 38px;
+              font-size: 24px;
               line-height: 1.1;
               text-transform: uppercase;
               padding: 30px 0 10px 0;
@@ -87,20 +94,37 @@
         $title-width: 238px;
 
         display: flex;
-        background: #001e44;
-        border-radius: 22px;
-        overflow: hidden;
+        position: relative;
+
+        img {
+          position: relative;
+          z-index: 1;
+          display: block;
+          max-width: 100%;
+          height: auto;
+        }
+
+        &-row {
+          position: absolute;
+          z-index: 3;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          display: flex;
+          flex-wrap: wrap;
+        }
 
         &-title,
         &-text {
-          height: 185px;
+          height: 100%;
           display: flex;
           align-items: center;
+          background: none;
         }
 
         &-title {
           width: $title-width;
-          background: url('../images/report/quote-comment.png') -25px -90px no-repeat;
           text-transform: uppercase;
           padding: 0 0 0 40px;
           display: flex;

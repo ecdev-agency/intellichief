@@ -8,12 +8,6 @@
     width: 799px;
     margin: 0 auto;
 
-
-    &-wrapper {
-
-    }
-
-
     &-header {
       display: flex;
       align-items: flex-end;
@@ -30,9 +24,9 @@
     }
 
     &-footer {
-      height: 100px;
-      background: url('../images/report/footer-left.jpg') left bottom no-repeat;
-      background-size: 400px;
+      height: 114px;
+      background-position: left bottom;
+      background-repeat: no-repeat;
       padding: 0 $var-padd-content;
       display: flex;
 
