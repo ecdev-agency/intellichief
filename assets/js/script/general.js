@@ -1420,6 +1420,8 @@ const Calculator = function () {
 
 		AnimateNumber(animate);
 
+		Report();
+
 
 	}
 
@@ -1577,7 +1579,7 @@ const Calculator = function () {
 		 * After Average Cost to Process an AP Invoice
 		 * @type {number}
 		 */
-		total_ap_processor_cost = Number(GLOBAL_app_processor_fully_burdened_annual_salary * (calc_full_time_processors * calc_reduction));
+		total_ap_processor_cost = Number(GLOBAL_app_processor_fully_burdened_annual_salary * (calc_full_time_processors - calc_reduction));
 		after_average_cost_to_process_an_ap_invoice = total_ap_processor_cost / total_number_of_annual_invoices;
 		after_average_cost_to_process_an_ap_invoice = Currency(after_average_cost_to_process_an_ap_invoice);
 		$('#after_average_cost_to_process_an_ap_invoice').html(after_average_cost_to_process_an_ap_invoice);
